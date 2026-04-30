@@ -1,0 +1,127 @@
+2026-03-27 15:37:20.7804 INFO Advanced Data order has been created for order 1014516954-03: ADOrderNumber CCH82680 
+2026-03-27 15:45:28.0708 ERROR Error Saving AD File to C:\Temp\VOERepository\Documents\ADDocuments\20260327154526062_1014516954-03_ADOrderCert.pdf System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Temp\VOERepository\Documents\ADDocuments\20260327154526062_1014516954-03_ADOrderCert.pdf'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.File.InternalWriteAllBytes(String path, Byte[] bytes, Boolean checkHost)
+   at VOEBackend.AdvancedData.Business.Partners.CommOps.SaveDocument(String file, String filePathName) in C:\SVNWork\VOESystem\VOEBackend\VOEBackend.AdvancedData\Business\Partners\CommOps.cs:line 210
+2026-03-27 15:45:43.5063 INFO Advanced Data Order Complete for Order: 1014516954-03: ADOrderNumber CCH82680 
+2026-03-27 15:54:41.2510 INFO Advanced Data Order Complete for Order: 1014516954-03: ADOrderNumber CCH82680 
+2026-03-27 15:54:51.3666 ERROR Error Querying Advanced Data Order Status for OrderRequestId = 469289 System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Temp\VOERepository\Documents\Upload\20260327155224467_1014516954-03_ADOrderCert.pdf'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   at VOEBackend.AdvancedData.Business.Partners.OrderOps.queryOrderStatus(IDbConnection dbConn, Int32 orderRequestId, String UserName) in C:\SVNWork\VOESystem\VOEBackend\VOEBackend.AdvancedData\Business\Partners\OrderOps.cs:line 220
+2026-03-27 15:55:21.5668 INFO Advanced Data Order Complete for Order: 1014516954-03: ADOrderNumber CCH82680 
+2026-03-27 15:56:31.1190 INFO File Uploaded to Local Directory: C:\Temp\VOERepository\Documents\Upload\20260327155516463_1014516954-03_ADOrderCert.pdf 
+2026-03-27 15:56:31.9490 TRACE {"__type":"FHMC.Graph.Email+MailMessage, FHMC.Graph","Subject":"Advanced Data Order Complete [1014516954-03]","ReceivedDateTime":"\/Date(-62135596800000-0000)\/","Attachments":[],"Body":"Hello voesystem,\n\nThis is to inform you that the order 1014516954-03 that has been subcontracted to Advanced Data has been completed.  \n\nPlease log in to the VOE System, review the order status, any errors and any downloaded files.  \n\nIf everything has been processed properly, then please Approve this order in the VOE system.\r\n\r\nSincerely,\r\nFirst Home Mortgage Verification Team\r\n6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  \r\n\r\n(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)\r\n\r\n\r\n\r\nCONFIDENTIALITY NOTICE\r\nThe information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others.","IsBodyHTML":false,"CustomSendHeaders":{"X-Message-ID":"<e0725808-8fcb-4ddd-85e3-10822bca6aa7@HQExc4V.firsthomemtg.com>"},"IsReadReceiptRequested":false,"ToRecipients":[{"__type":"FHMC.Graph.Email+MailRecipient, FHMC.Graph","EmailAddress":"voe@firsthome.com"}],"CcRecipients":[],"BccRecipients":[],"ReplyToList":[]} 
+2026-03-27 15:56:32.4510 TRACE {"Id":null,"Subject":"Advanced Data Order Complete [1014516954-03]","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":[],"Body":"Hello voesystem,\n\nThis is to inform you that the order 1014516954-03 that has been subcontracted to Advanced Data has been completed.  \n\nPlease log in to the VOE System, review the order status, any errors and any downloaded files.  \n\nIf everything has been processed properly, then please Approve this order in the VOE system.\r\n\r\nSincerely,\r\nFirst Home Mortgage Verification Team\r\n6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  \r\n\r\n(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)\r\n\r\n\r\n\r\nCONFIDENTIALITY NOTICE\r\nThe information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others.","IsBodyHTML":false,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-Message-ID":"<e0725808-8fcb-4ddd-85e3-10822bca6aa7@HQExc4V.firsthomemtg.com>"},"IsReadReceiptRequested":false,"Importance":null,"ToRecipients":[{"EmailAddress":"voe@firsthome.com"}],"CcRecipients":[],"BccRecipients":[],"ReplyToList":[]} 
+2026-03-27 15:56:33.9130 INFO Sending MIME message for voe@firsthome.com: Advanced Data Order Complete [1014516954-03] 
+2026-03-27 15:56:34.2691 TRACE From: "voe@firsthome.com" <voe@firsthome.com>
+Date: Fri, 27 Mar 2026 15:56:34 -0400
+Subject: Advanced Data Order Complete [1014516954-03]
+Message-Id: <WD8PP2XVUSU4.UGGRH7LZ7E8J2@aze-admin-2v>
+To: "voe@firsthome.com" <voe@firsthome.com>
+X-Message-ID: <e0725808-8fcb-4ddd-85e3-10822bca6aa7@HQExc4V.firsthomemtg.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-upN/daa6v9YD8GBQ7OTbxA=="
+
+--=-upN/daa6v9YD8GBQ7OTbxA==
+Content-Type: text/plain; charset=utf-8
+
+Hello voesystem,
+
+This is to inform you that the order 1014516954-03 that has been subcontracted to Advanced Data has been completed.  
+
+Please log in to the VOE System, review the order status, any errors and any downloaded files.  
+
+If everything has been processed properly, then please Approve this order in the VOE system.
+
+Sincerely,
+First Home Mortgage Verification Team
+6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  
+
+(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)
+
+
+
+CONFIDENTIALITY NOTICE
+The information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others.
+--=-upN/daa6v9YD8GBQ7OTbxA==--
+ 
+2026-03-27 15:56:34.5910 INFO Email Sent - Subject: Advanced Data Order Complete [1014516954-03] 
+2026-03-27 15:56:34.5930 INFO Email Notification Sent: Advanced Data Order Complete [1014516954-03] 
+2026-03-27 15:56:34.5930 INFO Hello voesystem,
+
+This is to inform you that the order 1014516954-03 that has been subcontracted to Advanced Data has been completed.  
+
+Please log in to the VOE System, review the order status, any errors and any downloaded files.  
+
+If everything has been processed properly, then please Approve this order in the VOE system.
+
+Sincerely,
+First Home Mortgage Verification Team
+6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  
+
+(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)
+
+
+
+CONFIDENTIALITY NOTICE
+The information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others. 
+2026-03-27 15:56:34.6340 INFO Email Logged: Advanced Data Order Complete [1014516954-03] 
+2026-03-27 15:56:34.8456 TRACE {"__type":"FHMC.Graph.Email+MailMessage, FHMC.Graph","Subject":"Subcontracted Order Complete [1014516954-03]","ReceivedDateTime":"\/Date(-62135596800000-0000)\/","Attachments":[],"Body":"The Subcontracted Order is complete at this time. \n\nAdvanced Data Order Number: CCH82680\nFirst Home Order Number: 1014516954-03\nBorrower Name: Olumide Ojehomon\nEmployer Name: Capital Hospice dba Capital Caring\r\n\r\nSincerely,\r\nFirst Home Mortgage Verification Team\r\n6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  \r\n\r\n(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)\r\n\r\n\r\n\r\nCONFIDENTIALITY NOTICE\r\nThe information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others.","IsBodyHTML":false,"CustomSendHeaders":{"X-Message-ID":"<783efd6d-3e8d-4cea-9aa2-7a27f00fe558@HQExc4V.firsthomemtg.com>"},"IsReadReceiptRequested":false,"ToRecipients":[{"__type":"FHMC.Graph.Email+MailRecipient, FHMC.Graph","EmailAddress":"voe@firsthome.com"}],"CcRecipients":[{"__type":"FHMC.Graph.Email+MailRecipient, FHMC.Graph","EmailAddress":"csporik@firsthome.com"},{"__type":"FHMC.Graph.Email+MailRecipient, FHMC.Graph","EmailAddress":"mswinehart@firsthome.com"}],"BccRecipients":[],"ReplyToList":[]} 
+2026-03-27 15:56:34.8806 TRACE {"Id":null,"Subject":"Subcontracted Order Complete [1014516954-03]","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":[],"Body":"The Subcontracted Order is complete at this time. \n\nAdvanced Data Order Number: CCH82680\nFirst Home Order Number: 1014516954-03\nBorrower Name: Olumide Ojehomon\nEmployer Name: Capital Hospice dba Capital Caring\r\n\r\nSincerely,\r\nFirst Home Mortgage Verification Team\r\n6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  \r\n\r\n(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)\r\n\r\n\r\n\r\nCONFIDENTIALITY NOTICE\r\nThe information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others.","IsBodyHTML":false,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-Message-ID":"<783efd6d-3e8d-4cea-9aa2-7a27f00fe558@HQExc4V.firsthomemtg.com>"},"IsReadReceiptRequested":false,"Importance":null,"ToRecipients":[{"EmailAddress":"voe@firsthome.com"}],"CcRecipients":[{"EmailAddress":"csporik@firsthome.com"},{"EmailAddress":"mswinehart@firsthome.com"}],"BccRecipients":[],"ReplyToList":[]} 
+2026-03-27 15:56:35.0538 INFO Sending MIME message for voe@firsthome.com: Subcontracted Order Complete [1014516954-03] 
+2026-03-27 15:56:35.0538 TRACE From: "voe@firsthome.com" <voe@firsthome.com>
+Date: Fri, 27 Mar 2026 15:56:35 -0400
+Subject: Subcontracted Order Complete [1014516954-03]
+Message-Id: <M5SUU2XVUSU4.YLGCKWSKL4CO3@aze-admin-2v>
+To: "voe@firsthome.com" <voe@firsthome.com>
+Cc: "csporik@firsthome.com" <csporik@firsthome.com>,
+ "mswinehart@firsthome.com" <mswinehart@firsthome.com>
+X-Message-ID: <783efd6d-3e8d-4cea-9aa2-7a27f00fe558@HQExc4V.firsthomemtg.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-DlnOHUzS4tcqhkRYNW5fTw=="
+
+--=-DlnOHUzS4tcqhkRYNW5fTw==
+Content-Type: text/plain; charset=utf-8
+
+The Subcontracted Order is complete at this time. 
+
+Advanced Data Order Number: CCH82680
+First Home Order Number: 1014516954-03
+Borrower Name: Olumide Ojehomon
+Employer Name: Capital Hospice dba Capital Caring
+
+Sincerely,
+First Home Mortgage Verification Team
+6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  
+
+(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)
+
+
+
+CONFIDENTIALITY NOTICE
+The information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others.
+--=-DlnOHUzS4tcqhkRYNW5fTw==--
+ 
+2026-03-27 15:56:35.2837 INFO Email Sent - Subject: Subcontracted Order Complete [1014516954-03] 
+2026-03-27 15:56:35.2837 INFO Email Notification Sent: Subcontracted Order Complete [1014516954-03] 
+2026-03-27 15:56:35.2837 INFO The Subcontracted Order is complete at this time. 
+
+Advanced Data Order Number: CCH82680
+First Home Order Number: 1014516954-03
+Borrower Name: Olumide Ojehomon
+Employer Name: Capital Hospice dba Capital Caring
+
+Sincerely,
+First Home Mortgage Verification Team
+6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  
+
+(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)
+
+
+
+CONFIDENTIALITY NOTICE
+The information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others. 
+2026-03-27 15:56:35.3007 INFO Email Logged: Subcontracted Order Complete [1014516954-03] 

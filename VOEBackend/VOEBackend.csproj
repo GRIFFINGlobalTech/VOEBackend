@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07D1EADD-6AB3-4463-ACD2-D68A03D92314}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VOEBackend</RootNamespace>
+    <AssemblyName>VOEBackend</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog">
+      <HintPath>..\..\..\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\VOEFrontend\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\VOEFrontend\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VOESystem.Data, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\VOEFrontend\VOESystem.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FHMC.EncompassREST\FHMC.EncompassREST\FHMC.EncompassREST.csproj">
+      <Project>{77bd1448-8a66-4022-90bc-bcf7bf633418}</Project>
+      <Name>FHMC.EncompassREST</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FHMC.Interfaces\FHMC.Interfaces\FHMC.Interfaces.csproj">
+      <Project>{1a1493e8-c778-40ec-b91e-4f1a5175534f}</Project>
+      <Name>FHMC.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj">
+      <Project>{ddadc8fb-16cc-4d6d-9207-571adf4618c7}</Project>
+      <Name>FHMC.NLogWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VOEBackend.AdvancedData\VOEBackend.AdvancedData.csproj">
+      <Project>{d03a7fd5-0712-4b08-ab17-03e4c20de436}</Project>
+      <Name>VOEBackend.AdvancedData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VOEBackend.DocuSign\VOEBackend.DocuSign.csproj">
+      <Project>{472e49d9-50db-4051-b5b3-6df05ec3226f}</Project>
+      <Name>VOEBackend.DocuSign</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VOEBackend.Email\VOEBackend.Email.csproj">
+      <Project>{3E069177-E1AE-4331-B9C7-F22B13CC1210}</Project>
+      <Name>VOEBackend.Email</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VOEBackend.Encompass\VOEBackend.Encompass.csproj">
+      <Project>{3e5f3e8c-8cfb-4d65-93ca-803337e2b227}</Project>
+      <Name>VOEBackend.Encompass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VOEBackend.Equifax\VOEBackend.Equifax.csproj">
+      <Project>{381b43c8-232b-4ef6-b7ac-a3f3b9095b69}</Project>
+      <Name>VOEBackend.Equifax</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VOEBackEnd.Interfaces\VOEBackend.Interfaces.csproj">
+      <Project>{5C2027D2-A7C4-44E3-9986-5BCFE9B23E8D}</Project>
+      <Name>VOEBackend.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VOEBackend.TrueWork\VOEBackend.TrueWork.csproj">
+      <Project>{55cd74b6-b88f-43a3-bcfe-cf84361a4599}</Project>
+      <Name>VOEBackend.TrueWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VOEBackend.Truv\VOEBackend.Truv.csproj">
+      <Project>{2e8f53a9-6ad4-41c1-93d0-b8d1a47e094b}</Project>
+      <Name>VOEBackend.Truv</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VOEBackend.Xactus\VOEBackend.Xactus.csproj">
+      <Project>{6ab27463-15c3-4f93-b5d1-442516953617}</Project>
+      <Name>VOEBackend.Xactus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

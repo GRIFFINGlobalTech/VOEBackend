@@ -1,0 +1,242 @@
+2025-07-14 12:21:44.1704 INFO Getting messages for folder voe@firsthome.com: Inbox 
+2025-07-14 12:21:45.1432 INFO Getting message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeFNtwAA 
+2025-07-14 12:22:26.2673 INFO Email Not Matched: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeFNtwAA ROSS  #1009493402 12:19 PM 
+2025-07-14 12:22:26.2823 INFO Getting message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeFNsgAA 
+2025-07-14 12:26:23.5771 INFO Getting messages for folder voe@firsthome.com: Inbox 
+2025-07-14 12:26:24.1362 INFO Getting message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeCv9gAA 
+2025-07-14 12:26:59.7802 INFO Email Logged to Database: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeCv9gAA Re: MyBiz Verification of Employment [1024506118-01] 4:17 PM 
+2025-07-14 12:26:59.7842 INFO Moving message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeCv9gAA 
+2025-07-14 12:29:48.7422 INFO Getting messages for folder voe@firsthome.com: Inbox 
+2025-07-14 12:29:49.3282 INFO Getting message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeFQKAAA 
+2025-07-14 12:30:52.5205 INFO Getting messages for folder voe@firsthome.com: Inbox 
+2025-07-14 12:30:53.1136 INFO Getting message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeCv9gAA 
+2025-07-14 12:33:00.4237 INFO Getting messages for folder voe@firsthome.com: Inbox 
+2025-07-14 12:33:01.0140 INFO Getting message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeCv9gAA 
+2025-07-14 12:33:41.2387 INFO Email Logged: Re: MyBiz Verification of Employment [1024506118-01] 
+2025-07-14 12:33:56.6746 ERROR Error Sending Email System.Exception: No Valid Email Recipients Specified
+   at VOESystem.Data.Business.EmailOps.SendEmail(IDbConnection dbConn, List`1 toEmailList, List`1 ccEmailList, List`1 bccEmailList, String Subject, String MessageText, Boolean skipBranchOverrideCC, Nullable`1 OrderRequestId, Nullable`1 EmailTemplateId, Nullable`1 IsAuditing, List`1 Attachments, String BaseURL, Boolean RestrictDomain, Boolean consolidateAttachments, IDbTransaction extTransaction, String loanNumber, Boolean isDraft, MailPriority priority, Boolean IsHTML, Boolean requestReadReceipt, Boolean isSecure, List`1 replyToEmailList, String currentUserEmail) in C:\Data\FirstMortgage\BitBucket\voesystem\VOEFrontend\VOESystem.Data\Business\EmailOps.cs:line 198
+2025-07-14 12:33:56.8155 INFO This order has been APPROVED and new emails are no longer monitored for this VOE.  
+
+Current Employment Status: Current-Active
+
+Please contact VOE@firsthome with the order number -found in the subject line of this email - in order to address your inquiry/concerns.
+
+Sincerely,
+First Home Mortgage Verification Team
+6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  
+
+(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)
+
+
+
+CONFIDENTIALITY NOTICE
+The information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others.
+
+
+
+
+
+
+Sincerely,
+First Home Mortgage Verification Team
+6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  
+
+(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)
+
+---------Original Message----------------------
+From: donnalee1992@gmail.com
+Sent: Thu, July 10, 2025 04:17 PM
+To: VOE@firsthome.com
+Cc: 
+Subject: Re: MyBiz Verification of Employment [1024506118-01]
+
+*** This message originated outside the organization ***
+
+Document password: 3C66410A9
+
+I also sent it in a email 45 minutes ago
+Sent from my iPhone
+
+> On Jul 10, 2025, at 4:15?PM, First Home VOE <VOE@firsthome.com> wrote:
+>
+> ?Good Afternoon
+>
+> We have received the document for the MyBiz can you please send the password?
+>
+>
+>
+>
+> Sincerely,
+>
+> Katie Vogtman
+> First Home Mortgage Verification Team
+> voe@firsthome.com
+> Phone: 443-461-1242
+> Fax: 443-725-0492
+> 6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220
+>
+>
+>
+> ---------Original Message----------------------
+> From: voe@firsthome.com
+> Sent: Thu, July 10, 2025 03:21 PM
+> To: donnalee1992@gmail.com
+> Cc: cmcgraw@firsthome.com, cmcgraw@firsthome.com, rcervantes@firsthome.com
+> Subject: MyBiz Verification of Employment [1024506118-01]
+>
+> Donna-Lee Daniella Scott:
+>
+> As a Verification Specialist at First Home Mortgage Corporation, I am working with your Loan Officer, Bradley Guy Restivo, to obtain your current employment information.
+>
+> The Department of Defense, in an effort to safeguard your privacy, requires you to log on to MyBiz+ to request a verification of employment. Once you have requested the information an email will be sent to the email address you have provided (see below). After the email is received I will need to be provided the password to the attachment. I have attached instructions for your convenience.
+>
+> **You can use the following email VOE@firsthome.com to have the verification sent.**
+>
+> There are two possible types of employment verification: Employment only or Employment and Income.
+>
+> **Your loan will require a Employment and Income verification**
+>
+> Helpful Hints:
+> * You must be within the DOD's IT network to access this system
+> * Once you have logged into your account select "Services" then "Verification of Employment"
+> * Enter your work email address to have the password sent
+> * Enter VOE@FirstHome.com to have the document sent
+> * The Password must be provided via email or phone to your Verification Specialist in order for the verification to be opened
+> *For more information click on the link: http://www.cpms.osd.mil/Subpage/EmploymentVerification/<https://url.usb.m.mimecastprotect.com/s/f_cMCB1MnRF7OxQDC6hBi2AAJ5?domain=cpms.osd.mil>
+>
+> This may also need to be completed a second time 5 days prior to your loan closing for employment only.
+>
+> Thank you for your attention to this matter.
+>
+> Sincerely,
+>
+> Katie Vogtman
+> First Home Mortgage Verification Team
+> voe@firsthome.com
+> Phone: 443-461-1242
+> Fax: 443-725-0492
+> 6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220
+>
+>
+>
+>
+>
+> CONFIDENTIALITY NOTICE
+> The information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others.
+>
+ 
+2025-07-14 12:33:56.8155 ERROR Error Sending Email System.Exception: No Valid Email Recipients Specified
+   at VOESystem.Data.Business.EmailOps.SendEmail(IDbConnection dbConn, List`1 toEmailList, List`1 ccEmailList, List`1 bccEmailList, String Subject, String MessageText, Boolean skipBranchOverrideCC, Nullable`1 OrderRequestId, Nullable`1 EmailTemplateId, Nullable`1 IsAuditing, List`1 Attachments, String BaseURL, Boolean RestrictDomain, Boolean consolidateAttachments, IDbTransaction extTransaction, String loanNumber, Boolean isDraft, MailPriority priority, Boolean IsHTML, Boolean requestReadReceipt, Boolean isSecure, List`1 replyToEmailList, String currentUserEmail) in C:\Data\FirstMortgage\BitBucket\voesystem\VOEFrontend\VOESystem.Data\Business\EmailOps.cs:line 390
+   at VOESystem.Data.Business.EmailOps.sendEmailFromTemplate(IDbConnection dbConn, Email email, Nullable`1 OrderRequestId, String BaseUrl, Boolean RestrictDomain, Nullable`1 IsAuditing, Boolean skipBranchOverrideCC, Boolean consolidateAttachments, IDbTransaction extTransaction, String loanNumber, Boolean IsHTML, Boolean IsVOETeamUser, String UserName) in C:\Data\FirstMortgage\BitBucket\voesystem\VOEFrontend\VOESystem.Data\Business\EmailOps.cs:line 1142
+2025-07-14 12:33:56.8155 INFO This order has been APPROVED and new emails are no longer monitored for this VOE.  
+
+Current Employment Status: Current-Active
+
+Please contact VOE@firsthome with the order number -found in the subject line of this email - in order to address your inquiry/concerns.
+
+Sincerely,
+First Home Mortgage Verification Team
+6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  
+
+(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)
+
+
+
+CONFIDENTIALITY NOTICE
+The information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others.
+
+
+
+
+
+
+Sincerely,
+First Home Mortgage Verification Team
+6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  
+
+(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)
+
+---------Original Message----------------------
+From: donnalee1992@gmail.com
+Sent: Thu, July 10, 2025 04:17 PM
+To: VOE@firsthome.com
+Cc: 
+Subject: Re: MyBiz Verification of Employment [1024506118-01]
+
+*** This message originated outside the organization ***
+
+Document password: 3C66410A9
+
+I also sent it in a email 45 minutes ago
+Sent from my iPhone
+
+> On Jul 10, 2025, at 4:15?PM, First Home VOE <VOE@firsthome.com> wrote:
+>
+> ?Good Afternoon
+>
+> We have received the document for the MyBiz can you please send the password?
+>
+>
+>
+>
+> Sincerely,
+>
+> Katie Vogtman
+> First Home Mortgage Verification Team
+> voe@firsthome.com
+> Phone: 443-461-1242
+> Fax: 443-725-0492
+> 6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220
+>
+>
+>
+> ---------Original Message----------------------
+> From: voe@firsthome.com
+> Sent: Thu, July 10, 2025 03:21 PM
+> To: donnalee1992@gmail.com
+> Cc: cmcgraw@firsthome.com, cmcgraw@firsthome.com, rcervantes@firsthome.com
+> Subject: MyBiz Verification of Employment [1024506118-01]
+>
+> Donna-Lee Daniella Scott:
+>
+> As a Verification Specialist at First Home Mortgage Corporation, I am working with your Loan Officer, Bradley Guy Restivo, to obtain your current employment information.
+>
+> The Department of Defense, in an effort to safeguard your privacy, requires you to log on to MyBiz+ to request a verification of employment. Once you have requested the information an email will be sent to the email address you have provided (see below). After the email is received I will need to be provided the password to the attachment. I have attached instructions for your convenience.
+>
+> **You can use the following email VOE@firsthome.com to have the verification sent.**
+>
+> There are two possible types of employment verification: Employment only or Employment and Income.
+>
+> **Your loan will require a Employment and Income verification**
+>
+> Helpful Hints:
+> * You must be within the DOD's IT network to access this system
+> * Once you have logged into your account select "Services" then "Verification of Employment"
+> * Enter your work email address to have the password sent
+> * Enter VOE@FirstHome.com to have the document sent
+> * The Password must be provided via email or phone to your Verification Specialist in order for the verification to be opened
+> *For more information click on the link: http://www.cpms.osd.mil/Subpage/EmploymentVerification/<https://url.usb.m.mimecastprotect.com/s/f_cMCB1MnRF7OxQDC6hBi2AAJ5?domain=cpms.osd.mil>
+>
+> This may also need to be completed a second time 5 days prior to your loan closing for employment only.
+>
+> Thank you for your attention to this matter.
+>
+> Sincerely,
+>
+> Katie Vogtman
+> First Home Mortgage Verification Team
+> voe@firsthome.com
+> Phone: 443-461-1242
+> Fax: 443-725-0492
+> 6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220
+>
+>
+>
+>
+>
+> CONFIDENTIALITY NOTICE
+> The information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others.
+>
+ 
+2025-07-14 12:33:56.8333 INFO Email Logged to Database: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeCv9gAA Re: MyBiz Verification of Employment [1024506118-01] 4:17 PM 
+2025-07-14 12:33:56.8333 INFO Moving message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGTeCv9gAA 

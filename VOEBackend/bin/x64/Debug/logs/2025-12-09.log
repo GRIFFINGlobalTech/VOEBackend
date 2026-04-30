@@ -1,0 +1,4 @@
+2025-12-09 12:35:48.4821 ERROR Error making web request: https://api-test.creditinterlink.com/api/VOE?Client=firsthome System.Net.WebException: The remote name could not be resolved: 'https'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at VOESystem.Data.Business.BusinessBase.makeWebRequestStream(String URL, WebRequestMethod method, String contenttype, Boolean IsSSL, Dictionary`2 urlparams, Byte[] content, Dictionary`2 addlHeaders) in C:\Data\FirstMortgage\BitBucket\voesystem\VOEFrontend\VOESystem.Data\Business\BusinessBase.cs:line 542

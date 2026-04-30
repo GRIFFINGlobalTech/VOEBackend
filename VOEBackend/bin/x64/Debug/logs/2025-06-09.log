@@ -1,0 +1,394 @@
+2025-06-09 14:12:09.1478 INFO 1024505498-01;Mercy Medical Center;Mercy Medical Center;0.9;high 
+2025-06-09 14:12:09.1838 INFO 1024505498-01;Mercy Medical Center;Mercy Medical Center Mt Shasta;0.5; 
+2025-06-09 14:12:09.1838 INFO 1024505498-01;Mercy Medical Center;Mercy Medical Center Cambodia;0.5; 
+2025-06-09 14:12:09.1838 INFO 1024505498-01;Mercy Medical Center;Mercy Medical Center Pharmacy;0.5; 
+2025-06-09 14:12:09.1838 INFO 1024505498-01;Mercy Medical Center;Mercy Medical Center;0.5; 
+2025-06-09 14:12:09.1838 INFO 1024505498-01;Mercy Medical Center;Mercy Hospital & Medical Center;0.5; 
+2025-06-09 14:12:09.1838 INFO 1024505498-01;Mercy Medical Center;Mercy Hospital;0.5; 
+2025-06-09 14:12:09.1838 INFO 1024505498-01;Mercy Medical Center;Mercy;0.9;high 
+2025-06-09 14:12:09.1838 INFO 1024505498-01;Mercy Medical Center;Mercy Regional Medical Center;0.5; 
+2025-06-09 14:12:10.3652 INFO 1047504908-04;Emmes Company;Emmes;0.5; 
+2025-06-09 14:12:10.3672 INFO 1047504908-04;Emmes Company;EIMS;0.5; 
+2025-06-09 14:12:10.3672 INFO 1047504908-04;Emmes Company;EMMES Group of Companies;0.5; 
+2025-06-09 14:12:10.3672 INFO 1047504908-04;Emmes Company;EMS;0.5; 
+2025-06-09 14:12:10.3672 INFO 1047504908-04;Emmes Company;EMSS;0.5; 
+2025-06-09 14:12:10.3672 INFO 1047504908-04;Emmes Company;Emmaus;0.5; 
+2025-06-09 14:12:10.3672 INFO 1047504908-04;Emmes Company;Emmeskay;0.5; 
+2025-06-09 14:12:10.3672 INFO 1047504908-04;Emmes Company;Emmaus;0.5; 
+2025-06-09 14:12:10.3672 INFO 1047504908-04;Emmes Company;EEMS,LLC;0.5; 
+2025-06-09 14:12:10.3672 INFO 1047504908-04;Emmes Company;Emma’s;0.5; 
+2025-06-09 14:12:13.1413 INFO 1022502857-03;Catalent Pharma Solutions LLC;Catalent;0.9;high 
+2025-06-09 14:12:13.8916 INFO 1017500740-02;Vertex Aerospace LLC;Vertex Aerospace;0.9;high 
+2025-06-09 14:12:16.7556 INFO 1030492957-01;Balance Point Wellness;Balance Point Wellness;0.5; 
+2025-06-09 14:12:17.5263 INFO 1083504842-01;Southwest Airlines;Southwest Airlines;0.9;high 
+2025-06-09 14:12:18.2147 INFO 1024493579-09;Breakthru Beverage;Ben Arnold-Sunbelt Beverage Company of South Carolina;0.9;high 
+2025-06-09 14:12:18.8235 INFO 1024493579-08;Breakthru Beverage;Ben Arnold-Sunbelt Beverage Company of South Carolina;0.9;high 
+2025-06-09 14:12:19.6090 INFO 1047504247-01;Department of State;Department of State;0.9;high 
+2025-06-09 14:12:20.5279 INFO 1010502919-03;J.B. Hunt Transport,Inc.;J.B. Hunt Transport Services;0.9;high 
+2025-06-09 14:12:22.5362 INFO 1083502149-03;Wegmans;Wegmans Food Markets;0.9;high 
+2025-06-09 14:12:26.9209 INFO 1024497819-04;T. Rowe Price;T. Rowe Price Group;0.9;high 
+2025-06-09 14:12:27.7215 INFO 1024497819-03;Valet Living LLC;Valet Living;0.9;high 
+2025-06-09 14:12:28.6446 INFO 1024494304-02;Carter Machinery INC;Carter Machinery;0.9;high 
+2025-06-09 14:12:29.2646 INFO 1018484937-02;Wal-Mart Associates, Inc;Walmart;0.9;high 
+2025-06-09 14:12:29.8240 INFO 1018472848-03;Southland;Southland Industries;0.9;high 
+2025-06-09 14:12:29.8240 INFO 1018472848-03;Southland;Southland Holdings;0.5; 
+2025-06-09 14:12:29.8240 INFO 1018472848-03;Southland;Southland Data Processing;0.5; 
+2025-06-09 14:12:29.8240 INFO 1018472848-03;Southland;Southland Transit;0.5; 
+2025-06-09 14:12:29.8240 INFO 1018472848-03;Southland;Southland International Trucks;0.5; 
+2025-06-09 14:12:29.8240 INFO 1018472848-03;Southland;Southland Credit Union;0.5; 
+2025-06-09 14:12:29.8240 INFO 1018472848-03;Southland;Southland Energy Services;0.5; 
+2025-06-09 14:12:29.8240 INFO 1018472848-03;Southland;Southland Transportation;0.5; 
+2025-06-09 14:12:29.8240 INFO 1018472848-03;Southland;Southlands Christian Schools;0.5; 
+2025-06-09 14:12:29.8240 INFO 1018472848-03;Southland;Southland Regional Association of REALTORS;0.5; 
+2025-06-09 14:12:31.2131 INFO 1010487315-02;Imperial PFS;Imperial PFS;0.5; 
+2025-06-09 14:12:39.5314 INFO 5101490784-04;NC State University;NC State University Club;0.5; 
+2025-06-09 14:12:39.5314 INFO 5101490784-04;NC State University;North Carolina State University;0.9;high 
+2025-06-09 14:12:40.3314 INFO 5101490784-03;North Carolina State University;North Carolina State University;0.9;high 
+2025-06-09 14:12:42.2590 INFO 1017505033-01;Atlantic Shores Cooperative Association;Atlantic Shores;0.5; 
+2025-06-09 14:12:42.6998 INFO 7010501881-02;UPS;UPS;0.9;high 
+2025-06-09 14:12:42.6998 INFO 7010501881-02;UPS;UPS Store (Franchise);0.3;low 
+2025-06-09 14:12:42.6998 INFO 7010501881-02;UPS;UPS Store (Corporate);0.5; 
+2025-06-09 14:12:42.6998 INFO 7010501881-02;UPS;SUNY Upstate Medical University;0.0;unsupported 
+2025-06-09 14:12:42.6998 INFO 7010501881-02;UPS;Upstate Niagara Cooperative;0.5; 
+2025-06-09 14:12:42.6998 INFO 7010501881-02;UPS;Upstream Rehabilitation;0.9;high 
+2025-06-09 14:12:42.6998 INFO 7010501881-02;UPS;Upstate Cerebral Palsy;0.5; 
+2025-06-09 14:12:42.6998 INFO 7010501881-02;UPS;Upstart Network;0.9;high 
+2025-06-09 14:12:42.6998 INFO 7010501881-02;UPS;Upsher-Smith Laboratories;0.9;high 
+2025-06-09 14:12:42.6998 INFO 7010501881-02;UPS;Up2Us Sports;0.5; 
+2025-06-09 14:12:42.7108 INFO 7010501881-02;UPS;GetUpside;0.5; 
+2025-06-09 14:12:43.6098 INFO 1083504220-02;Cruise Lines International Association;Cruise Lines International Association;0.5; 
+2025-06-09 14:12:44.2455 INFO 1024502554-03;CVS Health;CVS Health;0.9;high 
+2025-06-09 14:12:45.1869 INFO 1022502729-04;Maryland Environmental Service;Maryland Environmental Service;0.9;high 
+2025-06-09 14:12:45.7140 INFO 1022502729-03;Maryland Environmental Service;Maryland Environmental Service;0.9;high 
+2025-06-09 14:12:46.7045 INFO 1009504856-02;Jason Pharmaceuticals;Medifast;0.5; 
+2025-06-09 14:12:49.1680 INFO 5012504946-01;Arch MI;Arch Millennium;0.5; 
+2025-06-09 14:12:49.9229 INFO 1083505540-02;Department of the Navy;U.S. Navy;0.9;high 
+2025-06-09 14:12:49.9229 INFO 1083505540-02;Department of the Navy;Department of the Navy Office of Civilian Human Resources (OCHR);0.5; 
+2025-06-09 14:12:51.4953 INFO 1004501602-04;Keller Transportation Inc;Keller Transportation;0.5; 
+2025-06-09 14:12:52.3419 INFO 1024505018-01;T. Rowe Price;T. Rowe Price Group;0.9;high 
+2025-06-09 14:12:52.6990 INFO 5101504898-01;Bandwidth Inc;Bandwidth;0.5; 
+2025-06-09 14:12:52.6990 INFO 5101504898-01;Bandwidth Inc;Bandwidth;0.5; 
+2025-06-09 14:12:52.6990 INFO 5101504898-01;Bandwidth Inc;BandwidthX;0.5; 
+2025-06-09 14:12:52.6990 INFO 5101504898-01;Bandwidth Inc;Bandwidth Options;0.5; 
+2025-06-09 14:12:52.6990 INFO 5101504898-01;Bandwidth Inc;Bandwidth Team;0.5; 
+2025-06-09 14:12:52.6990 INFO 5101504898-01;Bandwidth Inc;BandwidthSolutions.com;0.5; 
+2025-06-09 14:12:52.6990 INFO 5101504898-01;Bandwidth Inc;Bandwidth Productions;0.5; 
+2025-06-09 14:12:52.6990 INFO 5101504898-01;Bandwidth Inc;Bandwidth Simplified;0.5; 
+2025-06-09 14:12:52.6990 INFO 5101504898-01;Bandwidth Inc;Bandwidth Marketing;0.5; 
+2025-06-09 14:12:52.7110 INFO 5101504898-01;Bandwidth Inc;Bandwidth Solutions;0.5; 
+2025-06-09 14:12:53.9482 INFO 1083502474-01;Core4ce;Core4ce;0.5; 
+2025-06-09 14:12:54.3379 INFO 7040504607-08;Tesla;Tesla;0.9;high 
+2025-06-09 14:12:54.3379 INFO 7040504607-08;Tesla;TSLA;0.5; 
+2025-06-09 14:12:54.3379 INFO 7040504607-08;Tesla;T3SL;0.5; 
+2025-06-09 14:12:54.6816 INFO 7040504607-07;Tesla;Tesla;0.9;high 
+2025-06-09 14:12:54.6816 INFO 7040504607-07;Tesla;TSLA;0.5; 
+2025-06-09 14:12:54.6816 INFO 7040504607-07;Tesla;T3SL;0.5; 
+2025-06-09 14:12:55.3806 INFO 5101476772-02;SAS Institute Inc;SASSI Institute;0.5; 
+2025-06-09 14:12:56.8584 INFO 1050500813-03;Shepherdstown Day Care;Shepherdstown Day Care Ctr;0.5; 
+2025-06-09 14:12:57.5263 INFO 1047504481-02;GlaxoSmithKline LLC;GlaxoSmithKline;0.9;high 
+2025-06-09 14:12:58.9464 INFO 1024501805-02;Buraeu of Labor Statistics;Bureau of Labor Statistics;0.9;high 
+2025-06-09 14:12:58.9464 INFO 1024501805-02;Buraeu of Labor Statistics;Bureau of Labor Statistics;0.5; 
+2025-06-09 14:12:59.9643 INFO 1009480214-02;Anne Arundel Government;Anne Arundel County;0.9;high 
+2025-06-09 14:13:02.0187 INFO 1083504801-01;Federal Bureau of Prisons;Federal Bureau of Prisons;0.9;high 
+2025-06-09 14:13:03.3523 INFO 1081505101-01;EPA;Environmental Protection Agency;0.3;low 
+2025-06-09 14:13:03.3523 INFO 1081505101-01;EPA;Epam Systems;0.0;unsupported 
+2025-06-09 14:13:03.3523 INFO 1081505101-01;EPA;EPA USA;0.5; 
+2025-06-09 14:13:03.3523 INFO 1081505101-01;EPA;EYP;0.5; 
+2025-06-09 14:13:03.3523 INFO 1081505101-01;EPA;Ohio EPA;0.5; 
+2025-06-09 14:13:03.3523 INFO 1081505101-01;EPA;epay, a Euronet Worldwide;0.5; 
+2025-06-09 14:13:03.3523 INFO 1081505101-01;EPA;People Assisting The Homeless (PATH);0.5; 
+2025-06-09 14:13:03.3523 INFO 1081505101-01;EPA;EP+Co;0.5; 
+2025-06-09 14:13:03.3523 INFO 1081505101-01;EPA;ePac Boulder;0.5; 
+2025-06-09 14:13:03.3523 INFO 1081505101-01;EPA;EPAY Systems;0.9;high 
+2025-06-09 14:13:03.9281 INFO 7040502464-02;MBTA;Meta;0.0;unsupported 
+2025-06-09 14:13:03.9281 INFO 7040502464-02;MBTA;MBDA;0.5; 
+2025-06-09 14:13:03.9313 INFO 7040502464-02;MBTA;MBDA;0.5; 
+2025-06-09 14:13:03.9313 INFO 7040502464-02;MBTA;Massachusetts Bay Transportation Authority;0.9;high 
+2025-06-09 14:13:03.9313 INFO 7040502464-02;MBTA;Mti;0.5; 
+2025-06-09 14:13:03.9313 INFO 7040502464-02;MBTA;Mott;0.5; 
+2025-06-09 14:13:03.9313 INFO 7040502464-02;MBTA;MODA;0.5; 
+2025-06-09 14:13:03.9313 INFO 7040502464-02;MBTA;MOTU;0.5; 
+2025-06-09 14:13:03.9313 INFO 7040502464-02;MBTA;Morongo Basin Transit Authority;0.5; 
+2025-06-09 14:13:03.9313 INFO 7040502464-02;MBTA;MTI;0.5; 
+2025-06-09 14:13:04.6651 INFO 7040502464-01;Molina Healthcare;Molina Healthcare;0.3;low 
+2025-06-09 14:13:06.7038 INFO 1024504756-05;Garrison Forest School;Garrison Forest School;0.5; 
+2025-06-09 14:13:07.3570 INFO 1008462191-05;U.S. Department of Housing & Urban Development;Department of Housing & Urban Development;0.9;high 
+2025-06-09 14:13:07.3570 INFO 1008462191-05;U.S. Department of Housing & Urban Development;U.S. Department of Housing & Urban Development;0.5; 
+2025-06-09 14:13:08.3491 INFO 1047504908-03;Emmes Company;Emmes;0.5; 
+2025-06-09 14:13:08.3491 INFO 1047504908-03;Emmes Company;EIMS;0.5; 
+2025-06-09 14:13:08.3521 INFO 1047504908-03;Emmes Company;EMMES Group of Companies;0.5; 
+2025-06-09 14:13:08.3521 INFO 1047504908-03;Emmes Company;EMS;0.5; 
+2025-06-09 14:13:08.3521 INFO 1047504908-03;Emmes Company;EMSS;0.5; 
+2025-06-09 14:13:08.3521 INFO 1047504908-03;Emmes Company;Emmaus;0.5; 
+2025-06-09 14:13:08.3521 INFO 1047504908-03;Emmes Company;Emmeskay;0.5; 
+2025-06-09 14:13:08.3521 INFO 1047504908-03;Emmes Company;Emmaus;0.5; 
+2025-06-09 14:13:08.3521 INFO 1047504908-03;Emmes Company;EEMS,LLC;0.5; 
+2025-06-09 14:13:08.3521 INFO 1047504908-03;Emmes Company;Emma’s;0.5; 
+2025-06-09 14:13:08.6707 INFO 7040504607-06;Tesla;Tesla;0.9;high 
+2025-06-09 14:13:08.6707 INFO 7040504607-06;Tesla;TSLA;0.5; 
+2025-06-09 14:13:08.6707 INFO 7040504607-06;Tesla;T3SL;0.5; 
+2025-06-09 14:13:08.9849 INFO 7040504607-05;Tesla;Tesla;0.9;high 
+2025-06-09 14:13:08.9849 INFO 7040504607-05;Tesla;TSLA;0.5; 
+2025-06-09 14:13:08.9849 INFO 7040504607-05;Tesla;T3SL;0.5; 
+2025-06-09 14:13:09.6757 INFO 1014501340-01;DTRA;Defense Threat Reduction Agency;0.5; 
+2025-06-09 14:13:09.6757 INFO 1014501340-01;DTRA;Datera;0.5; 
+2025-06-09 14:13:09.6757 INFO 1014501340-01;DTRA;Dutro;0.5; 
+2025-06-09 14:13:09.6757 INFO 1014501340-01;DTRA;DETRY;0.5; 
+2025-06-09 14:13:09.6815 INFO 1014501340-01;DTRA;Tetra;0.5; 
+2025-06-09 14:13:09.6815 INFO 1014501340-01;DTRA;DTR45;0.5; 
+2025-06-09 14:13:09.6815 INFO 1014501340-01;DTRA;Datura;0.5; 
+2025-06-09 14:13:09.6815 INFO 1014501340-01;DTRA;Destinations Travel Advisors;0.5; 
+2025-06-09 14:13:09.6815 INFO 1014501340-01;DTRA;Tetra;0.5; 
+2025-06-09 14:13:09.6815 INFO 1014501340-01;DTRA;D. Tracy Ward, Architect;0.5; 
+2025-06-09 14:13:10.0431 INFO 1009503346-01;IRS;Internal Revenue Service;0.9;high 
+2025-06-09 14:13:10.0431 INFO 1009503346-01;IRS;Disability benefits;0.3;low 
+2025-06-09 14:13:10.0431 INFO 1009503346-01;IRS;Indian River School District;0.5; 
+2025-06-09 14:13:10.0431 INFO 1009503346-01;IRS;Indian River State College;0.5; 
+2025-06-09 14:13:10.0431 INFO 1009503346-01;IRS;IHRSA;0.5; 
+2025-06-09 14:13:10.0431 INFO 1009503346-01;IRS;Irsik & Doll Feed Services;0.5; 
+2025-06-09 14:13:10.0431 INFO 1009503346-01;IRS;Interior Removal Specialist;0.5; 
+2025-06-09 14:13:10.0431 INFO 1009503346-01;IRS;iRise;0.5; 
+2025-06-09 14:13:10.0561 INFO 1009503346-01;IRS;IRS Environmental of Washington;0.5; 
+2025-06-09 14:13:10.0561 INFO 1009503346-01;IRS;Insurance Restoration Specialists;0.5; 
+2025-06-09 14:13:10.0561 INFO 1009503346-01;IRS;IRISS;0.5; 
+2025-06-09 14:13:10.6803 INFO 1008500786-01;Jones Day;Jones Day;0.9;high 
+2025-06-09 14:13:11.2809 INFO 4015500494-04;U.S. Department of State;Department of State;0.9;high 
+2025-06-09 14:13:12.1752 INFO 1083498925-02;Baker Botts L.L.P.;Baker Botts;0.5; 
+2025-06-09 14:13:12.8307 INFO 1024504680-02;Acme Paper & Supply Co. Inc.;Acme Paper & Supply;0.5; 
+2025-06-09 14:13:13.4948 INFO 1017500621-01;Lockheed Martin Aeronautics;Lockheed Martin;0.9;high 
+2025-06-09 14:13:14.8233 INFO 1010505305-01;Maryland Transit Administration;Maryland Transit Administration;0.9;high 
+2025-06-09 14:13:15.4656 INFO 1024502554-02;CVS Health;CVS Health;0.9;high 
+2025-06-09 14:13:29.9975 INFO 5101501672-02;NC DEPT OF INSURANCE;North Carolina Department of Insurance;0.5; 
+2025-06-09 14:13:30.3814 INFO 1083481428-03;Agiliti;Agiliti;0.9;high 
+2025-06-09 14:13:30.3814 INFO 1083481428-03;Agiliti;Agility;0.5; 
+2025-06-09 14:13:30.3844 INFO 1083481428-03;Agiliti;Agelity;0.5; 
+2025-06-09 14:13:30.3844 INFO 1083481428-03;Agiliti;Agilitee;0.5; 
+2025-06-09 14:13:30.3844 INFO 1083481428-03;Agiliti;Agil IT;0.5; 
+2025-06-09 14:13:30.3844 INFO 1083481428-03;Agiliti;Agility;0.5; 
+2025-06-09 14:13:30.3844 INFO 1083481428-03;Agiliti;Vericenter Minnesota;0.5; 
+2025-06-09 14:13:31.1148 INFO 1024501814-07;PricewaterhouseCoopers;PricewaterhouseCoopers;0.3;low 
+2025-06-09 14:13:37.1181 INFO 1047504908-01;Emmes Company, LLC;Emmes;0.5; 
+2025-06-09 14:13:37.1201 INFO 1047504908-01;Emmes Company, LLC;EIMS;0.5; 
+2025-06-09 14:13:37.1201 INFO 1047504908-01;Emmes Company, LLC;EMMES Group of Companies;0.5; 
+2025-06-09 14:13:37.1201 INFO 1047504908-01;Emmes Company, LLC;EMS;0.5; 
+2025-06-09 14:13:37.1201 INFO 1047504908-01;Emmes Company, LLC;EMSS;0.5; 
+2025-06-09 14:13:37.1201 INFO 1047504908-01;Emmes Company, LLC;Emmaus;0.5; 
+2025-06-09 14:13:37.1201 INFO 1047504908-01;Emmes Company, LLC;Emmeskay;0.5; 
+2025-06-09 14:13:37.1201 INFO 1047504908-01;Emmes Company, LLC;Emmaus;0.5; 
+2025-06-09 14:13:37.1201 INFO 1047504908-01;Emmes Company, LLC;EEMS,LLC;0.5; 
+2025-06-09 14:13:37.1201 INFO 1047504908-01;Emmes Company, LLC;Emma’s;0.5; 
+2025-06-09 14:13:40.6967 INFO 1024502554-01;CVS Health;CVS Health;0.9;high 
+2025-06-09 14:13:41.3098 INFO 1083502647-02;Southern Maryland Christian Academy;Southern Maryland Christian Academy;0.5; 
+2025-06-09 14:13:42.0847 INFO 1083502647-01;Toyota of Waldorf;Toyota;0.9;high 
+2025-06-09 14:13:42.6960 INFO 1081504085-03;Optum Services Inc;Optum;0.9;high 
+2025-06-09 14:13:43.3586 INFO 1081503925-03;Marriott International;Marriott;0.9;high 
+2025-06-09 14:13:43.3586 INFO 1081503925-03;Marriott International;Merritt International;0.5; 
+2025-06-09 14:13:45.3714 INFO 1024502968-02;System One;System One;0.9;high 
+2025-06-09 14:13:45.3714 INFO 1024502968-02;System One;SystemOne;0.5; 
+2025-06-09 14:13:45.3714 INFO 1024502968-02;System One;SystemOne;0.5; 
+2025-06-09 14:13:45.3714 INFO 1024502968-02;System One;System One Alarm Svc;0.5; 
+2025-06-09 14:13:45.3714 INFO 1024502968-02;System One;System One International;0.5; 
+2025-06-09 14:13:45.3714 INFO 1024502968-02;System One;System One Marketing;0.5; 
+2025-06-09 14:13:45.3714 INFO 1024502968-02;System One;System One Medical;0.5; 
+2025-06-09 14:13:45.3844 INFO 1024502968-02;System One;System One Filtration;0.5; 
+2025-06-09 14:13:46.0332 INFO 1083486491-01;US Dept of Housing and Urban Development;Department of Housing & Urban Development;0.9;high 
+2025-06-09 14:13:47.3488 INFO 1050501529-01;Transportation Security Administration;Transportation Security Administration;0.9;high 
+2025-06-09 14:13:47.8915 INFO 7040453861-01;Santander Bank;Santander Bank;0.9;high 
+2025-06-09 14:13:48.2395 INFO 1012504565-01;GBMC;Gbmc Health Care;0.9;high 
+2025-06-09 14:13:48.2395 INFO 1012504565-01;GBMC;GBMC & Associates;0.5; 
+2025-06-09 14:13:48.2395 INFO 1012504565-01;GBMC;GBM Manufacturing;0.5; 
+2025-06-09 14:13:48.2445 INFO 1012504565-01;GBMC;Gracie Barra McAllen;0.5; 
+2025-06-09 14:13:48.2445 INFO 1012504565-01;GBMC;Gunning Business Machines;0.5; 
+2025-06-09 14:13:48.2445 INFO 1012504565-01;GBMC;Senior Wealth Management;0.5; 
+2025-06-09 14:13:49.4939 INFO 1081502920-04;Macy's;Macy's;0.9;high 
+2025-06-09 14:13:49.4939 INFO 1081502920-04;Macy's;Mazy's;0.5; 
+2025-06-09 14:13:49.4939 INFO 1081502920-04;Macy's;Maisy's;0.5; 
+2025-06-09 14:13:50.0495 INFO 1024504756-03;Garrison Forest School;Garrison Forest School;0.5; 
+2025-06-09 14:13:50.6387 INFO 1081503877-01;The Gates Foundation;Bill & Melinda Gates Foundation;0.9;high 
+2025-06-09 14:13:51.2793 INFO 1014502610-03;Habitat America LLC;Habitat America;0.5; 
+2025-06-09 14:13:51.6157 INFO 7040504607-04;Tesla;Tesla;0.9;high 
+2025-06-09 14:13:51.6157 INFO 7040504607-04;Tesla;TSLA;0.5; 
+2025-06-09 14:13:51.6157 INFO 7040504607-04;Tesla;T3SL;0.5; 
+2025-06-09 14:13:51.9450 INFO 7040504607-03;Tesla;Tesla;0.9;high 
+2025-06-09 14:13:51.9470 INFO 7040504607-03;Tesla;TSLA;0.5; 
+2025-06-09 14:13:51.9470 INFO 7040504607-03;Tesla;T3SL;0.5; 
+2025-06-09 14:13:52.6230 INFO 1024499558-04;Media Links;Media Links;0.5; 
+2025-06-09 14:13:52.6230 INFO 1024499558-04;Media Links;Media Links;0.5; 
+2025-06-09 14:13:54.4752 INFO 1008461414-02;Service Coordination Inc;Service Coordination;0.5; 
+2025-06-09 14:13:54.4752 INFO 1008461414-02;Service Coordination Inc;Service Coordination Unlimited;0.5; 
+2025-06-09 14:13:54.4792 INFO 1008461414-02;Service Coordination Inc;Service Coordination of South Central Pennsylvania;0.5; 
+2025-06-09 14:13:54.4792 INFO 1008461414-02;Service Coordination Inc;Service Coordination Resources;0.5; 
+2025-06-09 14:13:55.1239 INFO 1024493579-05;Breakthru Beverage;Ben Arnold-Sunbelt Beverage Company of South Carolina;0.9;high 
+2025-06-09 14:13:55.8186 INFO 1014502209-04;Perry Hall Christian School;Perry Hall Christian School;0.5; 
+2025-06-09 14:13:59.0107 INFO 1012478745-03;EwingCole, Inc.;EwingCole;0.5; 
+2025-06-09 14:13:59.6688 INFO 1014501999-01;Sidley Austin LLP;Sidley Austin;0.9;high 
+2025-06-09 14:14:00.8094 INFO 1024504680-01;Acme Paper & Supply Co. Inc.;Acme Paper & Supply;0.5; 
+2025-06-09 14:14:01.4877 INFO 4022500127-01;Captial One;Capital One;0.9;high 
+2025-06-09 14:14:02.3756 INFO 1024494304-01;Carter Machinery INC;Carter Machinery;0.9;high 
+2025-06-09 14:14:02.7860 INFO 1081503468-02;Pella Corporation;Pall;0.5; 
+2025-06-09 14:14:02.7860 INFO 1081503468-02;Pella Corporation;Pella;0.9;high 
+2025-06-09 14:14:02.7860 INFO 1081503468-02;Pella Corporation;Pella Regional Health Center;0.5; 
+2025-06-09 14:14:02.7920 INFO 1081503468-02;Pella Corporation;PLEA;0.5; 
+2025-06-09 14:14:02.7920 INFO 1081503468-02;Pella Corporation;Peelle Company;0.5; 
+2025-06-09 14:14:02.7920 INFO 1081503468-02;Pella Corporation;PELLE;0.5; 
+2025-06-09 14:14:02.7920 INFO 1081503468-02;Pella Corporation;Pilla;0.5; 
+2025-06-09 14:14:02.7920 INFO 1081503468-02;Pella Corporation;Pillo;0.5; 
+2025-06-09 14:14:02.7920 INFO 1081503468-02;Pella Corporation;Paula&Co;0.5; 
+2025-06-09 14:14:02.7920 INFO 1081503468-02;Pella Corporation;PELO;0.5; 
+2025-06-09 14:14:03.1834 INFO 1008500525-01;Community of Hope;Community of Hope Ministries;0.5; 
+2025-06-09 14:14:03.1834 INFO 1008500525-01;Community of Hope;Community Of Hope;0.5; 
+2025-06-09 14:14:03.1834 INFO 1008500525-01;Community of Hope;Community of Hope United Methodist Church;0.5; 
+2025-06-09 14:14:03.1834 INFO 1008500525-01;Community of Hope;Community Of Hope Church Of The Nazarene;0.5; 
+2025-06-09 14:14:03.1834 INFO 1008500525-01;Community of Hope;Community of Hope Church;0.5; 
+2025-06-09 14:14:03.1834 INFO 1008500525-01;Community of Hope;Community of Hope AME Church;0.5; 
+2025-06-09 14:14:03.1834 INFO 1008500525-01;Community of Hope;Community Of Hope Elca;0.5; 
+2025-06-09 14:14:03.1834 INFO 1008500525-01;Community of Hope;Community of Hope;0.5; 
+2025-06-09 14:14:05.1241 INFO 1081493121-06;Carnegie Endowment for International Peace;Carnegie Endowment for International Peace;0.5; 
+2025-06-09 14:14:05.5599 INFO 1017461165-01;SAIC;Science Applications International;0.9;high 
+2025-06-09 14:14:05.5599 INFO 1017461165-01;SAIC;Securities & Exchange Commission;0.3;low 
+2025-06-09 14:14:05.5599 INFO 1017461165-01;SAIC;SOC;0.5; 
+2025-06-09 14:14:05.5599 INFO 1017461165-01;SAIC;School of the Art Institute of Chicago;0.5; 
+2025-06-09 14:14:05.5599 INFO 1017461165-01;SAIC;SSC;0.5; 
+2025-06-09 14:14:05.5599 INFO 1017461165-01;SAIC;Saic Motor;0.5; 
+2025-06-09 14:14:05.5599 INFO 1017461165-01;SAIC;Skai;0.5; 
+2025-06-09 14:14:05.5599 INFO 1017461165-01;SAIC;SSC;0.5; 
+2025-06-09 14:14:05.5739 INFO 1017461165-01;SAIC;SEEC;0.5; 
+2025-06-09 14:14:05.5739 INFO 1017461165-01;SAIC;SEEC;0.5; 
+2025-06-09 14:14:05.5739 INFO 1017461165-01;SAIC;Zoic;0.5; 
+2025-06-09 14:14:06.1728 INFO 1081496088-03;Georgetown Univeristy;Georgetown University;0.9;high 
+2025-06-09 14:14:06.1728 INFO 1081496088-03;Georgetown Univeristy;City of Georgetown;0.9;high 
+2025-06-09 14:14:07.4355 INFO 1009504856-01;Jason Pharmaceuticals;Medifast;0.5; 
+2025-06-09 14:14:08.0120 INFO 1010502544-05;State of Maryland;State of Maryland;0.9;high 
+2025-06-09 14:14:08.0120 INFO 1010502544-05;State of Maryland;State of Maryland;0.9;high 
+2025-06-09 14:14:08.6366 INFO 1081482764-03;Sidwell Friends School;Sidwell Friends School;0.5; 
+2025-06-09 14:14:10.1203 INFO 1018502707-01;Davis Defense Group;Davis Defense Group;0.9;high 
+2025-06-09 14:14:10.7075 INFO 1030496768-06;Arthur J Gallagher Service Company;Arthur J. Gallagher;0.9;high 
+2025-06-09 14:14:11.8415 INFO 1018472848-01;Southland;Southland Industries;0.9;high 
+2025-06-09 14:14:11.8415 INFO 1018472848-01;Southland;Southland Holdings;0.5; 
+2025-06-09 14:14:11.8415 INFO 1018472848-01;Southland;Southland Data Processing;0.5; 
+2025-06-09 14:14:11.8415 INFO 1018472848-01;Southland;Southland Transit;0.5; 
+2025-06-09 14:14:11.8415 INFO 1018472848-01;Southland;Southland International Trucks;0.5; 
+2025-06-09 14:14:11.8415 INFO 1018472848-01;Southland;Southland Credit Union;0.5; 
+2025-06-09 14:14:11.8415 INFO 1018472848-01;Southland;Southland Energy Services;0.5; 
+2025-06-09 14:14:11.8545 INFO 1018472848-01;Southland;Southland Transportation;0.5; 
+2025-06-09 14:14:11.8545 INFO 1018472848-01;Southland;Southlands Christian Schools;0.5; 
+2025-06-09 14:14:11.8545 INFO 1018472848-01;Southland;Southland Regional Association of REALTORS;0.5; 
+2025-06-09 14:14:12.4681 INFO 1081499562-03;Municipal Securities Rulemaking Board;Municipal Securities Rulemaking Board;0.5; 
+2025-06-09 14:14:12.8279 INFO 1008499271-03;Amazon;Amazon;0.9;high 
+2025-06-09 14:14:12.8279 INFO 1008499271-03;Amazon;Amazon Web Services;0.3;low 
+2025-06-09 14:14:12.8279 INFO 1008499271-03;Amazon;Amazon Warehouse;0.9;high 
+2025-06-09 14:14:12.8279 INFO 1008499271-03;Amazon;Amazon MGM Studios;0.5; 
+2025-06-09 14:14:12.8389 INFO 1008499271-03;Amazon;Amazon Hose & Rubber;0.5; 
+2025-06-09 14:14:12.8389 INFO 1008499271-03;Amazon;Amazon Logistics;0.0;unsupported 
+2025-06-09 14:14:12.8389 INFO 1008499271-03;Amazon;AmaSyn;0.5; 
+2025-06-09 14:14:12.8389 INFO 1008499271-03;Amazon;Amazon Flex;0.0;unsupported 
+2025-06-09 14:14:13.4477 INFO 7040499686-09;United Way of Massachusetts Bay;United Way of Massachusetts Bay and Merrimack Valley;0.5; 
+2025-06-09 14:14:13.8794 INFO 1014469461-01;UNCF;Fayetteville State University;0.5; 
+2025-06-09 14:14:13.8794 INFO 1014469461-01;UNCF;UNCF;0.5; 
+2025-06-09 14:14:13.8794 INFO 1014469461-01;UNCF;UNC Finley Golf Club;0.5; 
+2025-06-09 14:14:13.8854 INFO 1014469461-01;UNCF;UNC Fertility;0.5; 
+2025-06-09 14:14:13.8854 INFO 1014469461-01;UNCF;UNCF;0.5; 
+2025-06-09 14:14:14.5263 INFO 1010502919-02;J.B. Hunt Transport,Inc.;J.B. Hunt Transport Services;0.9;high 
+2025-06-09 14:14:16.4227 INFO 1014489486-07;Medtronic Inc;Medtronic;0.9;high 
+2025-06-09 14:14:16.4227 INFO 1014489486-07;Medtronic Inc;Mediatronic;0.5; 
+2025-06-09 14:14:17.2025 INFO 1014489486-06;National Veterans Legal Services Program;National Veterans Legal Services Program;0.5; 
+2025-06-09 14:14:17.8473 INFO 1017504427-02;Dulles Electric & Supply Corp.;Dulles Electric Supply;0.5; 
+2025-06-09 14:14:20.3140 INFO 5101501952-03;NC Dept. of Public Safety;North Carolina Department of Public Safety;0.9;high 
+2025-06-09 14:14:21.0157 INFO 1022502857-02;Catalent Pharma Solutions LLC;Catalent;0.9;high 
+2025-06-09 14:14:21.6165 INFO 5101501672-01;NC DEPT OF INSURANCE;North Carolina Department of Insurance;0.5; 
+2025-06-09 14:14:22.8208 INFO 1008461414-01;Service Coordination Inc;Service Coordination;0.5; 
+2025-06-09 14:14:22.8239 INFO 1008461414-01;Service Coordination Inc;Service Coordination Unlimited;0.5; 
+2025-06-09 14:14:22.8239 INFO 1008461414-01;Service Coordination Inc;Service Coordination of South Central Pennsylvania;0.5; 
+2025-06-09 14:14:22.8239 INFO 1008461414-01;Service Coordination Inc;Service Coordination Resources;0.5; 
+2025-06-09 14:14:23.5136 INFO 1031484319-01;Hebron Savings Bank;Hebron Savings Bank;0.5; 
+2025-06-09 14:14:24.2192 INFO 1014504719-01;U.S. Small Business Administration;Small Business Administration;0.9;high 
+2025-06-09 14:14:24.8166 INFO 1017504427-01;Dulles Electric & Supply Corp.;Dulles Electric Supply;0.5; 
+2025-06-09 14:14:25.9839 INFO 1017474839-02;Precise Systems Inc.;Precise Systems;0.9;high 
+2025-06-09 14:14:25.9839 INFO 1017474839-02;Precise Systems Inc.;Precise Systems;0.5; 
+2025-06-09 14:14:27.8510 INFO 4010501902-01;United States Marine Corps;U.S. Marine Corps;0.9;high 
+2025-06-09 14:14:27.8510 INFO 4010501902-01;United States Marine Corps;U.S. Marine Corps;0.9;high 
+2025-06-09 14:14:27.8550 INFO 4010501902-01;United States Marine Corps;United States Marine Corps Forces Central Command;0.5; 
+2025-06-09 14:14:29.0252 INFO 1083491257-02;Southwest Airlines;Southwest Airlines;0.9;high 
+2025-06-09 14:14:29.3849 INFO 1083503393-07;Uber;Uber;0.9;high 
+2025-06-09 14:14:29.3869 INFO 1083503393-07;Uber;Uber (Corporate);0.3;low 
+2025-06-09 14:14:29.3869 INFO 1083503393-07;Uber;Uber Eats;0.9;high 
+2025-06-09 14:14:29.3869 INFO 1083503393-07;Uber;Ubertal;0.5; 
+2025-06-09 14:14:29.3869 INFO 1083503393-07;Uber;Ubora;0.5; 
+2025-06-09 14:14:29.3869 INFO 1083503393-07;Uber;Ubar;0.5; 
+2025-06-09 14:14:29.3869 INFO 1083503393-07;Uber;U-BAR;0.5; 
+2025-06-09 14:14:29.3869 INFO 1083503393-07;Uber;U Bar;0.5; 
+2025-06-09 14:14:29.4049 INFO 1083503393-07;Uber;Uber Creative Agency;0.5; 
+2025-06-09 14:14:29.4049 INFO 1083503393-07;Uber;Ubrew;0.5; 
+2025-06-09 14:14:29.8206 INFO 7030490504-03;Kates & Barlow PC;Kate Spade;0.5; 
+2025-06-09 14:14:29.8236 INFO 7030490504-03;Kates & Barlow PC;KADES;0.5; 
+2025-06-09 14:14:29.8236 INFO 7030490504-03;Kates & Barlow PC;Kate Somerville Skincare;0.5; 
+2025-06-09 14:14:29.8236 INFO 7030490504-03;Kates & Barlow PC;KETOS;0.5; 
+2025-06-09 14:14:29.8236 INFO 7030490504-03;Kates & Barlow PC;Kate Spade;0.5; 
+2025-06-09 14:14:29.8236 INFO 7030490504-03;Kates & Barlow PC;Kates Training Academy;0.5; 
+2025-06-09 14:14:29.8236 INFO 7030490504-03;Kates & Barlow PC;Kate's Paperie;0.5; 
+2025-06-09 14:14:29.8236 INFO 7030490504-03;Kates & Barlow PC;K3DES;0.5; 
+2025-06-09 14:14:29.8396 INFO 7030490504-03;Kates & Barlow PC;Kates-Boylston Publications;0.5; 
+2025-06-09 14:14:29.8396 INFO 7030490504-03;Kates & Barlow PC;KTS;0.5; 
+2025-06-09 14:14:30.4992 INFO 1081504356-02;Accenture Federal Service LLC;Accenture;0.3;low 
+2025-06-09 14:14:31.0849 INFO 1081492410-05;Northwood Hospitality;Northwood Hospitality;0.9;high 
+2025-06-09 14:14:32.8871 INFO 1046487603-02;US Dept of Labor;U.S. Department of Labor;0.9;high 
+2025-06-09 14:14:33.4422 INFO 1031499219-02;Healthport;HealthPort Technologies;0.5; 
+2025-06-09 14:14:34.0022 INFO 1031474278-02;Hope & Life Outreach, Inc;Hope Bancorp;0.5; 
+2025-06-09 14:14:34.0022 INFO 1031474278-02;Hope & Life Outreach, Inc;Hope College;0.5; 
+2025-06-09 14:14:34.0022 INFO 1031474278-02;Hope & Life Outreach, Inc;Hopebridge;0.9;high 
+2025-06-09 14:14:34.0022 INFO 1031474278-02;Hope & Life Outreach, Inc;Hope Services;0.5; 
+2025-06-09 14:14:34.0112 INFO 1031474278-02;Hope & Life Outreach, Inc;Hope Haven;0.5; 
+2025-06-09 14:14:34.0112 INFO 1031474278-02;Hope & Life Outreach, Inc;Hope Network;0.5; 
+2025-06-09 14:14:34.0112 INFO 1031474278-02;Hope & Life Outreach, Inc;Hope Hospice and Community Services;0.5; 
+2025-06-09 14:14:34.0112 INFO 1031474278-02;Hope & Life Outreach, Inc;Hope Community Resources;0.5; 
+2025-06-09 14:14:34.0112 INFO 1031474278-02;Hope & Life Outreach, Inc;HopeHealth;0.5; 
+2025-06-09 14:14:34.0112 INFO 1031474278-02;Hope & Life Outreach, Inc;HopeHealth;0.5; 
+2025-06-09 14:14:35.2010 INFO 1024498709-02;National Aquarium;National Aquarium in Baltimore;0.5; 
+2025-06-09 14:14:35.7604 INFO 1014504437-02;CSAA Insurance Services, Inc.;CSAA Insurance Services;0.9;high 
+2025-06-09 14:14:35.7624 INFO 1014504437-02;CSAA Insurance Services, Inc.;CSS Insurance Services;0.5; 
+2025-06-09 14:14:35.7624 INFO 1014504437-02;CSAA Insurance Services, Inc.;CSAA Insurance Exchange;0.9;high 
+2025-06-09 14:14:36.5187 INFO 1014503635-02;Articulate Global;Articulate Global;0.5; 
+2025-06-09 14:14:37.8842 INFO 1008503422-05;Department of Homeland Security;Department of Homeland Security;0.9;high 
+2025-06-09 14:14:39.1252 INFO 1083500394-05;U.S. Customs and Border Protection;U.S. Customs & Border Protection;0.9;high 
+2025-06-09 14:14:39.4422 INFO 1024502968-01;System One;System One;0.9;high 
+2025-06-09 14:14:39.4422 INFO 1024502968-01;System One;SystemOne;0.5; 
+2025-06-09 14:14:39.4482 INFO 1024502968-01;System One;SystemOne;0.5; 
+2025-06-09 14:14:39.4482 INFO 1024502968-01;System One;System One Alarm Svc;0.5; 
+2025-06-09 14:14:39.4482 INFO 1024502968-01;System One;System One International;0.5; 
+2025-06-09 14:14:39.4482 INFO 1024502968-01;System One;System One Marketing;0.5; 
+2025-06-09 14:14:39.4482 INFO 1024502968-01;System One;System One Medical;0.5; 
+2025-06-09 14:14:39.4482 INFO 1024502968-01;System One;System One Filtration;0.5; 
+2025-06-09 14:14:40.2370 INFO 1081492410-03;Northwood Hospitality;Northwood Hospitality;0.9;high 
+2025-06-09 14:14:40.8780 INFO 1024497819-02;Valet Living LLC;Valet Living;0.9;high 
+2025-06-09 14:14:41.8949 INFO 1024497819-01;T. Rowe Price;T. Rowe Price Group;0.9;high 
+2025-06-09 14:14:43.1189 INFO 1083502839-01;Price Benowitz LLP;Price Benowitz;0.5; 
+2025-06-09 14:14:43.6753 INFO 1024498709-01;National Aquarium;National Aquarium in Baltimore;0.5; 
+2025-06-09 14:14:44.0659 INFO 5101500656-01;Monarch;Monarch Healthcare;0.5; 
+2025-06-09 14:14:44.0659 INFO 5101500656-01;Monarch;Monarch Casino & Resort;0.5; 
+2025-06-09 14:14:44.0659 INFO 5101500656-01;Monarch;Monarch Investment & Management Group;0.0;unsupported 
+2025-06-09 14:14:44.0749 INFO 5101500656-01;Monarch;Monarch;0.9;high 
+2025-06-09 14:14:44.0749 INFO 5101500656-01;Monarch;Monarch Beach Resort;0.5; 
+2025-06-09 14:14:44.0749 INFO 5101500656-01;Monarch;Monarch Mortgage;0.5; 
+2025-06-09 14:14:44.0749 INFO 5101500656-01;Monarch;Monarch Ceramic Tile;0.5; 
+2025-06-09 14:14:44.0749 INFO 5101500656-01;Monarch;Monarch Private Capital;0.5; 
+2025-06-09 14:14:44.0899 INFO 5101500656-01;Monarch;Monarch Litho;0.5; 
+2025-06-09 14:14:44.0899 INFO 5101500656-01;Monarch;Monarch Recovery Management;0.5; 
+2025-06-09 14:14:44.7010 INFO 1024501805-01;Buraeu of Labor Statistics;Bureau of Labor Statistics;0.9;high 
+2025-06-09 14:14:44.7010 INFO 1024501805-01;Buraeu of Labor Statistics;Bureau of Labor Statistics;0.5; 
+2025-06-09 14:14:46.1473 INFO 1081497501-03;Strategic Engineering Solutions;Strategic Engineering Solutions;0.5; 
+2025-06-09 14:14:47.9666 INFO 1024497022-02;Voith Hydro Inc.;Voith Hydro;0.5; 
+2025-06-09 14:14:48.6046 INFO 1024496977-02;T. Rowe Price;T. Rowe Price Group;0.9;high 
+2025-06-09 14:14:49.0276 INFO 1014500687-02;Telligen;Telligen;0.5; 
+2025-06-09 14:14:49.0276 INFO 1014500687-02;Telligen;Telligen Tech,Inc;0.5; 
+2025-06-09 14:14:49.0276 INFO 1014500687-02;Telligen;Telligent Masonry;0.5; 
+2025-06-09 14:14:49.0276 INFO 1014500687-02;Telligen;telaGen;0.5; 
+2025-06-09 14:14:49.0276 INFO 1014500687-02;Telligen;Telligen QIN;0.5; 
+2025-06-09 14:14:49.0426 INFO 1014500687-02;Telligen;Telligent Solutions;0.5; 
+2025-06-09 14:14:49.0426 INFO 1014500687-02;Telligen;Telligent Systems;0.5; 
+2025-06-09 14:14:49.0426 INFO 1014500687-02;Telligen;Telligent Data;0.5; 
+2025-06-09 14:14:49.0426 INFO 1014500687-02;Telligen;Telligen Community Initiative;0.5; 
+2025-06-09 14:14:49.0426 INFO 1014500687-02;Telligen;Telligen;0.5; 
+2025-06-09 14:14:52.1984 INFO 1024501814-05;PricewaterhouseCoopers;PricewaterhouseCoopers;0.3;low 
+2025-06-09 14:14:53.4660 INFO 1017503938-01;Marine Corps;U.S. Marine Corps;0.9;high 
+2025-06-09 14:14:53.4660 INFO 1017503938-01;Marine Corps;Marine Corps Community Services;0.0;unsupported 
+2025-06-09 14:14:53.4660 INFO 1017503938-01;Marine Corps;U.S. Marine Corps;0.9;high 

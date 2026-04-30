@@ -1,0 +1,158 @@
+2026-02-12 14:46:42.1623 INFO Authenticating to Encompass Instance BE11124301 
+2026-02-12 14:46:42.7920 INFO client_id=k5t8yte&client_secret=EE4uIzFm%24Oy7b%5exIznmYaU9TB9eECFdlEyuO7Fr8gHqskdnRwmgYIvWpliZpkb4w&grant_type=password&username=sdkadmin1%40encompass%3aBE11124301&password=Updatefield1! 
+2026-02-12 14:47:02.8320 INFO Web Request: POST api.elliemae.com/oauth2/v1/token 
+2026-02-12 14:47:02.8320 INFO Accept-Encoding: gzip,deflate
+Content-Type: application/x-www-form-urlencoded
+Host: api.elliemae.com
+Content-Length: 187
+Expect: 100-continue
+Connection: Keep-Alive
+
+
+ 
+2026-02-12 14:47:02.8320 INFO Web Response: OK 
+2026-02-12 14:47:02.8320 INFO Connection: keep-alive
+Vary: X-HTTP-Method-Override, Accept-Encoding
+Access-Control-Expose-Headers: Vary,Date,Content-Length,X-Correlation-ID
+Access-Control-Allow-Origin: *
+Public-Key-Pins-Report-Only: pin-sha256="ZLtb2AMR+j9TvZlATKuHYq1uBIRH0Kl/IZ/OyhZh83w="; pin-sha256="JSMzqOOrtyOT1kmau6zKhgT676hGgczD5VMdRMyJZFA="; pin-sha256="fFO133kTXZr2GV72u3OrmMLImVC4krGS3/14TbklpBw="; pin-sha256="G9pa//g3gTgL9wgZj599LbHgZ/FLuep7rnCqwLAwXns="; pin-sha256="F3CN/yt/rsnLG1IV67JCHZewVDyTb6ydbgK5LyDlxwc="; max-age=7776000; includeSubDomains; report-uri="/report"
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy-Report-Only: script-src 'self' *.elliemae.io; report-uri /report
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: no-referrer
+Expect-CT: max-age=86400, report-uri="/report"
+X-Correlation-ID: 95cd510b-966e-407e-898a-5841c1ea0fd1
+Content-Length: 69
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Feb 2026 19:46:57 GMT
+
+
+ 
+2026-02-12 14:47:02.8320 INFO {"access_token":"0004TcPmRrNysWU9i5a9GCdtD7gD","token_type":"Bearer"} 
+2026-02-12 14:47:08.1098 INFO {"filter":{"terms":[{"canonicalName":"Loan.LoanNumber","value":"1008517373","matchType":"exact"}]}} 
+2026-02-12 14:47:08.1098 INFO Web Request: POST api.elliemae.com/encompass/v3/loanPipeline 
+2026-02-12 14:47:08.1098 INFO Authorization: thetokenvalue
+Accept-Encoding: gzip,deflate
+Content-Type: application/json
+Host: api.elliemae.com
+Content-Length: 99
+Expect: 100-continue
+
+
+ 
+2026-02-12 14:47:08.4095 INFO Web Response: OK 
+2026-02-12 14:47:08.4095 INFO Connection: keep-alive
+Vary: Accept-Encoding
+Pragma: no-cache
+Content-Encoding: gzip
+X-Total-Count: 1
+X-Concurrency-Limit-Limit: 30
+X-Concurrency-Limit-Remaining: 29
+X-Rate-Limit-Limit: 500000
+X-Rate-Limit-Remaining: 500000
+X-Rate-Limit-Reset: 1770940800
+Access-Control-Expose-Headers: Vary,Content-Encoding,X-Total-Count,Date,Content-Length,X-Concurrency-Limit-Limit,X-Concurrency-Limit-Remaining,X-Rate-Limit-Limit,X-Rate-Limit-Remaining,X-Rate-Limit-Reset,X-Correlation-ID
+Access-Control-Allow-Origin: *
+Public-Key-Pins-Report-Only: pin-sha256="ZLtb2AMR+j9TvZlATKuHYq1uBIRH0Kl/IZ/OyhZh83w="; pin-sha256="JSMzqOOrtyOT1kmau6zKhgT676hGgczD5VMdRMyJZFA="; pin-sha256="fFO133kTXZr2GV72u3OrmMLImVC4krGS3/14TbklpBw="; pin-sha256="G9pa//g3gTgL9wgZj599LbHgZ/FLuep7rnCqwLAwXns="; pin-sha256="F3CN/yt/rsnLG1IV67JCHZewVDyTb6ydbgK5LyDlxwc="; max-age=7776000; includeSubDomains; report-uri="/report"
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy-Report-Only: script-src 'self' *.elliemae.io; report-uri /report
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: no-referrer
+Expect-CT: max-age=86400, report-uri="/report"
+X-Correlation-ID: 132f5d18-f812-4ec0-b5e7-e33fdd95882c
+Content-Length: 186
+Cache-Control: no-cache
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Feb 2026 19:47:09 GMT
+Expires: -1
+
+
+ 
+2026-02-12 14:47:08.4095 INFO [{"loanId":"1abdb9d0-6949-4006-9688-0f19827b33eb","fields":{}}] 
+2026-02-12 14:47:08.4312 INFO Web Request: GET api.elliemae.com/encompass/v3/loans/1abdb9d0-6949-4006-9688-0f19827b33eb/attachments/fdb1c5f3-d781-4081-bdae-b698254c9f43 
+2026-02-12 14:47:08.4312 INFO Authorization: thetokenvalue
+Accept-Encoding: gzip,deflate
+
+
+ 
+2026-02-12 14:47:08.7827 INFO Web Response: OK 
+2026-02-12 14:47:08.7827 INFO Connection: keep-alive
+Pragma: no-cache
+Content-Encoding: gzip
+Vary: Accept-Encoding
+Attachment-Type: Image
+X-Concurrency-Limit-Limit: 30
+X-Concurrency-Limit-Remaining: 29
+X-Rate-Limit-Limit: 500000
+X-Rate-Limit-Remaining: 500000
+X-Rate-Limit-Reset: 1770940800
+Access-Control-Expose-Headers: Content-Encoding,Vary,Attachment-Type,Date,Content-Length,X-Concurrency-Limit-Limit,X-Concurrency-Limit-Remaining,X-Rate-Limit-Limit,X-Rate-Limit-Remaining,X-Rate-Limit-Reset,X-Correlation-ID
+Access-Control-Allow-Origin: *
+Public-Key-Pins-Report-Only: pin-sha256="ZLtb2AMR+j9TvZlATKuHYq1uBIRH0Kl/IZ/OyhZh83w="; pin-sha256="JSMzqOOrtyOT1kmau6zKhgT676hGgczD5VMdRMyJZFA="; pin-sha256="fFO133kTXZr2GV72u3OrmMLImVC4krGS3/14TbklpBw="; pin-sha256="G9pa//g3gTgL9wgZj599LbHgZ/FLuep7rnCqwLAwXns="; pin-sha256="F3CN/yt/rsnLG1IV67JCHZewVDyTb6ydbgK5LyDlxwc="; max-age=7776000; includeSubDomains; report-uri="/report"
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy-Report-Only: script-src 'self' *.elliemae.io; report-uri /report
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: no-referrer
+Expect-CT: max-age=86400, report-uri="/report"
+X-Correlation-ID: ae4c82eb-e7f6-41a0-b7a0-8f17c05e67d8
+Content-Length: 716
+Cache-Control: no-cache
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Feb 2026 19:47:10 GMT
+Expires: -1
+
+
+ 
+2026-02-12 14:47:08.7827 INFO {"id":"fdb1c5f3-d781-4081-bdae-b698254c9f43","title":"Borrower's Certification and Authorization.pdf","type":"Image","isActive":true,"assignedTo":{"entityId":"43e72d58-1b0c-464b-9467-0a9d03271853","entityName":"Borrower's Certification and Authorization","entityType":"Document","isActive":true},"fileSize":384371,"isRemoved":false,"pages":[{"pageImage":{"height":2200,"width":1700,"dpiX":200,"dpiY":200,"zipKey":"Images-3c7a5179-47f5-4fb0-a170-9596d1d23b40.zip","imageKey":"7b0f6284-932f-4264-8056-8ae1a992b823.jpg","originalKey":"Attachment-fdb1c5f3-d781-4081-bdae-b698254c9f43.pdf"},"thumbnailImage":{"height":144,"width":111,"dpiX":96,"dpiY":96,"zipKey":"Thumbnails-d2bea4e9-cc16-4946-9ad4-3b63d2490fff.zip","imageKey":"b3fb3e6c-e89e-40a2-8b74-2dadb08276a4.jpg"},"fileSize":384371,"rotation":0,"originalKey":"Attachment-fdb1c5f3-d781-4081-bdae-b698254c9f43.pdf"}],"createdBy":{"entityId":"khicke601","entityName":"Kristie Hickey","entityType":"User"},"createdDate":"2026-01-27T19:14:44Z"} 
+2026-02-12 14:47:08.7995 INFO {"attachments":["fdb1c5f3-d781-4081-bdae-b698254c9f43"]} 
+2026-02-12 14:47:08.7995 INFO Web Request: POST api.elliemae.com/encompass/v3/loans/1abdb9d0-6949-4006-9688-0f19827b33eb/attachmentDownloadUrl 
+2026-02-12 14:47:08.7995 INFO Authorization: thetokenvalue
+Accept-Encoding: gzip,deflate
+Content-Type: application/json
+Host: api.elliemae.com
+Content-Length: 56
+Expect: 100-continue
+
+
+ 
+2026-02-12 14:47:10.3875 INFO Web Response: OK 
+2026-02-12 14:47:10.3875 INFO Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding
+Correlationid: e7a927cc-d2db-47ac-8174-f727a67ecb01
+X-Concurrency-Limit-Limit: 30
+X-Concurrency-Limit-Remaining: 29
+X-Rate-Limit-Limit: 500000
+X-Rate-Limit-Remaining: 500000
+X-Rate-Limit-Reset: 1770940800
+Content-Encoding: gzip
+Access-Control-Expose-Headers: Vary,Date,Correlationid,X-Concurrency-Limit-Limit,X-Concurrency-Limit-Remaining,X-Rate-Limit-Limit,X-Rate-Limit-Remaining,X-Rate-Limit-Reset,Content-Encoding,X-Correlation-ID
+Access-Control-Allow-Origin: *
+Public-Key-Pins-Report-Only: pin-sha256="ZLtb2AMR+j9TvZlATKuHYq1uBIRH0Kl/IZ/OyhZh83w="; pin-sha256="JSMzqOOrtyOT1kmau6zKhgT676hGgczD5VMdRMyJZFA="; pin-sha256="fFO133kTXZr2GV72u3OrmMLImVC4krGS3/14TbklpBw="; pin-sha256="G9pa//g3gTgL9wgZj599LbHgZ/FLuep7rnCqwLAwXns="; pin-sha256="F3CN/yt/rsnLG1IV67JCHZewVDyTb6ydbgK5LyDlxwc="; max-age=7776000; includeSubDomains; report-uri="/report"
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy-Report-Only: script-src 'self' *.elliemae.io; report-uri /report
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: no-referrer
+Expect-CT: max-age=86400, report-uri="/report"
+X-Correlation-ID: e7a927cc-d2db-47ac-8174-f727a67ecb01
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Feb 2026 19:47:11 GMT
+
+
+ 
+2026-02-12 14:47:10.3915 INFO {"attachments":[{"id":"fdb1c5f3-d781-4081-bdae-b698254c9f43","pages":[{"url":"https://streaming.us-west-2.skydrive.ellieservices.com/v1/clients/3011124301/B2.be11124301KS*1abdb9d0-6949-4006-9688-0f19827b33ebKS*images-3c7a5179-47f5-4fb0-a170-9596d1d23b40.zip/entry/7b0f6284-932f-4264-8056-8ae1a992b823.jpg?validity=MTc3MDkyNjUzMTkxNQ%3D%3D&instanceId=dXJuOmVsbGk6ZW5jb21wYXNzOmJlMTExMjQzMDE%3D&entityId=MWFiZGI5ZDAtNjk0OS00MDA2LTk2ODgtMGYxOTgyN2IzM2Vi&signature=A3A786729C0C2BC1D6AA3AA9908713465A9D97F6925B03563700C7766280D2EC5FF529577E7F332399F3582D7431781597C7EE3E70DE2CD2A366C18779A80E55","thumbnail":{"url":"https://streaming.us-west-2.skydrive.ellieservices.com/v1/clients/3011124301/B2.be11124301KS*1abdb9d0-6949-4006-9688-0f19827b33ebKS*thumbnails-d2bea4e9-cc16-4946-9ad4-3b63d2490fff.zip/entry/b3fb3e6c-e89e-40a2-8b74-2dadb08276a4.jpg?validity=MTc3MDkyNjUzMTkxNQ%3D%3D&instanceId=dXJuOmVsbGk6ZW5jb21wYXNzOmJlMTExMjQzMDE%3D&entityId=MWFiZGI5ZDAtNjk0OS00MDA2LTk2ODgtMGYxOTgyN2IzM2Vi&signature=08D7EC44011B74C04E48E330D5194889F5304F3A5C2C4F86EE2570D8CA9A6B68326E09AB464D5DE1CBA12F2346AC1D16719503AB37329520037EB6BC748F8D9B"}}],"originalUrls":["https://streaming.us-west-2.skydrive.ellieservices.com/v1/clients/3011124301/B2.be11124301KS*1abdb9d0-6949-4006-9688-0f19827b33ebKS*attachment-fdb1c5f3-d781-4081-bdae-b698254c9f43.pdf?validity=MTc3MDkyNjUzMTkxNQ%3D%3D&instanceId=dXJuOmVsbGk6ZW5jb21wYXNzOmJlMTExMjQzMDE%3D&entityId=MWFiZGI5ZDAtNjk0OS00MDA2LTk2ODgtMGYxOTgyN2IzM2Vi&signature=23B321F7DE2E8F9E232841539EF1B7A12ACFB632450163BAB7F52BB4138E96D7563CB9FC16E8E47925C770BC1239FB912AE98B662753466A4E0EB24FB756671E"]}]} 
+2026-02-12 14:47:11.3279 INFO Converting File:C:\Temp\VOERepository\EncDocuments\fdb1c5f3-d781-4081-bdae-b698254c9f43_1.jpg 
+2026-02-12 14:47:15.0185 INFO Consolidating Documents: 
+2026-02-12 14:47:15.0185 INFO c:\temp\voerepository\encdocuments\fdb1c5f3-d781-4081-bdae-b698254c9f43_1.pdf 
+2026-02-12 14:47:15.2235 INFO Converting File:C:\Temp\VOERepository\EncDocuments\fdb1c5f3-d781-4081-bdae-b698254c9f43.pdf 
+2026-02-12 14:47:15.4115 INFO Consolidating Documents: 
+2026-02-12 14:47:15.4115 INFO C:\Temp\VOERepository\EncDocuments\fdb1c5f3-d781-4081-bdae-b698254c9f43.pdf 
+2026-02-12 14:49:14.3599 INFO Advanced Data order has been created for order 1008517373-04: ADOrderNumber CCG40857 

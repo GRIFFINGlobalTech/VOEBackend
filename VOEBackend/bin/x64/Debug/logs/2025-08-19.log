@@ -1,0 +1,40 @@
+2025-08-19 11:34:27.3597 INFO Getting messages for folder voe@firsthome.com: Inbox 
+2025-08-19 11:34:28.3198 INFO Getting message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGZ82uJAAA 
+2025-08-19 11:47:23.4718 INFO Getting messages for folder voe@firsthome.com: Inbox 
+2025-08-19 11:47:24.2668 INFO Getting message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGZ84NMgAA 
+2025-08-19 11:48:48.3325 INFO Getting messages for folder voe@firsthome.com: Inbox 
+2025-08-19 11:48:49.1855 INFO Getting message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGZ827aQAA 
+2025-08-19 11:50:51.5113 INFO Email Logged: Albert, First Home Mortgage would like to verify your employment 
+2025-08-19 11:51:14.5354 ERROR Error Sending Email System.Exception: No Valid Email Recipients Specified
+   at VOESystem.Data.Business.EmailOps.SendEmail(IDbConnection dbConn, List`1 toEmailList, List`1 ccEmailList, List`1 bccEmailList, String Subject, String MessageText, Boolean skipBranchOverrideCC, Nullable`1 OrderRequestId, Nullable`1 EmailTemplateId, Nullable`1 IsAuditing, List`1 Attachments, String BaseURL, Boolean RestrictDomain, Boolean consolidateAttachments, IDbTransaction extTransaction, String loanNumber, Boolean isDraft, MailPriority priority, Boolean IsHTML, Boolean requestReadReceipt, Boolean isSecure, List`1 replyToEmailList, String currentUserEmail) in C:\Data\FirstMortgage\BitBucket\voesystem\VOEFrontend\VOESystem.Data\Business\EmailOps.cs:line 198
+2025-08-19 11:51:14.5794 INFO Email Text Goes Here
+
+Sincerely,
+First Home Mortgage Verification Team
+6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  
+
+(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)
+
+
+
+CONFIDENTIALITY NOTICE
+The information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others. 
+2025-08-19 11:51:14.5794 ERROR Error Sending Email System.Exception: No Valid Email Recipients Specified
+   at VOESystem.Data.Business.EmailOps.SendEmail(IDbConnection dbConn, List`1 toEmailList, List`1 ccEmailList, List`1 bccEmailList, String Subject, String MessageText, Boolean skipBranchOverrideCC, Nullable`1 OrderRequestId, Nullable`1 EmailTemplateId, Nullable`1 IsAuditing, List`1 Attachments, String BaseURL, Boolean RestrictDomain, Boolean consolidateAttachments, IDbTransaction extTransaction, String loanNumber, Boolean isDraft, MailPriority priority, Boolean IsHTML, Boolean requestReadReceipt, Boolean isSecure, List`1 replyToEmailList, String currentUserEmail) in C:\Data\FirstMortgage\BitBucket\voesystem\VOEFrontend\VOESystem.Data\Business\EmailOps.cs:line 390
+   at VOESystem.Data.Business.EmailOps.sendEmailFromTemplate(IDbConnection dbConn, Email email, Nullable`1 OrderRequestId, String BaseUrl, Boolean RestrictDomain, Nullable`1 IsAuditing, Boolean skipBranchOverrideCC, Boolean consolidateAttachments, IDbTransaction extTransaction, String loanNumber, Boolean IsHTML, Boolean IsVOETeamUser, String UserName) in C:\Data\FirstMortgage\BitBucket\voesystem\VOEFrontend\VOESystem.Data\Business\EmailOps.cs:line 1142
+2025-08-19 11:51:14.5794 INFO Email Text Goes Here
+
+Sincerely,
+First Home Mortgage Verification Team
+6211 Greenleigh Avenue, Suite 300, Baltimore MD 21220  
+
+(For questions or concerns on the status of your VOE please check the VOE pipeline at http://aze-app-1v/voesystem/pipeline)
+
+
+
+CONFIDENTIALITY NOTICE
+The information contained in this electronic message is confidential information intended for the use of the individual or entity named above. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this electronic message to the intended recipient, you are hereby notified that any dissemination, or copying of this communication is strictly prohibited. If this message contains non-public personal information about any consumer or customer of the sender or intended recipient, you are further prohibited under penalty of law from using or disclosing the information to any third party by provisions of the federal Gramm-Leach-Bliley Act. If you have received this electronic message in error, please immediately notify us by return email destroy the original message to assure that it is not read, copied, or distributed by others. 
+2025-08-19 11:51:14.5794 INFO Email Logged to Database: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGZ827aQAA Albert, First Home Mortgage would like to verify your employment 2:48 PM 
+2025-08-19 11:51:30.6373 INFO Moving message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGZ827aQAA 
+2025-08-19 12:32:18.6246 INFO Getting messages for folder voe@firsthome.com: Inbox 
+2025-08-19 12:32:19.5562 INFO Getting message voe@firsthome.com: AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0A-XGp6OdBg0CxQrF5bBnBPAAGZ84ShAAA 

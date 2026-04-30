@@ -1,0 +1,8 @@
+2026-01-22 10:31:16.5252 INFO Converting File:C:\Temp\VOERepository\EncDocuments\810e200a-8dc7-4cde-9ad3-a7cf4d42f398.pdf 
+2026-01-22 10:31:18.2877 INFO Consolidating Documents: 
+2026-01-22 10:31:18.2917 INFO C:\Temp\VOERepository\EncDocuments\810e200a-8dc7-4cde-9ad3-a7cf4d42f398.pdf 
+2026-01-22 10:31:20.7943 ERROR Advanced Data order has been not been created for order 5101516038-02: An error has occurred. Unable to formulate response document System.Exception: Error Creating Advanced Data Order
+2026-01-22 10:33:24.0327 INFO Converting File:C:\Temp\VOERepository\EncDocuments\810e200a-8dc7-4cde-9ad3-a7cf4d42f398.pdf 
+2026-01-22 10:33:25.1991 INFO Consolidating Documents: 
+2026-01-22 10:33:25.2011 INFO C:\Temp\VOERepository\EncDocuments\810e200a-8dc7-4cde-9ad3-a7cf4d42f398.pdf 
+2026-01-22 10:33:27.5707 ERROR Advanced Data order has been not been created for order 5101516038-02: An error has occurred. Unable to formulate response document System.Exception: Error Creating Advanced Data Order
