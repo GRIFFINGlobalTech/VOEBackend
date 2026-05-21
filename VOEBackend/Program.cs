@@ -222,9 +222,21 @@ namespace VOEBackend
 
             //AutoTrueWorkJob();
             //RetreiveEmailJob();
+/*
+ Manual testing functions after this
 
-            VOEBackend.AdvancedData.Business.ADTestClass tst = new AdvancedData.Business.ADTestClass();
-            tst.testOperation();
+*/
+
+
+
+
+
+
+
+            VOEBackend.Xactus.Business.BaseClass.CommOps test = new VOEBackend.Xactus.Business.BaseClass.CommOps();
+            test.postRequest();
+            //VOEBackend.AdvancedData.Business.ADTestClass tst = new AdvancedData.Business.ADTestClass();
+            //tst.testOperation();
 
             //AutoAssignOrdersJob();
 
