@@ -768,7 +768,7 @@ namespace VOEBackend.Xactus.Business
             }
             else
             {
-                CREDIT_REQUEST_DATA.RecordsFrom = "Both";  //all employment
+                CREDIT_REQUEST_DATA.RecordsFrom = "Current";  //default to current employment for Experian to avoid redundant API calls since both will pull for both currwent and previous employer
             }
 
             CREDIT_REQUEST.CREDIT_REQUEST_DATA = CREDIT_REQUEST_DATA;
