@@ -764,7 +764,7 @@ namespace VOEBackend.Xactus.Business
             }
             else if (verifType.ToString() == "Prior")
             {
-                CREDIT_REQUEST_DATA.RecordsFrom = "Previous";  //filtering by inactive employment
+                CREDIT_REQUEST_DATA.RecordsFrom = "Current";  //filtering by inactive employment
             }
             else
             {
