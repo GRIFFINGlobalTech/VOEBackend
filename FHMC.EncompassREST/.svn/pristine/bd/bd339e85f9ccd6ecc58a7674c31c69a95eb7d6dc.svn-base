@@ -1,0 +1,46 @@
+﻿using FHMC.EncompassREST;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FHMC.EncompassREST
+{
+
+    public partial class Conditions : BaseClass
+    {
+
+        public class Condition
+        {
+
+            public string id { get; set; }
+            public string priorTo { get; set; }
+            public string category { get; set; }
+            public RoleEntity ownerRole { get; set; }
+            public string conditionType { get; set; }
+            public string title { get; set; }
+            public string description { get; set; }
+            public bool forAllApplications { get; set; }
+            public bool printExternally { get; set; }
+            public bool printInternally { get; set; }
+            public string source { get; set; }
+
+        }
+
+        public class RoleEntity
+        {
+            public string entityId { get; set; }
+            public string entityType { get; set; }
+            public string entityName { get; set; }
+        }
+
+        public class Role
+        {
+            public string roleID { get; set; }
+            public string roleName { get; set; }
+        }
+             
+    }
+
+}

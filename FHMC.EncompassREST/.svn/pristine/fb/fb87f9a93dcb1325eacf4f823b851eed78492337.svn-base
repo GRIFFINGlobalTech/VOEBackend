@@ -1,0 +1,43 @@
+﻿using FHMC.Interfaces.Utility;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FHMC.EncompassREST
+{
+    public partial class Company : BaseClass
+    {
+
+        public Company() : base() { }
+        public Company(object Log) : base(Log) { }
+        public Company(object Log, string TrafficFileTag, ITrafficDBLog TrafficDBLog) 
+            : base(Log, TrafficFileTag, TrafficDBLog) { }
+
+        public User getUser(string userId, string accessToken)
+        {
+            User retVal = null;
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL + "company/users/" + userId;
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                retVal = JsonConvert.DeserializeObject<User>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting user profile for " + userId, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+
+    }
+}

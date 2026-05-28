@@ -1,0 +1,99 @@
+﻿using FHMC.Interfaces.Utility;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FHMC.EncompassREST
+{
+    public partial class LoanAssociates : BaseClass
+    {
+        int apiVersion = 3;
+
+        public LoanAssociates() : base() { }
+        public LoanAssociates(object Log) : base(Log) { }
+        public LoanAssociates(object Log, string TrafficFileTag, ITrafficDBLog TrafficDBLog)
+            : base(Log, TrafficFileTag, TrafficDBLog) { }
+    
+        public enum Role
+        {
+            loan_officer,
+            loan_processor,
+            underwriter,
+            closer,
+            note_shipper,
+            post_closer,
+            final_docs,
+            lo_assistant,
+            imager,
+            project_reviewer,
+            funder,
+            _203k,
+            closing_coordinator,
+            quality_control,
+            corporate_admin,
+            sar_underwriter,
+            compliance,
+            branch_admin,
+            department_manager,
+            office_manager,
+            branch_manager,
+            accounting,
+            prefunding_auditor,
+            lock_desk,
+            secondary_marketing,
+            protected_documents,
+        }
+
+        public List<LoanAssociate> getLoanAssociates(string loanGuid, string accessToken, List<Role> inRoles = null)
+        {
+            List<LoanAssociate> retVal = new List<LoanAssociate>() { };
+
+            try
+            {
+
+                string methodURL = EncRESTServiceBaseURL() + "loans/" + loanGuid + "/associates";
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                List<LoanAssociate> assocs = JsonConvert.DeserializeObject<List<LoanAssociate>>(responseString);
+
+                if (inRoles == null)
+                {
+                    retVal = assocs;
+                }
+                else
+                {
+                    foreach (LoanAssociate assoc in assocs)
+                    {
+                        Role aRole;
+                        if (Enum.TryParse(assoc.roleName.ToLower().Replace(" ","_"), out aRole) || Enum.TryParse("_" + assoc.roleName.ToLower().Replace(" ", "_"), out aRole))
+                        {
+                            if(inRoles.Contains(aRole))
+                            {
+                                retVal.Add(assoc);
+                            }
+                        }
+                        
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting Loan Associates for " + loanGuid, ex);
+                throw ex;
+            }
+
+
+            return retVal;
+
+        }
+
+
+
+    }
+
+}

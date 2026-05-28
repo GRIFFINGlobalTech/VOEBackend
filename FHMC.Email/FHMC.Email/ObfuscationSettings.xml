@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+  <Assembly_settings_for_FHMC.Email.dll>
+    <AssemblyName>FHMC.Email.dll</AssemblyName>
+    <SettingsFilePath>C:\SVNWork\FHMC.Email\FHMC.Email\ObfuscationSettings.xml</SettingsFilePath>
+    <SourcePath>C:\SVNWork\FHMC.Email\FHMC.Email\bin\x64\Release\</SourcePath>
+    <OutputPath>C:\SVNWork\FHMC.Email\FHMC.Email\bin\x64\Release\crypt\FHMC.Email.dll</OutputPath>
+    <Path_to_key></Path_to_key>
+    <Key_Password></Key_Password>
+    <All_Private>1</All_Private>
+    <PrivateClasses>1</PrivateClasses>
+    <PrivateMethods>1</PrivateMethods>
+    <PrivateFields>1</PrivateFields>
+    <Naming_method>0</Naming_method>
+    <Apply_PublicMembers>0</Apply_PublicMembers>
+    <Conceal_Strings>1</Conceal_Strings>
+    <StringsStore>0</StringsStore>
+    <StringsDLLfileName>appExtension</StringsDLLfileName>
+    <CryptographyApplied>0</CryptographyApplied>
+    <Apply_ControlFlow>0</Apply_ControlFlow>
+    <Apply_Linkage>0</Apply_Linkage>
+    <Obfuscate_Locals>0</Obfuscate_Locals>
+    <Strings_for_Public>1</Strings_for_Public>
+    <Strings_for_Private>1</Strings_for_Private>
+    <PublicClasses>0</PublicClasses>
+    <PublicMethods>0</PublicMethods>
+    <PublicFields>0</PublicFields>
+    <PublicProperties>0</PublicProperties>
+    <PublicEvents>0</PublicEvents>
+    <PublicClasses_for_Privates>0</PublicClasses_for_Privates>
+    <PublicMethods_for_Privates>0</PublicMethods_for_Privates>
+    <PublicFields_for_Privates>0</PublicFields_for_Privates>
+    <PublicProperties_for_Privates>0</PublicProperties_for_Privates>
+    <PublicEvents_for_Privates>0</PublicEvents_for_Privates>
+    <ControlFlow_for_Public>1</ControlFlow_for_Public>
+    <ControlFlow_for_Private>1</ControlFlow_for_Private>
+    <Public_members>
+    </Public_members>
+    <Strings>
+1^FHMC.Email.BaseClass2^53^.ctor
+1^FHMC.Email.BaseClass2^13^.ctor
+1^FHMC.Email.BaseClass2^43^.ctor
+1^FHMC.Email.BaseClass2^03^.ctor
+1^FHMC.Email.BaseClass2^63^.ctor
+1^FHMC.Email.BaseClass2^23^.ctor
+1^FHMC.Email.BaseClass2^73^.ctor
+1^FHMC.Email.BaseClass2^33^.ctor
+1^FHMC.Email.BaseClass2^133^.ctor
+1^FHMC.Email.BaseClass2^93^.ctor
+1^FHMC.Email.BaseClass2^123^.ctor
+1^FHMC.Email.BaseClass2^83^.ctor
+1^FHMC.Email.BaseClass2^143^.ctor
+1^FHMC.Email.BaseClass2^103^.ctor
+1^FHMC.Email.BaseClass2^153^.ctor
+1^FHMC.Email.BaseClass2^113^.ctor
+1^FHMC.Email.BaseClass2^13^CheckAuthorization
+1^FHMC.Email.BaseClass2^03^CheckAuthorization
+1^FHMC.Email.BaseClass2^03^CheckMACKey
+1^FHMC.Email.BaseClass2^13^CheckMACKey
+1^FHMC.Email.BaseClass2^03^getAuthString
+1^FHMC.Email.EmailClient2^43^Send
+1^FHMC.Email.EmailClient2^13^Send
+1^FHMC.Email.EmailClient2^03^Send
+1^FHMC.Email.EmailClient2^53^Send
+1^FHMC.Email.EmailClient2^73^Send
+1^FHMC.Email.EmailClient2^83^Send
+1^FHMC.Email.EmailClient2^63^Send
+1^FHMC.Email.EmailClient2^23^Send
+1^FHMC.Email.EmailClient2^33^Send
+    </Strings>
+    <ControlFlow>
+      <ControlFlowAlgorithm>Light</ControlFlowAlgorithm>
+      <ControlFlowMethods>
+      </ControlFlowMethods>
+    </ControlFlow>
+    <Extensions>
+    </Extensions>
+    <Linker>
+    </Linker>
+    <Licenser>
+    </Licenser>
+    <LicenseTitle>MyApplication</LicenseTitle>
+    <LicenseLink>http://MyApplicationOrderPage.html</LicenseLink>
+  </Assembly_settings_for_FHMC.Email.dll>

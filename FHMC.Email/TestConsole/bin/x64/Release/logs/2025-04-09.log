@@ -1,0 +1,7 @@
+2025-04-09 18:07:16.6558 INFO Sending message for voe@firsthome.com: test Graph Message 10 
+2025-04-09 18:07:17.4446 INFO Email Sent - Subject: test Graph Message 10 
+2025-04-09 18:07:17.4446 INFO Test Complete 
+2025-04-09 18:38:30.5037 INFO {"Id":null,"Subject":"test Graph Message 10","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"cdesimone@firsthome.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-04-09 18:38:31.9231 INFO Sending message for voe@firsthome.com: test Graph Message 10 
+2025-04-09 18:38:32.3918 INFO Email Sent - Subject: test Graph Message 10 
+2025-04-09 18:38:32.3918 INFO Test Complete 

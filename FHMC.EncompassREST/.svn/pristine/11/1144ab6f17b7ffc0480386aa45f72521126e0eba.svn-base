@@ -1,0 +1,169 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using Newtonsoft.Json;
+using System.Configuration;
+using System.Web;
+
+namespace FHMC.EncompassREST
+{
+    public partial class Authentication : BaseClass, FHMC.Interfaces.Encompass.IVerifyLogin
+    {
+
+        private const string EncTokenIssuanceURL = @"api.elliemae.com/oauth2/v1/token";
+        private const string EncUserName = "sdkadmin1";
+        private const string EncPassword = "Updatefield1!";
+
+        //private const string EncUserName = "tester";
+        //private const string EncPassword = "Fhmc5355$";
+
+        private string EncInstanceId;
+        private string EncClientID;
+        private string EncClientSecretKey;
+
+        public Authentication() : base() { setCredentials(); }
+        public Authentication(object Log) : base(Log) { setCredentials(); }
+        
+        private void setCredentials()
+        {
+
+            System.Configuration.AppSettingsReader appSettings = new AppSettingsReader();
+            bool IsTest = Boolean.Parse(appSettings.GetValue("EncompassRESTTestMode", typeof(string)).ToString());
+
+            if (IsTest)
+            {
+                //test system credentials
+                EncInstanceId = "TEBE11159193";
+                EncClientID = @"mypoevr";
+                EncClientSecretKey = @"vfEhx*Rdpo&cJo@MM0Y08BqxFXMuGKnrIlb6kWvwqzE9JX!7f^m&h$^M0zWxVNb!";
+            }
+            else
+            {
+                //prod instance credentials
+                EncInstanceId = "BE11124301";
+                EncClientID = @"k5t8yte";
+                EncClientSecretKey = @"EE4uIzFm$Oy7b^xIznmYaU9TB9eECFdlEyuO7Fr8gHqskdnRwmgYIvWpliZpkb4w";
+            }
+
+            Log.Info("Authenticating to Encompass Instance " + EncInstanceId);
+
+        }
+
+
+        public string getAccessToken()
+        {
+
+            return getAccessToken(EncUserName, EncPassword);
+        }
+
+
+        public string getAccessToken(string userName, string password)
+        {
+            string retVal = String.Empty;
+            
+            try
+            {
+                Dictionary<string, string> authParams = new Dictionary<string, string>() { };
+
+                authParams.Add("client_id", EncClientID);
+                authParams.Add("client_secret", EncClientSecretKey);
+
+                authParams.Add("grant_type", "password");
+                authParams.Add("username", userName + @"@encompass:" + EncInstanceId);
+                authParams.Add("password", password);
+
+                string stringContent = "";
+
+                //add to content byte array
+                foreach (KeyValuePair<string, string> param in authParams)
+                {
+                    stringContent += param.Key + "=" + HttpUtility.UrlEncode(param.Value) + "&";
+                }
+                stringContent = stringContent.Substring(0, stringContent.Length - 1);
+                byte[] content = Encoding.UTF8.GetBytes(stringContent);
+                
+                Stream responseStream = makeWebRequest(EncTokenIssuanceURL, WebRequestMethod.POST, "application/x-www-form-urlencoded",
+                    true, null, content, null, false);
+
+                string responseString = String.Empty;
+
+                using (StreamReader reader = new StreamReader(responseStream, Encoding.UTF8))
+                {
+                    responseString = reader.ReadToEnd();
+                    if (LogTrafficToLogFile)
+                    {
+                        Log.Info(responseString);
+                    }
+
+                };
+
+                TokenRequestResponse respObj = JsonConvert.DeserializeObject<TokenRequestResponse>(responseString);
+
+                retVal = respObj.access_token;
+            }
+            catch (System.Net.WebException webEx)
+            {
+                string errMessage = "";
+                EncRESTSchema.Error objErr = null;
+
+                using (var stream = webEx.Response.GetResponseStream())
+                using (var reader = new StreamReader(stream))
+                {
+                    objErr = JsonConvert.DeserializeObject<EncRESTSchema.Error>(reader.ReadToEnd());
+                    errMessage = objErr.details;
+                }
+
+                Log.Error("Web Authentication Error for " + userName, webEx);
+                string exMessage = webEx.Message + " " + errMessage;
+
+                throw new Exception(exMessage, webEx);
+
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Authentication Error for " + userName, ex);
+                throw ex;
+
+            }
+
+            return retVal;
+
+        }
+
+
+        public bool Verify(string UserName, string Password)
+        {
+            bool retval = false;
+          
+
+            try
+            {
+                Log.Info("Authenticating Login for " + UserName);
+
+                getAccessToken(UserName, Password);  //don't need token
+
+                Log.Info("Login Successfully Authenticated for UserName: " + UserName);
+
+                retval = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Info("Login NOT Authenticated for UserName: " + UserName);
+                throw ex;
+            }
+           
+
+            return retval;
+
+        }
+
+
+
+
+
+    }
+}

@@ -1,0 +1,204 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Web;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Converters;
+using FHMC.Interfaces.Utility;
+using static FHMC.EncompassREST.FilterRequest;
+
+namespace FHMC.EncompassREST
+{
+
+    public partial class Pipeline : BaseClass
+    {
+
+        public Pipeline() : base() { }
+        public Pipeline(object Log) : base(Log) { }
+        public Pipeline(object Log, string TrafficFileTag, ITrafficDBLog TrafficDBLog) 
+            : base(Log, TrafficFileTag, TrafficDBLog) { }
+
+        public List<string> queryPipelineByFields(Dictionary<string, string> fieldValues, string accessToken)
+        {
+            
+            //this is an "exact" "and" query for the fieldvals passed in as params
+            List<string> retVal = new List<string>() { };
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL() + "loanPipeline";
+
+                PipelineRequest request = new PipelineRequest();
+                request.fields = new List<string> { "Loan.LoanNumber" };
+
+                PipelineRequest.filterCriteria criteria = new PipelineRequest.filterCriteria();
+
+                foreach (KeyValuePair<string, string> field in fieldValues)
+                {
+                    PipelineRequest.filterCriteria.term theTerm =
+                        new PipelineRequest.filterCriteria.term("Fields." + field.Key, field.Value, PipelineRequest.filterCriteria.term.MatchType.exact);
+
+                    criteria.terms.Add(theTerm);
+                    criteria.@operator = PipelineRequest.filterCriteria.FilterOperator.And;
+                }
+
+                request.filter = criteria;
+
+                string requestString = JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.None,
+                            new JsonSerializerSettings
+                            {
+                                NullValueHandling = NullValueHandling.Ignore
+                            });
+
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                List<PipelineResponse> response = JsonConvert.DeserializeObject<List<PipelineResponse>>(responseString).ToList();
+
+                retVal = response.Select<PipelineResponse, string>(q =>
+                        q.fields.Where<KeyValuePair<string, string>>(r => r.Key == "Loan.LoanNumber").FirstOrDefault().Value
+                    ).ToList();
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                string fieldValString = JsonConvert.SerializeObject(fieldValues);
+
+                Log.Error("Error Querying Pipeline by FieldValues: " + fieldValString, ex);
+                throw ex;
+            }
+
+            return retVal;
+        }
+
+        public Dictionary<string, string> queryPipelineByFieldsAdvanced(List<QueryParam> queryParams, QueryOperation QueryOperation, string accessToken, string keyField = "GUID", string valueField = "GUID")
+        {
+
+            Dictionary<string, string> retVal = new Dictionary<string, string>() { };
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL() + "loanPipeline?cursor=&";
+
+                PipelineRequest request = new PipelineRequest();
+                request.fields = new List<string> { "Loan.LoanNumber" };
+                if(valueField != "GUID") {
+                    request.fields.Add(valueField);
+                }
+
+                request.filter = buildCriteria(queryParams, QueryOperation);
+
+                //serializer.Converters.Add()
+                string requestString = JsonConvert.SerializeObject(request, new JsonSerializerSettings
+                    {
+                        ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                        Converters = new List<JsonConverter> { new StringEnumConverter { CamelCaseText = true } },
+                        NullValueHandling = NullValueHandling.Ignore
+                    });
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                List<PipelineResponse> response = JsonConvert.DeserializeObject<List<PipelineResponse>>(responseString).ToList();
+
+                if (valueField == "GUID")
+                {
+                    if (keyField == "GUID")
+                    {
+                        retVal = response.Select<PipelineResponse, KeyValuePair<string, string>>(q => new KeyValuePair<string, string>(
+                                q.loanGuid,
+                                q.loanGuid
+                            )).ToList().ToDictionary(q => q.Key, q => q.Value);
+                    }
+                    else
+                    {
+                        retVal = response.Select<PipelineResponse, KeyValuePair<string, string>>(q => new KeyValuePair<string, string>(
+                                q.fields.Where<KeyValuePair<string, string>>(r => r.Key == "Loan.LoanNumber").FirstOrDefault().Value,
+                                q.loanGuid
+                            )).ToList().ToDictionary(q => q.Key, q => q.Value);
+                    }
+                }
+                else
+                {
+                    if (keyField == "GUID")
+                    {
+                        retVal = response.Select<PipelineResponse, KeyValuePair<string, string>>(q => new KeyValuePair<string, string>(
+                            q.loanGuid,
+                            q.fields.Where<KeyValuePair<string, string>>(r => r.Key == valueField).FirstOrDefault().Value
+                        )).ToList().ToDictionary(q => q.Key, q => q.Value);
+                    }
+                    else
+                    {
+                        retVal = response.Select<PipelineResponse, KeyValuePair<string, string>>(q => new KeyValuePair<string, string>(
+                            q.fields.Where<KeyValuePair<string, string>>(r => r.Key == "Loan.LoanNumber").FirstOrDefault().Value,
+                            q.fields.Where<KeyValuePair<string, string>>(r => r.Key == valueField).FirstOrDefault().Value
+                        )).ToList().ToDictionary(q => q.Key, q => q.Value);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                string fieldValString = JsonConvert.SerializeObject(queryParams);
+
+                Log.Error("Error Querying Pipeline by Advanced Params: " + fieldValString, ex);
+                throw ex;
+            }
+
+            return retVal;
+        }
+
+        public Dictionary<string, Dictionary<string,string>> queryPipelineByGUIDs(List<string> fields, List<string> GUIDs, string accessToken)
+        {
+
+            //this is an "exact" "and" query for the fieldvals passed in as params
+            Dictionary<string, Dictionary<string, string>> retVal = new Dictionary<string, Dictionary<string, string>>() { };
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL() + "loanPipeline";
+
+                PipelineRequest request = new PipelineRequest();
+
+                //fields.Add("Loan.LoanNumber");
+                request.fields = fields.Select<string,string>(q => { if (q.Contains("Loan.")) { return q; } else { return "Fields." + q; };  }).ToList();
+
+                request.loanGuids = GUIDs;
+
+                string requestString = JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.None,
+                            new JsonSerializerSettings
+                            {
+                                NullValueHandling = NullValueHandling.Ignore
+                            });
+
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                List<PipelineResponse> response = JsonConvert.DeserializeObject<List<PipelineResponse>>(responseString).ToList();
+
+                retVal = response.Select<PipelineResponse, KeyValuePair<string, Dictionary<string, string>>>(q => new KeyValuePair<string, Dictionary<string, string>>(
+                    q.loanGuid, q.fields.Select<KeyValuePair<string,string>, KeyValuePair<string, string>>(r => new KeyValuePair<string, string>(r.Key.Replace("Fields.",""), r.Value)).ToList().ToDictionary(p => p.Key, p => p.Value)
+                    )).ToList().ToDictionary(q => q.Key, q => q.Value);
+
+            }
+            catch (Exception ex)
+            {
+
+                string fieldString = JsonConvert.SerializeObject(fields);
+
+                Log.Error("Error Querying Pipeline by GUIDs: " + fieldString, ex);
+                throw ex;
+            }
+
+            return retVal;
+        }
+
+    }
+}

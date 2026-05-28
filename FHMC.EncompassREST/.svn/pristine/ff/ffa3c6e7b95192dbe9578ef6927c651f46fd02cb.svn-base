@@ -1,0 +1,565 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.IO;
+using System.Net;
+using System.Text;
+using System.Linq;
+using System.Web;
+using Newtonsoft.Json;
+using FHMC.NLogWrapper;
+using FHMC.Interfaces.Utility;
+using System.IO.Compression;
+using static FHMC.EncompassREST.FilterRequest;
+
+namespace FHMC.EncompassREST
+{
+    public class BaseClass
+    {
+
+        public BaseClass()
+        {
+
+            Log = new FHMC.NLogWrapper.Logger(GetType().FullName);
+            initLogSettings();
+        }
+
+        public BaseClass(dynamic logger, string trafficFileTag, ITrafficDBLog trafficDBLog)
+        {
+            Log = logger;
+            TrafficDBLogger = trafficDBLog;
+            TrafficFileTag = trafficFileTag;
+            initLogSettings();
+            
+        }
+
+        public BaseClass(dynamic logger)
+        {
+            Log = logger;
+            initLogSettings();
+        }
+
+        //protected Logger Log { get; private set; }
+        public dynamic Log;
+        public ITrafficDBLog TrafficDBLogger = null;
+        public string TrafficFileTag = String.Empty;
+       
+        public string LoanFolderImportLocation = ConfigurationManager.AppSettings["LoanFolderImportLocation"].ToString(); //@"\\hqnas3\apps\scan\inbox";
+        protected const string version = "1";
+        protected string EncRESTServiceBase = @"api.elliemae.com/encompass/"; //prod endpoint base url
+
+        public bool LogTrafficToLogFile;
+        public bool WriteTrafficFiles;
+        public bool LogTrafficToDB;
+
+        protected string EncRESTServiceBaseURL(int? ver = null)
+        {
+            if (ver == null) { ver = 1; };
+            return EncRESTServiceBase + "v" + ver.ToString() + "/";
+        }
+
+        //for logging traffic to files
+        public string TrafficFilePath {
+            get {
+
+                string path = ConfigurationManager.AppSettings["TrafficFilePath"].ToString();    
+                if (!Directory.Exists(path)) {
+                    Directory.CreateDirectory(path);
+                }
+
+                return path;
+            }
+        }
+            
+        protected enum WebRequestMethod
+        {
+            GET,
+            POST,
+            PATCH,
+            DELETE
+        }
+
+        protected void initLogSettings() {
+
+            //this logs REST traffic to the main application log file - normally this is not required
+            LogTrafficToLogFile = Boolean.Parse(ConfigurationManager.AppSettings["LogTrafficToLogFile"].ToString());
+            //this logs requests and responses to actual filesystem files
+            WriteTrafficFiles = Boolean.Parse(ConfigurationManager.AppSettings["WriteTrafficFiles"].ToString());
+            //this additionally logs the traffic to a database table in the main applicaiton - requires traffic files to be written
+            LogTrafficToDB = Boolean.Parse(ConfigurationManager.AppSettings["LogTrafficToDB"].ToString());
+
+            if (LogTrafficToDB && !WriteTrafficFiles)
+            {
+                throw new CustomException.CustomInvalidConfigurationException("Traffic logging to Database requires logging traffic to files.  Please fix the config file.");
+            }
+
+        }
+
+        protected Stream makeWebRequest(string URL, WebRequestMethod method, string contenttype, bool IsSSL,
+            Dictionary<string, string> urlparams, byte[] content, string headerString, bool returnHeaders)
+        {
+            HttpWebRequest oHttpWebRequest = null; 
+            HttpWebResponse oHttpWebResponse = null;
+            Stream responseStream = null;
+            string sendURL = string.Empty;
+            string DateTimeStamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+
+            try
+            {
+
+                if (!URL.StartsWith("http"))
+                {
+                    if (IsSSL)
+                    {
+                        sendURL = "https://" + URL;
+                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    }
+                    else
+                    {
+                        sendURL = "http://" + URL;
+                    }
+                }
+                else
+                {
+                    sendURL = URL;
+                }
+
+                //add encoded params
+                if ( urlparams != null )
+                {
+                    sendURL += "?";
+                    foreach (KeyValuePair<string, string> param in urlparams)
+                    {
+                        sendURL += param.Key + "=" + HttpUtility.UrlEncode(param.Value) + "&";
+                    }
+                } 
+
+                //Create Request
+                oHttpWebRequest = (HttpWebRequest)HttpWebRequest.Create(sendURL);
+                oHttpWebRequest.Method = method.ToString();
+
+                if (headerString != null)
+                {
+                    oHttpWebRequest.Headers.Add(headerString);
+                }
+
+                oHttpWebRequest.Headers.Add("Accept-Encoding: gzip,deflate");
+
+
+                Stream requestStream = null;
+                if (content != null)
+                {
+                    oHttpWebRequest.ContentType = contenttype;
+                    oHttpWebRequest.ContentLength = content.Length;
+                    requestStream = oHttpWebRequest.GetRequestStream();
+                    requestStream.Write(content, 0, content.Length);
+                    requestStream.Close();
+                }
+
+                if (LogTrafficToLogFile)
+                {
+                    Log.Info("Web Request: " + method.ToString() + " " + URL);
+                    Log.Info(stringifyHeaders(oHttpWebRequest.Headers));
+                }              
+
+                //Get Response
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                oHttpWebResponse = (HttpWebResponse)oHttpWebRequest.GetResponse();
+
+                if (returnHeaders)
+                {
+                    byte[] headerBytes = Encoding.UTF8.GetBytes(stringifyHeaders(oHttpWebResponse.Headers));
+                    responseStream = new MemoryStream(headerBytes);
+                }
+                else
+                {
+                    responseStream = oHttpWebResponse.GetResponseStream();
+                }
+
+                //decompress, if nec
+                if (oHttpWebResponse.ContentEncoding.ToLower().Contains("gzip"))
+                {
+                    responseStream = new GZipStream(responseStream, CompressionMode.Decompress);
+                }
+                else if (oHttpWebResponse.ContentEncoding.ToLower().Contains("deflate"))
+                {
+                    responseStream = new DeflateStream(responseStream, CompressionMode.Decompress);
+                }
+
+                if (LogTrafficToLogFile)
+                {
+                    Log.Info("Web Response: " + oHttpWebResponse.StatusCode);
+                    Log.Info(stringifyHeaders(oHttpWebResponse.Headers));
+                }
+               
+               
+
+            }
+            catch (System.Net.WebException webEx)
+            {
+                string errMessage = getResponseError(webEx, ref oHttpWebResponse, ref responseStream);
+
+                if (LogTrafficToLogFile)
+                {
+                    Log.Info("Web Response: " + oHttpWebResponse.StatusCode);
+                    Log.Info(stringifyHeaders(oHttpWebResponse.Headers));
+                }
+
+                Log.Error("Web Error making web request: " + URL, webEx);
+                string exMessage = webEx.Message + " " + errMessage;
+
+                throw new Exception(exMessage, webEx);
+
+
+            }
+            catch (Exception ex) 
+            {
+                //some other kind of error
+                Log.Error("Error making web request: " + URL, ex);
+                throw ex;
+            }
+            finally
+            {
+
+                try
+                {
+                    //if (WriteTrafficFiles && !URL.Contains("token")) //dont log auth process
+                    if (WriteTrafficFiles )
+                    {
+                        int? RequestLogId = null;
+                        //log request
+                        writeTraffic(content, oHttpWebRequest.Headers, DateTimeStamp, TrafficType.Request, ref RequestLogId, URL, null, null);
+                        //log response
+                        responseStream = writeTraffic(responseStream, oHttpWebResponse.Headers, DateTimeStamp, TrafficType.Response, ref RequestLogId, null,
+                             oHttpWebResponse.StatusCode.ToString(), oHttpWebResponse.StatusDescription);
+                    }
+                }
+                catch { }
+
+                oHttpWebRequest = null;
+                oHttpWebResponse = null;
+            }
+
+            return responseStream;
+
+        }
+
+        private string getResponseError(System.Net.WebException webEx, ref HttpWebResponse response, ref Stream responseStream)
+        {
+            string errMessage = "";
+
+            try
+            {
+
+                EncRESTSchema.Error objErr = null;
+                Stream oStream;
+                string contentString;
+
+                response = (HttpWebResponse)webEx.Response;
+                oStream = webEx.Response.GetResponseStream();
+
+                using (StreamReader reader = new StreamReader(oStream, Encoding.UTF8))
+                {
+                    contentString = reader.ReadToEnd();
+                    if (responseStream == null)
+                    {
+                        responseStream = new MemoryStream();
+                        byte[] responseBytes = Encoding.UTF8.GetBytes(contentString);
+                        responseStream.Write(responseBytes, 0, responseBytes.Length);
+                        responseStream.Seek(0, System.IO.SeekOrigin.Begin);
+                    }
+
+                    objErr = JsonConvert.DeserializeObject<EncRESTSchema.Error>(contentString);
+                    errMessage = objErr.error_description ?? objErr.details;
+                };
+            }
+            catch { }
+
+            return errMessage;
+        
+        }
+
+        public string stringifyHeaders(WebHeaderCollection Headers)
+        {
+            string headerString = String.Empty;
+            foreach (string header in Headers.AllKeys)
+            {
+                if (header == "Authorization")
+                {
+                    //dont log tokens
+                    headerString += header + ": thetokenvalue\n";
+                }
+                else
+                {
+                    headerString += header + ": " + Headers[header] + "\n";
+                }
+            }
+            headerString += "\n\n";
+            return headerString;
+        }
+
+        private enum TrafficType
+        {
+            Request,
+            Response
+        }
+
+        private Stream writeTraffic(byte[] contentBytes, WebHeaderCollection Headers, string DateTimeStamp, TrafficType trafficType, 
+            ref int? RequestLogId, string URL, string StatusCode, string StatusNote)
+        {
+            //EncRESTSchema.WebResponse retVal = new EncRESTSchema.WebResponse();
+            //we will see if we will want to organize this data later
+            MemoryStream oStream = null;
+            if (contentBytes != null)
+            {
+                oStream = new MemoryStream();
+                oStream.Write(contentBytes, 0, contentBytes.Length);
+                oStream.Seek(0, System.IO.SeekOrigin.Begin);
+            }
+
+            return writeTraffic(oStream, Headers, DateTimeStamp, trafficType, ref RequestLogId, URL, StatusCode, StatusNote);
+
+        }
+
+        private Stream writeTraffic(Stream oHttpWebStream, WebHeaderCollection Headers, string DateTimeStamp, TrafficType trafficType, 
+            ref int? RequestLogId, string URL, string StatusCode, string StatusNote)
+        {
+
+            MemoryStream oStream = null;
+            string contentString = string.Empty;
+
+            //duplicate stream first for returning
+            if (oHttpWebStream != null)
+            {
+                using (StreamReader reader = new StreamReader(oHttpWebStream, Encoding.UTF8))
+                {
+                    contentString = reader.ReadToEnd();
+                    oStream = new MemoryStream();
+                    byte[] responseBytes = Encoding.UTF8.GetBytes(contentString);
+                    oStream.Write(responseBytes, 0, responseBytes.Length);
+                    oStream.Seek(0, System.IO.SeekOrigin.Begin);
+                }
+            }
+
+            //write out file
+            string headerString = stringifyHeaders(Headers);
+
+            string FileName = String.Empty;
+            string FilePathName = String.Empty;
+            if (trafficType == TrafficType.Request)
+            {
+                FileName = "EncRequest_" + TrafficFileTag + "_ " + DateTimeStamp + ".txt";
+                if (LogTrafficToDB) RequestLogId = TrafficDBLogger.LogRequest(DateTime.Now, FileName);
+            }
+            else
+            {
+                FileName = "EncResponse_" + TrafficFileTag + "_ " + DateTimeStamp + ".txt";
+                if (LogTrafficToDB) TrafficDBLogger.LogResponse(DateTime.Now, FileName, RequestLogId ?? 0, StatusCode, StatusNote);
+            }
+            FilePathName = TrafficFilePath + FileName;
+
+            //write out request/response file content
+            string fileContent = String.Empty;
+            if (trafficType == TrafficType.Request) 
+            {
+                fileContent += isNull(URL, "") + "\n";
+            }
+            if (trafficType == TrafficType.Response)
+            {
+                fileContent += "Web Response: " + isNull(StatusCode, "") + " " + isNull(StatusNote, "") + "\n";
+            }
+            fileContent += headerString + "\n";
+            fileContent += isNull(contentString,"");
+
+            File.WriteAllText(FilePathName, fileContent);
+
+            return oStream;
+        }
+
+
+        protected void downloadFile(string URL, string FilePathName)
+        {
+            WebClient wc = new WebClient();
+
+            try
+            {
+                wc.DownloadFile(URL, FilePathName);
+
+            } catch (Exception ex) {
+
+                Log.Error("Error downloading file: " + URL + " TO " + FilePathName, ex);
+                throw ex;
+            }
+            finally
+            {
+                wc = null;
+            }
+
+
+        }
+
+        public bool saveDocument(string file, string filePathName, bool decodeBase64)
+        {
+            bool retVal = false;
+
+            try
+            {
+
+                if (File.Exists(filePathName))
+                {
+                    File.Delete(filePathName);
+                }
+
+                if (decodeBase64)
+                {
+                    File.WriteAllBytes(filePathName, decodeFrom64(file.Trim()));
+                }
+                else
+                {
+                    File.WriteAllText(filePathName, file);
+                }
+
+                retVal = true;
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error Saving EncREST File to " + filePathName, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        protected byte[] decodeFrom64(string toDecode)
+        {
+            return Convert.FromBase64String(toDecode);
+        }
+
+        protected string makeServiceRequest(string methodURL, WebRequestMethod method, string requestString, string accessToken, 
+            Dictionary<string, string> urlparams = null, bool returnHeaders = false)
+        {
+            string response = String.Empty;
+
+            using (Stream responseStream = makeServiceRequestStream(methodURL, method, requestString, accessToken, urlparams, returnHeaders))
+            {
+
+                using (StreamReader reader = new StreamReader(responseStream, Encoding.UTF8))
+                {
+  
+                    response = reader.ReadToEnd();
+                    if (LogTrafficToLogFile)
+                    {
+                        Log.Info(response);
+                    }
+
+                };
+            }
+
+            return response;
+        }
+
+        protected Stream makeServiceRequestStream(string methodURL, WebRequestMethod method, string requestString, string accessToken, 
+            Dictionary<string, string> urlparams = null, bool returnHeaders = false)
+        {
+
+            byte[] postContent = null;
+
+            if (requestString != null)
+            {
+                postContent = Encoding.UTF8.GetBytes(requestString);
+                if (LogTrafficToLogFile)
+                {
+                    Log.Info(requestString);
+                }
+            }
+
+            string tokenHeaderString = "Authorization: Bearer " + accessToken;
+
+            return makeWebRequest(methodURL, method, "application/json",
+                true, urlparams, postContent, tokenHeaderString, returnHeaders);
+
+        }
+
+        public string isNull(object inString, string replVal)
+        {
+
+            if (inString == null)
+            {
+                return replVal;
+            }
+            else
+            {
+                return inString.ToString();
+            }
+
+        }
+
+        public filterCriteria buildCriteria(List<QueryParam> queryParams, QueryOperation queryOperation)
+        {
+
+            filterCriteria criteria = new filterCriteria();
+            criteria.terms = new List<filterCriteria.term>() { };
+
+            foreach (QueryParam queryParam in queryParams)
+            {
+                filterCriteria.term theTerm = null;
+
+                if (queryParam.NestedParams == null)
+                {
+                    //******regular term****************
+                    //must use exact for strings 
+                    if (queryParam.FieldComparator == QueryParamComparator.Equals &&
+                        queryParam.FieldType == QueryParamType.String)
+                    {
+                        queryParam.FieldComparator = QueryParamComparator.Exact;
+                    }
+
+                    //api does not have a "doesnotcontain" so map this to exclude/contains
+                    filterCriteria.term.MatchType filterMatchType;
+                    bool? filterInclude = null;
+                    if (queryParam.FieldComparator == QueryParamComparator.DoesNotContain)
+                    {
+                        filterMatchType = filterCriteria.term.MatchType.contains;
+                        filterInclude = false;
+                    }
+                    else
+                    {
+                        filterMatchType = (filterCriteria.term.MatchType)Enum.Parse(
+                            typeof(filterCriteria.term.MatchType),
+                            queryParam.FieldComparator.ToString().ToLower(), true);
+                    }
+
+                    //the prefix "fields" means that this requred fields to be in the  rdb. 
+                    if (queryParam.FieldName.StartsWith("Loan.")) {
+                        theTerm = new filterCriteria.term(queryParam.FieldName, queryParam.FieldValue, filterMatchType, filterInclude);
+                    }
+                    else
+                    {
+                        theTerm = new filterCriteria.term("Fields." + queryParam.FieldName, queryParam.FieldValue, filterMatchType, filterInclude);
+                    }
+                }
+                else
+                {
+                    //******nested term****************
+                    filterCriteria tempCriteria = buildCriteria(queryParam.NestedParams, queryParam.NestedParamOperation);
+                    theTerm = new filterCriteria.term(tempCriteria.terms, tempCriteria.@operator);
+                }
+
+                criteria.terms.Add(theTerm);
+            }
+
+            filterCriteria.FilterOperator filterOperator = (filterCriteria.FilterOperator)Enum.Parse(
+                typeof(filterCriteria.FilterOperator),
+                queryOperation.ToString(), true);
+            criteria.@operator = filterOperator;
+
+            return criteria;
+        }
+
+
+
+    }
+}

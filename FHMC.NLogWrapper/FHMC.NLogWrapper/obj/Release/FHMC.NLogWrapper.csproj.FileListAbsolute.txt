@@ -1,0 +1,16 @@
+E:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\FHMC.NLogWrapper.dll
+E:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\FHMC.NLogWrapper.pdb
+E:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\NLog.dll
+E:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\NLog.xml
+E:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\obj\Release\FHMC.NLogWrapper.dll
+E:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\obj\Release\FHMC.NLogWrapper.pdb
+E:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\obj\Release\FHMC.NLogWrapper.csprojResolveAssemblyReference.cache
+C:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\FHMC.NLogWrapper.dll
+C:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\FHMC.NLogWrapper.pdb
+C:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\NLog.dll
+C:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\NLog.xml
+C:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\obj\Release\FHMC.NLogWrapper.csprojAssemblyReference.cache
+C:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\obj\Release\FHMC.NLogWrapper.csproj.CoreCompileInputs.cache
+C:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\obj\Release\FHMC.NLogWrapper.csproj.CopyComplete
+C:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\obj\Release\FHMC.NLogWrapper.dll
+C:\SVNWork\FHMC.NLogWrapper\FHMC.NLogWrapper\obj\Release\FHMC.NLogWrapper.pdb

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7" />
+    </startup>
+  <appSettings>
+    	<!-- encompassrest keys start -->
+	  <add key="LogTrafficToLogFile" value="true"/>
+	  <add key="WriteTrafficFiles" value="false"/>
+	  <add key="LogTrafficToDB" value="false"/>
+	  <add key="TrafficFilePath" value="C:\Temp\EncRESTFiles\"/>
+	  <add key="LoanFolderImportLocation" value="E:\LoanFolderImportPickupNew\inbox"/>
+	  <add key="EncompassRESTTestMode" value="false"/>
+	  <add key="TestLoanStatus" value="Active Loan" />
+	  <!-- encompassrest keys end -->
+  </appSettings>
+</configuration>

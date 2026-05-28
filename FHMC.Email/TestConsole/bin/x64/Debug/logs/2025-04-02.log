@@ -1,0 +1,21 @@
+2025-04-02 11:27:45.8869 INFO Sending message for alerts@firsthome.com: test Graph Message 10 
+2025-04-02 11:27:46.5590 ERROR GraphAPI Failed to Send Mail System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: InvalidInternetMessageHeader
+Message: The internet message header name 'MyCustomHeader' should start with 'x-' or 'X-'.
+ClientRequestId: 64824893-3996-4fed-96fa-f1e773f525c4
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.BaseClass.makeGraphRequest(String url, HttpMethod method, Object content, Dictionary`2 headers, ContentType contentType) in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 148
+   at FHMC.Graph.Email.sendMessage(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 705
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: InvalidInternetMessageHeader
+Message: The internet message header name 'MyCustomHeader' should start with 'x-' or 'X-'.
+ClientRequestId: 64824893-3996-4fed-96fa-f1e773f525c4
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-04-02 11:27:56.6494 INFO Email Sent - Subject: test Graph Message 10 
+2025-04-02 11:27:56.6494 INFO Test Complete 
+2025-04-02 11:30:25.8111 INFO Sending message for alerts@firsthome.com: test Graph Message 10 
+2025-04-02 11:30:26.7612 INFO Email Sent - Subject: test Graph Message 10 
+2025-04-02 11:30:26.7612 INFO Test Complete 

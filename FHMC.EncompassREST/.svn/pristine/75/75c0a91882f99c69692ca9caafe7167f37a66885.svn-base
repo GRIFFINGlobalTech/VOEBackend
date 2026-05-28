@@ -1,0 +1,126 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FHMC.EncompassREST
+{
+    public class FilterRequest
+    {
+
+#region Enums
+
+        public enum QueryParamType
+        {
+            String,
+            Date
+        }
+
+        public enum QueryParamComparator
+        {
+            Contains,
+            DoesNotContain,
+            Equals,
+            Exact,
+            GreaterThan,
+            GreaterThanOrEquals,
+            IsEmpty,
+            IsNotEmpty,
+            NotEquals,
+            LessThan,
+            LessThanOrEquals
+        }
+
+        public enum QueryOperation
+        {
+            And,
+            Or
+        }
+
+        #endregion Enums
+
+#region Classes
+
+        public class QueryParam
+        {
+            public string FieldName { get; set; }
+            public string FieldValue { get; set; }
+            public QueryParamType FieldType { get; set; }
+            public QueryParamComparator FieldComparator { get; set; }
+            public QueryOperation NestedParamOperation { get; set; }
+            public List<QueryParam> NestedParams { get; set; }
+        }
+
+        public List<string> fields { get; set; }
+        public filterCriteria filter { get; set; }
+        public string includeArchivedLoans { get; set; }
+
+        public class filterCriteria
+        {
+
+            public filterCriteria()
+            {
+                terms = new List<term>() { };
+            }
+
+            public FilterOperator? @operator { get; set; }
+            public List<term> terms { get; set; }
+
+            [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+            public enum FilterOperator
+            {
+                And,
+                Or
+            }
+
+
+            public class term
+            {
+
+                public term(string CanonicalName, string Value, MatchType MatchType, bool? Include = null)
+                {
+                    canonicalName = CanonicalName;
+                    value = Value;
+                    matchType = MatchType;
+                    include = Include;
+                }
+                public term(List<term> NestedTerms, FilterOperator? NestedFilterOperator)
+                {
+                    terms = NestedTerms;
+                    @operator = NestedFilterOperator;
+                }
+
+
+                public string canonicalName { get; set; }
+                public string value { get; set; }
+                public MatchType? matchType { get; set; }
+                public bool? include { get; set; }
+                /***********for nested terms***********/
+                public FilterOperator? @operator { get; set; }
+                public List<term> terms { get; set; }
+
+                [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+                public enum MatchType
+                {
+                    contains,
+                    equals,
+                    exact,
+                    greaterThan,
+                    greaterThanOrEquals,
+                    isEmpty,
+                    isNotEmpty,
+                    lessThan,
+                    lessThanOrEquals,
+                    notEquals,
+                    startsWith
+                }
+
+            }
+        }
+
+        #endregion Classes
+
+    }
+}

@@ -1,0 +1,119 @@
+﻿using FHMC.Interfaces.Utility;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FHMC.EncompassREST
+{
+    public partial class Conditions : BaseClass
+    {
+
+        public Conditions() : base() { }
+        public Conditions(object Log) : base(Log) { }
+        public Conditions(object Log, string TrafficFileTag, ITrafficDBLog TrafficDBLog)
+            : base(Log, TrafficFileTag, TrafficDBLog) { }
+
+#region Enums
+
+        public enum PriorTo
+        {
+            Approval
+        }
+
+        public enum Category
+        {
+            Credit
+        }
+
+        //public enum Owner
+        //{
+        //    Underwriter
+        //}
+
+        public enum ConditionType
+        {
+            Underwriting
+        }
+
+        public enum Source
+        {
+            Manual
+        }
+
+#endregion Enums
+
+        public string addCondition(string LoanNumber, PriorTo priorto, Category category, EncompassREST.Role.enuRoleType ownerRole, ConditionType conditionType, Source source, 
+            string title, string description, string accessToken)
+        {
+
+            string retVal = null;
+            string loanGUID = null;
+            string lockId = null;
+            Loan loan = new Loan();
+
+            try
+            {
+                //first, get the loan GUID
+                loanGUID = loan.getGUIDforLoanNumber(LoanNumber, accessToken);
+
+                Role ro = new Role();
+                EncompassREST.Role.RoleEntity role = ro.getRole(ownerRole, accessToken);
+
+                EncompassREST.Conditions.Condition cond = new EncompassREST.Conditions.Condition
+                {
+                    priorTo = priorto.ToString(),
+                    category = category.ToString(),
+                    ownerRole = role,
+                    conditionType = conditionType.ToString(),
+                    title = title,
+                    description = description,
+                    forAllApplications = true,
+                    printExternally = true, 
+                    printInternally = true, 
+                    source = source.ToString()
+                };
+                  
+                string methodURL = EncRESTServiceBaseURL() + "loans/" + loanGUID + "/conditions/underwriting?view=entity";
+
+                string requestString = JsonConvert.SerializeObject(cond);
+
+                //get lock for loan
+                lockId = loan.getLoanLock(loanGUID, accessToken, LoanNumber);
+
+                //perform update
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                //release lock for loan
+                loan.releaseLoanLock(loanGUID, lockId, accessToken, LoanNumber);
+
+                cond = JsonConvert.DeserializeObject<EncompassREST.Conditions.Condition>(responseString);
+
+                retVal = cond.id;
+
+                Log.Info("Condition " + title + " added for " + LoanNumber);
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error("Error adding condition " + title + " for " + LoanNumber, ex);
+
+                //release lock for loan
+                loan.releaseLoanLock(loanGUID, lockId, accessToken, LoanNumber);
+
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+       
+
+    }
+}

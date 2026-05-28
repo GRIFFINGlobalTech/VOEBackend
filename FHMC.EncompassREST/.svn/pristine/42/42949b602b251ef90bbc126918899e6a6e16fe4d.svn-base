@@ -1,0 +1,196 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FHMC.EncompassREST
+{
+    public partial class Documents
+    {
+        //V1 API
+        //public class Document
+        //{
+        //    public string documentId { get; set; }
+        //    public string applicationName { get; set; }
+        //    public string milestoneId { get; set; }
+        //    public string createdBy { get; set; }
+        //    public DateTime dateCreated { get; set; }
+        //    public string title { get; set; }
+        //    public string description { get; set; }
+        //    public List<AssociatedEntity> attachments { get; set; }
+
+        //    public class AssociatedEntity
+        //    {
+        //        public string entityId { get; set; }
+        //        public string entityType { get; set; }
+        //        public string entityName { get; set; }
+        //        public string entityUri { get; set; }
+        //    }
+        //}
+
+        //V3 API
+        public class Document
+        {
+            public string id { get; set; }
+            public string documentId { get { return id; } } //for v1 compatibility
+
+            public string title { get; set; }
+            public string description { get; set; }
+            public string status { get; set; }
+            public AssociatedEntity createdBy { get; set; }
+            public DateTime createdDate { get; set; }
+            public AssociatedEntity milestone { get; set; }
+            public List<AssociatedEntity> attachments { get; set; }
+            public DateTime? readyToShipDate { get; set; } 
+
+            public class AssociatedEntity
+            {
+                public bool isActive { get; set; }
+                public string entityId { get; set; }
+                public string entityType { get; set; }
+                public string entityName { get; set; }
+                public string entityUri { get; set; }
+            }
+        }
+
+        //V1 API
+        //public class Attachment
+        //{
+        //    public string attachmentId { get; set; }
+        //    public string title { get; set; }
+        //    public AssociatedEntity document { get; set; }
+        //    public DateTime dateCreated { get; set; }
+        //    public string createdBy { get; set; }
+        //    public int attachmentType { get; set; }
+        //    public List<AttachmentPage> pages { get; set; }
+
+        //    public class AttachmentPage
+        //    {
+        //        public string imageKey { get; set; }
+        //        public string zipKey { get; set; }
+        //        public string nativeKey { get; set; }
+        //    }
+
+        //    public class AssociatedEntity
+        //    {
+        //        public string entityId { get; set; }
+        //        public string entityType { get; set; }
+        //        public string entityName { get; set; }
+        //        public string entityUri { get; set; }
+        //    }
+        //}
+
+        //V3 API
+        public class Attachment
+        {
+            public string id { get; set; }
+            public string attachmentId { get { return id; } } //for v1 compatibility
+            public string title { get; set; }
+            public string type { get; set; }
+            public bool isActive { get; set; }
+            public List<string> sources { get; set; }
+            public AssociatedEntity assignedTo { get; set; }
+            public AssociatedEntity document { get { return assignedTo; } } //for v1 compatibility
+            public List<AttachmentPage> pages { get; set; }
+            public DateTime createdDate { get; set; }
+            public AssociatedEntity createdBy { get; set; }
+
+            public class AttachmentPage
+            {
+                public PageImage pageImage { get; set; }
+                public string originalKey { get; set; }
+            }
+
+            public class AssociatedEntity
+            {
+                
+                public string entityId { get; set; }
+                public string entityType { get; set; }
+                public string entityName { get; set; }
+            }
+
+            public class PageImage
+            {
+               
+			    public string zipKey { get; set; }
+                public string imageKey { get; set; }
+                public string originalKey { get; set; }
+            }
+
+        }
+
+        //V1 API
+        //protected class GetAttachmentURLResponse
+        //{
+        //    public string mediaUrl { get; set; }
+
+        //}
+
+        public class AttachmentURLRequest
+        {
+            public List<string> attachments { get; set; }
+        }
+
+        public class AttachmentURLResponse
+        {
+            public List<Attachment> attachments { get; set; }
+
+            public class Attachment
+            {
+                public string id { get; set; }
+                public List<Page> pages { get; set; }
+                public List<string> originalUrls { get; set; }
+
+                public class Page {
+                    public string url { get; set; }
+                }
+            }
+        }
+
+
+        //V1 API
+        public class ExportJobRequest
+        {
+
+            public AnnotationSettings annotationSettings { get; set; }
+            public List<Entity> entities { get; set; }
+            public Entity source { get; set; }
+
+            public class AnnotationSettings
+            {
+                public List<string> visibility { get; set; }
+            }
+            
+            public class Entity
+            {
+                public string entityId { get; set; }
+                public string entityType { get; set; }
+            }
+
+        }
+
+        public class ExportJobResponse
+        {
+            public string jobId { get; set; }
+            public string status { get; set; }
+            public FileEntity file { get; set; }
+
+            public class FileEntity
+            {
+                public string entityId { get; set; }
+                public string entityType { get; set; }
+                public string entityUri { get; set; }
+                public string authorizationHeader { get; set; }
+                public string contentType { get; set; }
+                public int? fileSize { get; set; }
+                public int? pageCount { get; set; }
+            }
+
+
+        }
+
+
+    }
+}
+

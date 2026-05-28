@@ -1,0 +1,80 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FHMC.EncompassREST
+{
+    public partial class Loan
+    {
+        public class BorrowerPair
+        {
+            public Borrower borrower { get; set; }
+            public Borrower coborrower { get; set; }
+            public int applicationIndex { get; set; }
+            public List<Residence> residences { get; set; }
+            public List<Employment> employment { get; set; }
+
+        }
+
+        public class Borrower
+        {
+
+            public string firstName { get; set; }
+            public string firstNameWithMiddleName { get; set; }
+            public string lastName { get; set; }
+            public string lastNameWithSuffix { get; set; }
+            public string aliasName { get; set; }
+            public bool isBorrower { get; set; }
+            public string taxIdentificationIdentifier { get; set; }
+            public DateTime equifaxDatePulled { get; set; }
+            public DateTime experianDatePulled { get; set; }
+            public DateTime transUnionDatePulled { get; set; }
+
+            public string homePhoneNumber { get; set; }
+            public string mobilePhone { get; set; }
+            public string hmdaGenderType { get; set; }
+            public DateTime birthDate { get; set; }
+            public string emailAddressText { get; set; }
+
+        }
+
+        public class Residence
+        {
+            public string addressCity { get; set; }
+            public string addressPostalCode { get; set; }
+            public string addressState { get; set; }
+            public string addressStreetLine1 { get; set; }
+            public string residencyType { get; set; }
+            public string applicantType { get; set; }
+        }
+
+        public class Employment
+        {
+
+            public string owner { get; set; }
+            public string employerName { get; set; }
+            public string addressCity { get; set; }
+            public string addressPostalCode { get; set; }
+            public string addressState { get; set; }
+            public string addressStreetLine1 { get; set; }
+            public bool currentEmploymentIndicator { get; set; }
+            public bool selfEmployedIndicator { get; set; }
+            public DateTime? startDate { get; set; }
+            public DateTime? endDate { get; set; }
+            public string businessPhone { get; set; }
+            public string phoneNumber { get; set; }
+            public string fax { get; set; }
+            public string positionDescription { get; set; }
+            public int? timeInLineOfWorkYears { get; set; }
+            public int? timeOnJobTermMonths { get; set; }
+            public int? timeOnJobTermYears { get; set; }
+            public string email { get; set; }
+
+
+        }
+
+    }
+
+}

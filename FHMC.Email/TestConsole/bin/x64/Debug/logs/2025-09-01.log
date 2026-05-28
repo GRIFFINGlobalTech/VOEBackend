@@ -1,0 +1,377 @@
+2025-09-01 13:33:38.5254 TRACE {"Id":null,"Subject":"test Graph Message 1","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"christine.desimone@gmail.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-09-01 13:33:39.8765 INFO Sending MIME message for voe@firsthome.com: test Graph Message 1 
+2025-09-01 13:33:42.2835 TRACE From: "voe@firsthome.com" <voe@firsthome.com>
+Date: Mon, 01 Sep 2025 13:33:42 -0400
+Subject: test Graph Message 1
+Message-Id: <W9RR42KG3RU4.CAK80EFP47TV3@aze-admin-2v>
+To: "christine.desimone@gmail.com" <christine.desimone@gmail.com>
+Importance: high
+X-MyCustomHeader: WooHoo!!!!
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-uDbhCarLYJOc1nC8/ZmlHA=="
+
+--=-uDbhCarLYJOc1nC8/ZmlHA==
+Content-Type: text/html; charset=utf-8
+
+Testing100000000!!!!<B>This is really a test of html</B>
+--=-uDbhCarLYJOc1nC8/ZmlHA==--
+ 
+2025-09-01 13:34:43.6329 ERROR GraphAPI Failed to Send Mail MIME  System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 172d36f8-78b4-4940-a83c-25c4b79c9a75
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.BaseClass.makeGraphRequest(String url, HttpMethod method, Object content, Dictionary`2 headers, ContentType contentType) in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 168
+   at FHMC.Graph.Email.sendMessageMIME(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 848
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 172d36f8-78b4-4940-a83c-25c4b79c9a75
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-09-01 13:34:43.6739 ERROR FHMC.Email Error System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 172d36f8-78b4-4940-a83c-25c4b79c9a75
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.Email.sendMessageMIME(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 860
+   at FHMC.Email.Office365.sendEmail(IMailMessage message, EmailSender sender) in C:\SVNWork\FHMC.Email\FHMC.Email\Office365.cs:line 202
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 172d36f8-78b4-4940-a83c-25c4b79c9a75
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-09-01 15:01:16.7067 TRACE {"Id":null,"Subject":"test Graph Message 1","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"christine.desimone@gmail.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-09-01 15:01:17.8295 ERROR FHMC.Email Error System.AggregateException: One or more errors occurred. ---> System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. ---> System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Platforms.net45.Http.DnsSensitiveClientHandler.<SendAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Http.HttpManager.<ExecuteAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Http.HttpManager.<ExecuteWithRetryAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Http.HttpManager.<SendGetAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.OAuth2.OAuth2Client.<ExecuteRequestAsync>d__11`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.OAuth2.OAuth2Client.<DiscoverAadInstanceAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.Discovery.NetworkMetadataProvider.<SendInstanceDiscoveryRequestAsync>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.Discovery.NetworkMetadataProvider.<FetchAllDiscoveryMetadataAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.Discovery.NetworkMetadataProvider.<GetMetadataAsync>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.Discovery.InstanceDiscoveryManager.<FetchNetworkMetadataOrFallbackAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.Discovery.InstanceDiscoveryManager.<GetMetadataEntryAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.AuthorityManager.<RunInstanceDiscoveryAndValidationAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Internal.Requests.ClientCredentialRequest.<FetchNewAccessTokenAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Internal.Requests.ClientCredentialRequest.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Internal.Requests.RequestBase.<RunAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.ApiConfig.Executors.ConfidentialClientExecutor.<ExecuteAsync>d__3.MoveNext()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at FHMC.Graph.BaseClass.TokenHandler.getToken() in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 242
+   at FHMC.Graph.BaseClass.setGraphClient() in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 60
+   at FHMC.Graph.BaseClass..ctor(Object logger) in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 53
+   at FHMC.Graph.Email..ctor(Object logger, String emailKey) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 19
+   at CallSite.Target(Closure , CallSite , Type , Object , String )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at FHMC.Email.Office365.sendEmail(IMailMessage message, EmailSender sender) in C:\SVNWork\FHMC.Email\FHMC.Email\Office365.cs:line 199
+---> (Inner Exception #0) System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. ---> System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Platforms.net45.Http.DnsSensitiveClientHandler.<SendAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Http.HttpManager.<ExecuteAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Http.HttpManager.<ExecuteWithRetryAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Http.HttpManager.<SendGetAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.OAuth2.OAuth2Client.<ExecuteRequestAsync>d__11`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.OAuth2.OAuth2Client.<DiscoverAadInstanceAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.Discovery.NetworkMetadataProvider.<SendInstanceDiscoveryRequestAsync>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.Discovery.NetworkMetadataProvider.<FetchAllDiscoveryMetadataAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.Discovery.NetworkMetadataProvider.<GetMetadataAsync>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.Discovery.InstanceDiscoveryManager.<FetchNetworkMetadataOrFallbackAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.Discovery.InstanceDiscoveryManager.<GetMetadataEntryAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Instance.AuthorityManager.<RunInstanceDiscoveryAndValidationAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Internal.Requests.ClientCredentialRequest.<FetchNewAccessTokenAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Internal.Requests.ClientCredentialRequest.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.Internal.Requests.RequestBase.<RunAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Identity.Client.ApiConfig.Executors.ConfidentialClientExecutor.<ExecuteAsync>d__3.MoveNext()<---
+
+2025-09-01 15:14:29.4902 TRACE {"Id":null,"Subject":"test Graph Message 1","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"christine.desimone@gmail.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-09-01 15:14:31.6271 INFO Sending MIME message for voe@firsthome.com: test Graph Message 1 
+2025-09-01 15:14:34.2122 TRACE From: "voe@firsthome.com" <voe@firsthome.com>
+Date: Mon, 01 Sep 2025 15:14:34 -0400
+Subject: test Graph Message 1
+Message-Id: <7T8A0VBH3RU4.37JK11B2XLSH1@aze-admin-2v>
+To: "christine.desimone@gmail.com" <christine.desimone@gmail.com>
+Importance: high
+X-MyCustomHeader: WooHoo!!!!
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-ougkk5cbPN9FO/nYOjnxpQ=="
+
+--=-ougkk5cbPN9FO/nYOjnxpQ==
+Content-Type: text/html; charset=utf-8
+
+Testing100000000!!!!<B>This is really a test of html</B>
+--=-ougkk5cbPN9FO/nYOjnxpQ==--
+ 
+2025-09-01 15:14:36.4893 ERROR GraphAPI Failed to Send Mail MIME  System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 814c9aaa-7bde-4af0-a759-965f4e3c67a3
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.BaseClass.makeGraphRequest(String url, HttpMethod method, Object content, Dictionary`2 headers, ContentType contentType) in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 168
+   at FHMC.Graph.Email.sendMessageMIME(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 848
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 814c9aaa-7bde-4af0-a759-965f4e3c67a3
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-09-01 15:14:36.5421 ERROR FHMC.Email Error System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 814c9aaa-7bde-4af0-a759-965f4e3c67a3
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.Email.sendMessageMIME(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 860
+   at FHMC.Email.Office365.sendEmail(IMailMessage message, EmailSender sender) in C:\SVNWork\FHMC.Email\FHMC.Email\Office365.cs:line 202
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 814c9aaa-7bde-4af0-a759-965f4e3c67a3
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-09-01 15:18:04.7410 TRACE {"Id":null,"Subject":"test Graph Message 1","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"christine.desimone@gmail.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-09-01 15:18:06.3850 INFO Sending MIME message for voe@firsthome.com: test Graph Message 1 
+2025-09-01 15:18:09.4444 TRACE From: "voe@firsthome.com" <voe@firsthome.com>
+Date: Mon, 01 Sep 2025 15:18:09 -0400
+Subject: test Graph Message 1
+Message-Id: <2BRPLUCH3RU4.A6SYGHMW0CTV3@aze-admin-2v>
+To: "christine.desimone@gmail.com" <christine.desimone@gmail.com>
+Importance: high
+X-MyCustomHeader: WooHoo!!!!
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-c6AvwSdO/TaBdTBMz17bVg=="
+
+--=-c6AvwSdO/TaBdTBMz17bVg==
+Content-Type: text/html; charset=utf-8
+
+Testing100000000!!!!<B>This is really a test of html</B>
+--=-c6AvwSdO/TaBdTBMz17bVg==--
+ 
+2025-09-01 15:21:43.6769 TRACE {"Id":null,"Subject":"test Graph Message 1","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"christine.desimone@gmail.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-09-01 15:21:45.0252 INFO Sending message for alerts@firsthome.com: test Graph Message 1 
+2025-09-01 15:21:52.8928 INFO Email Sent - Subject: test Graph Message 1 
+2025-09-01 15:21:52.8928 INFO Test Complete 
+2025-09-01 15:28:11.9429 TRACE {"Id":null,"Subject":"test Graph Message 2","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"christine.desimone@gmail.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-09-01 15:28:14.1306 INFO Sending message for alerts@firsthome.com: test Graph Message 2 
+2025-09-01 15:28:43.8455 INFO Email Sent - Subject: test Graph Message 2 
+2025-09-01 15:28:43.8675 INFO Test Complete 
+2025-09-01 15:36:11.0751 TRACE {"Id":null,"Subject":"test Graph Message 3","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"christine.desimone@gmail.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-09-01 15:36:12.5727 INFO Sending message for alerts@firsthome.com: test Graph Message 3 
+2025-09-01 15:36:13.1886 INFO Email Sent - Subject: test Graph Message 3 
+2025-09-01 15:36:13.1906 INFO Test Complete 
+2025-09-01 15:49:20.5200 TRACE {"Id":null,"Subject":"test Graph Message 4","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"christine.desimone@gmail.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-09-01 15:49:22.4784 INFO Sending message for alerts@firsthome.com: test Graph Message 4 
+2025-09-01 15:49:25.7999 INFO Email Sent - Subject: test Graph Message 4 
+2025-09-01 15:49:25.7999 INFO Test Complete 
+2025-09-01 15:51:09.5495 TRACE {"Id":null,"Subject":"test Graph Message 4","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"christine.desimone@gmail.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-09-01 15:51:11.1495 INFO Sending MIME message for voe@firsthome.com: test Graph Message 4 
+2025-09-01 15:51:11.4931 TRACE From: "voe@firsthome.com" <voe@firsthome.com>
+Date: Mon, 01 Sep 2025 15:51:11 -0400
+Subject: test Graph Message 4
+Message-Id: <LUSBEYLH3RU4.VKGEFYRTGXHT2@aze-admin-2v>
+To: "christine.desimone@gmail.com" <christine.desimone@gmail.com>
+Importance: high
+X-MyCustomHeader: WooHoo!!!!
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-JLbtzd5W17DUuvvk19hx3g=="
+
+--=-JLbtzd5W17DUuvvk19hx3g==
+Content-Type: text/html; charset=utf-8
+
+Testing100000000!!!!<B>This is really a test of html</B>
+--=-JLbtzd5W17DUuvvk19hx3g==--
+ 
+2025-09-01 15:51:14.3322 ERROR GraphAPI Failed to Send Mail MIME  System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 5657ed0e-8deb-44eb-af3b-052f1fe7fc3c
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.BaseClass.makeGraphRequest(String url, HttpMethod method, Object content, Dictionary`2 headers, ContentType contentType) in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 179
+   at FHMC.Graph.Email.sendMessageMIME(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 848
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 5657ed0e-8deb-44eb-af3b-052f1fe7fc3c
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-09-01 15:51:14.3703 ERROR FHMC.Email Error System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 5657ed0e-8deb-44eb-af3b-052f1fe7fc3c
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.Email.sendMessageMIME(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 860
+   at FHMC.Email.Office365.sendEmail(IMailMessage message, EmailSender sender) in C:\SVNWork\FHMC.Email\FHMC.Email\Office365.cs:line 202
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: 5657ed0e-8deb-44eb-af3b-052f1fe7fc3c
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-09-01 15:55:31.0600 TRACE {"Id":null,"Subject":"test Graph Message 4","ReceivedDateTime":"0001-01-01T00:00:00","Attachments":null,"Body":"Testing100000000!!!!<B>This is really a test of html</B>","IsBodyHTML":true,"BodyHTML":null,"SenderEmailAddress":null,"SenderEmailName":null,"RawReceiptHeaders":null,"CustomSendHeaders":{"X-MyCustomHeader":"WooHoo!!!!"},"IsReadReceiptRequested":false,"Importance":0,"ToRecipients":[{"EmailAddress":"christine.desimone@gmail.com"}],"CcRecipients":null,"BccRecipients":null,"ReplyToList":null} 
+2025-09-01 15:55:32.8542 INFO Sending MIME message for voe@firsthome.com: test Graph Message 4 
+2025-09-01 15:55:33.0573 TRACE From: "voe@firsthome.com" <voe@firsthome.com>
+Date: Mon, 01 Sep 2025 15:55:32 -0400
+Subject: test Graph Message 4
+Message-Id: <W38RN5NH3RU4.GRQLPX5W0BWV2@aze-admin-2v>
+To: "christine.desimone@gmail.com" <christine.desimone@gmail.com>
+Importance: high
+X-MyCustomHeader: WooHoo!!!!
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-yzLyhGwe7u/a7BcwcGW8Xg=="
+
+--=-yzLyhGwe7u/a7BcwcGW8Xg==
+Content-Type: text/html; charset=utf-8
+
+Testing100000000!!!!<B>This is really a test of html</B>
+--=-yzLyhGwe7u/a7BcwcGW8Xg==--
+ 
+2025-09-01 15:55:36.2085 ERROR GraphAPI Failed to Send Mail MIME  System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: d9ff44f4-3078-43a6-bf9b-33d0cc2e5f3b
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.BaseClass.makeGraphRequest(String url, HttpMethod method, Object content, Dictionary`2 headers, ContentType contentType) in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 179
+   at FHMC.Graph.Email.sendMessageMIME(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 848
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: d9ff44f4-3078-43a6-bf9b-33d0cc2e5f3b
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-09-01 15:55:36.2405 ERROR FHMC.Email Error System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: d9ff44f4-3078-43a6-bf9b-33d0cc2e5f3b
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.Email.sendMessageMIME(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 860
+   at FHMC.Email.Office365.sendEmail(IMailMessage message, EmailSender sender) in C:\SVNWork\FHMC.Email\FHMC.Email\Office365.cs:line 202
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorMimeContentInvalidBase64String
+Message: Invalid base64 string for MIME content.
+ClientRequestId: d9ff44f4-3078-43a6-bf9b-33d0cc2e5f3b
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+

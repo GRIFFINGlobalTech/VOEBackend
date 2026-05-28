@@ -1,0 +1,178 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using Newtonsoft.Json;
+using FHMC.Interfaces.Utility;
+
+namespace FHMC.EncompassREST
+{
+    public partial class Documents : BaseClass
+    {
+
+        public Documents() : base() { }
+        public Documents(object Log) : base(Log) { }
+        public Documents(object Log, string TrafficFileTag, ITrafficDBLog TrafficDBLog) 
+            : base(Log, TrafficFileTag, TrafficDBLog) { }
+
+        public List<Document> getDocumentListForLoan(string GUID, string accessToken, string loanNumber)
+        {
+            List<Document> retVal = new List<Document>() { };
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL + "loans/" + GUID + "/documents";
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                retVal = JsonConvert.DeserializeObject<List<Document>>(responseString);
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting document list for loan " + GUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public List<Attachment> getAttachmentListForLoan(string GUID, string accessToken, string loanNumber, List<string> docBuckets = null)
+        {
+            List<Attachment> retVal = new List<Attachment>() { };
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL + "loans/" + GUID + "/attachments";
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                List<Attachment> atts = JsonConvert.DeserializeObject<List<Attachment>>(responseString);
+
+                if (docBuckets != null)
+                {
+                    //filter out other doc buckets
+                    foreach (Attachment att in atts) {
+                        if (att.document != null)
+                        {
+                            if (docBuckets.Contains(att.document.entityName))
+                            {
+                                retVal.Add(att);
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    retVal = atts;
+                }
+                     
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting attachment list for loan " + GUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public Attachment getAttachmentForLoan(string GUID, string attachmentGUID, string accessToken, string loanNumber)
+        {
+            Attachment retVal = null;
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL + "loans/" + GUID + "/attachments/" + attachmentGUID;
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                retVal = JsonConvert.DeserializeObject<Attachment>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting attachment for loan " + GUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+        
+        public string getPageURL(string loanGUID, string attachmentGUID, int pageId, string accessToken, string loanNumber)
+        {
+            string retVal = String.Empty;
+
+            try
+            {
+                string methodURL = String.Empty;
+
+                if (attachmentGUID.StartsWith("Attachment-"))
+                {
+                    methodURL = EncRESTServiceBaseURL + "loans/" + loanGUID + "/attachments/" + attachmentGUID + "/url";
+                } else {
+                    methodURL = EncRESTServiceBaseURL + "loans/" + loanGUID + "/attachments/" + attachmentGUID + "/pages/" + pageId.ToString() + "/url";
+                }
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, null, accessToken);
+
+                retVal = JsonConvert.DeserializeObject<GetAttachmentURLResponse>(responseString).mediaUrl;
+                   
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting page URL for " + attachmentGUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public int getPageCount(string loanGUID, string attachmentGUID, string accessToken, string loanNumber)
+        {
+            int retVal = 0;
+
+            //these types of atachments do not return a pagecount property
+            if (attachmentGUID.StartsWith("Attachment") && attachmentGUID.EndsWith(".pdf"))
+            {
+                throw new CustomException.CustomEMBadPageCountException("Cannot get page count for " + attachmentGUID);
+            }
+            
+            Attachment att = getAttachmentForLoan(loanGUID, attachmentGUID, accessToken, loanNumber);
+
+            retVal = att.pages.Count;
+
+            return retVal;
+
+        }
+        
+        public Stream getPageImage(string imageURL, string accessToken)
+        {
+
+            Stream retVal = null;
+
+            try
+            {
+                retVal = makeServiceRequestStream(imageURL, WebRequestMethod.GET, null, accessToken);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting page Image for " + imageURL, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+        
+
+
+
+    }
+}

@@ -1,0 +1,47 @@
+2025-05-27 14:53:57.4163 INFO Sending message for alerts@firsthome.com: test Graph Message 11 
+2025-05-27 14:53:58.2448 ERROR GraphAPI Failed to Send Mail System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorInvalidRecipients
+Message: At least one recipient is not valid., Recipient 'cdesimwefcom' is not resolved. All recipients must be resolved before a message can be submitted.
+ClientRequestId: 4d380c36-8cf1-43e3-9eb3-fee8f0fedab5
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.BaseClass.makeGraphRequest(String url, HttpMethod method, Object content, Dictionary`2 headers, ContentType contentType) in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 162
+   at FHMC.Graph.Email.sendMessage(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 713
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorInvalidRecipients
+Message: At least one recipient is not valid., Recipient 'cdesimwefcom' is not resolved. All recipients must be resolved before a message can be submitted.
+ClientRequestId: 4d380c36-8cf1-43e3-9eb3-fee8f0fedab5
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-05-27 14:57:22.8912 INFO Sending message for alerts@firsthome.com: test Graph Message 11 
+2025-05-27 14:57:23.5798 ERROR GraphAPI Failed to Send Mail System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorInvalidRecipients
+Message: At least one recipient is not valid., Recipient 'cdesimwefcom' is not resolved. All recipients must be resolved before a message can be submitted.
+ClientRequestId: bd26c6e6-b926-4eba-8ef5-14f5434a5535
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.BaseClass.makeGraphRequest(String url, HttpMethod method, Object content, Dictionary`2 headers, ContentType contentType) in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 162
+   at FHMC.Graph.Email.sendMessage(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 713
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorInvalidRecipients
+Message: At least one recipient is not valid., Recipient 'cdesimwefcom' is not resolved. All recipients must be resolved before a message can be submitted.
+ClientRequestId: bd26c6e6-b926-4eba-8ef5-14f5434a5535
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-05-27 14:57:33.6434 ERROR FHMC.Email Error System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: ErrorInvalidRecipients
+Message: At least one recipient is not valid., Recipient 'cdesimwefcom' is not resolved. All recipients must be resolved before a message can be submitted.
+ClientRequestId: bd26c6e6-b926-4eba-8ef5-14f5434a5535
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.Email.sendMessage(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 725
+   at FHMC.Email.Office365.sendEmail(IMailMessage message, EmailSender sender) in C:\SVNWork\FHMC.Email\FHMC.Email\Office365.cs:line 197
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: ErrorInvalidRecipients
+Message: At least one recipient is not valid., Recipient 'cdesimwefcom' is not resolved. All recipients must be resolved before a message can be submitted.
+ClientRequestId: bd26c6e6-b926-4eba-8ef5-14f5434a5535
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+

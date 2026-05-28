@@ -1,0 +1,759 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using Newtonsoft.Json;
+using FHMC.Interfaces.Utility;
+using System.Net;
+using static FHMC.EncompassREST.CustomException;
+
+namespace FHMC.EncompassREST
+{
+    public partial class Documents : BaseClass
+    {
+        int apiVersion = 3;
+
+        public Documents() : base() { }
+        public Documents(object Log) : base(Log) { }
+        public Documents(object Log, string TrafficFileTag, ITrafficDBLog TrafficDBLog) 
+            : base(Log, TrafficFileTag, TrafficDBLog) { }
+
+        public List<Document> getDocumentListForLoan(string GUID, string accessToken)
+        {
+            List<Document> retVal = new List<Document>() { };
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL(apiVersion) + "loans/" + GUID + "/documents";
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                retVal = JsonConvert.DeserializeObject<List<Document>>(responseString);
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting document list for loan " + GUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public List<Attachment> getAttachmentListForLoan(string GUID, string accessToken, string loanNumber, List<string> docBuckets = null)
+        {
+            List<Attachment> retVal = new List<Attachment>() { };
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL(apiVersion) + "loans/" + GUID + "/attachments";
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                List<Attachment> atts = JsonConvert.DeserializeObject<List<Attachment>>(responseString);
+
+                if (docBuckets != null)
+                {
+                    //filter out other doc buckets
+                    foreach (Attachment att in atts) {
+                        //V1 API
+                        //if (att.document != null)
+                        //{
+                        //    if (docBuckets.Contains(att.document.entityName))
+                        //    {
+                        //        retVal.Add(att);
+                        //    }
+                        //}
+
+                        //V3 API
+                        if (att.assignedTo != null)
+                        {
+                            if (docBuckets.Contains(att.assignedTo.entityName))
+                            {
+                                retVal.Add(att);
+                            }
+                        }
+
+                    }
+
+                }
+                else
+                {
+                    retVal = atts;
+                }
+                     
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting attachment list for loan " + GUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public Attachment getAttachmentForLoan(string GUID, string attachmentGUID, string accessToken, string loanNumber)
+        {
+            Attachment retVal = null;
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL(apiVersion) + "loans/" + GUID + "/attachments/" + attachmentGUID;
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                retVal = JsonConvert.DeserializeObject<Attachment>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting attachment for loan " + GUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+        
+        public string getPageURL(string loanGUID, string attachmentGUID, int pageId, string accessToken, string loanNumber)
+        {
+            string retVal = String.Empty;
+
+            try
+            {
+                string methodURL = String.Empty;
+
+                //V1 API
+                //if (attachmentGUID.StartsWith("Attachment-"))
+                //{
+                //    methodURL = EncRESTServiceBaseURL() + "loans/" + loanGUID + "/attachments/" + attachmentGUID + "/url";
+                //} else {
+                //    methodURL = EncRESTServiceBaseURL() + "loans/" + loanGUID + "/attachments/" + attachmentGUID + "/pages/" + pageId.ToString() + "/url";
+                //}
+
+                //V3 API
+                methodURL = EncRESTServiceBaseURL(apiVersion) + "loans/" + loanGUID + "/attachmentDownloadUrl";
+
+                AttachmentURLRequest req = new AttachmentURLRequest
+                {
+                    attachments = new List<string>
+                    {
+                        attachmentGUID
+                    }
+                };
+
+                string requestString = JsonConvert.SerializeObject(req, Newtonsoft.Json.Formatting.None);
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                //retVal = JsonConvert.DeserializeObject<GetAttachmentURLResponse>(responseString).mediaUrl;
+                AttachmentURLResponse resp = JsonConvert.DeserializeObject<AttachmentURLResponse>(responseString);
+                if (resp != null)
+                {
+                    if (resp.attachments != null)
+                    {
+                        List<AttachmentURLResponse.Attachment.Page> pages = resp.attachments.FirstOrDefault().pages;
+                        if (pages != null)
+                        {
+                            retVal = pages[pageId - 1].url;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting page URL for " + attachmentGUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public int getPageCount(string loanGUID, string attachmentGUID, string accessToken, string loanNumber)
+        {
+            int retVal = 0;
+
+            //these types of atachments do not return a pagecount property
+            if (attachmentGUID.StartsWith("Attachment") && attachmentGUID.EndsWith(".pdf"))
+            {
+                throw new CustomException.CustomEMBadPageCountException("Cannot get page count for " + attachmentGUID);
+            }
+            
+            Attachment att = getAttachmentForLoan(loanGUID, attachmentGUID, accessToken, loanNumber);
+
+            retVal = att.pages.Count;
+
+            return retVal;
+
+        }
+        
+        //CPD 2021-04-15 I think this is not in production
+        //public Stream getPageImage(string imageURL, string accessToken)
+        //{
+
+        //    Stream retVal = null;
+
+        //    try
+        //    {
+        //        retVal = makeServiceRequestStream(imageURL, WebRequestMethod.GET, null, accessToken);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Log.Error("Error getting page Image for " + imageURL, ex);
+        //        throw ex;
+        //    }
+
+        //    return retVal;
+
+        //}
+        
+        public List<string> getPageURLs(string loanGUID, string attachmentGUID, string accessToken)
+        {
+
+            List<string> retVal = new List<string>() { };
+
+            try
+            {
+                string methodURL = String.Empty;
+
+                //V3 API
+                methodURL = EncRESTServiceBaseURL(apiVersion) + "loans/" + loanGUID + "/attachmentDownloadUrl";
+
+                AttachmentURLRequest req = new AttachmentURLRequest
+                {
+                    attachments = new List<string>
+                    {
+                        attachmentGUID
+                    }
+                };
+
+                string requestString = JsonConvert.SerializeObject(req, Newtonsoft.Json.Formatting.None);
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                AttachmentURLResponse resp = JsonConvert.DeserializeObject<AttachmentURLResponse>(responseString);
+                if (resp != null)
+                {
+                    if (resp.attachments != null)
+                    {
+                        List<AttachmentURLResponse.Attachment.Page> pages = resp.attachments.FirstOrDefault().pages;
+                        retVal = pages.Select(q => q.url).ToList();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting attachment URL for " + attachmentGUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public string createExportJob(string loanGUID, List<Document.AssociatedEntity> attachments, string accessToken)
+        {
+
+            string retVal = String.Empty;
+
+            try
+            {
+                string methodURL = String.Empty;
+
+                //V1 API
+                methodURL = EncRESTEFolderServiceBase + "exportjobs";
+
+                ExportJobRequest req = new ExportJobRequest
+                {
+                    annotationSettings = new ExportJobRequest.AnnotationSettings
+                    {
+                        visibility = new List<string> { "Private", "Public", "Internal" }
+                    },
+                    entities = new List<ExportJobRequest.Entity>() { },
+                    source = new ExportJobRequest.Entity
+                    {
+                        entityId = loanGUID,
+                        entityType = "loan"
+                    }
+                };
+
+                foreach (Document.AssociatedEntity att in attachments)
+                {
+                    req.entities.Add(new ExportJobRequest.Entity
+                    {
+                        entityId = att.entityId,
+                        entityType = att.entityType
+                    });
+                    
+
+                }
+
+                string requestString = JsonConvert.SerializeObject(req, Newtonsoft.Json.Formatting.None);
+
+                //API REQUEST FOR FETCHING ATTACHMENTS
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                ExportJobResponse resp = JsonConvert.DeserializeObject<ExportJobResponse>(responseString);
+                if (resp != null)
+                {
+                    if (resp.status == "Queued")
+                    {
+                        retVal = resp.jobId;
+                    }
+                    else
+                    {
+                        throw new Exception("Unknown Job Status: " + resp.status);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error creating Export Job for " + loanGUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+
+        }
+
+        public string checkExportJobStatus(string jobId, string loanNumber, string accessToken)
+        {
+
+            string retVal = String.Empty;
+
+            try
+            {
+                string methodURL = String.Empty;
+
+                //V1 API
+                methodURL = EncRESTEFolderServiceBase + "exportjobs/" + jobId;
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                ExportJobResponse resp = JsonConvert.DeserializeObject<ExportJobResponse>(responseString);
+                if (resp != null)
+                {
+                    retVal = resp.status;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error checking status of Export Job for " + loanNumber, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public bool downloadExport(string jobId, string loanNumber, string filePathName, string accessToken)
+        {
+
+            bool retVal = false;
+
+            try
+            {
+                string methodURL = String.Empty;
+
+                //V1 API
+                methodURL = EncRESTEFolderServiceBase + "exportjobs/" + jobId;
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                ExportJobResponse resp = JsonConvert.DeserializeObject<ExportJobResponse>(responseString);
+                if (resp != null)
+                {
+                    if (resp.status == "Success")
+                    {
+                        using (WebClient client = new WebClient())
+                        {
+                            //download page
+                            client.Headers.Add("Authorization", resp.file.authorizationHeader);
+                            UriBuilder uriB = new UriBuilder(resp.file.entityUri);
+                            client.DownloadFile(uriB.Uri, filePathName);
+                        }
+                        retVal = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error downloading Export Job for " + loanNumber, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public bool exportAttachments(string loanGUID, List<Document.AssociatedEntity> attachments, string filePathName, string loanNumber, string accessToken)
+        {
+
+            bool retVal = false;
+
+            try
+            {
+                string jobId = createExportJob(loanGUID, attachments, accessToken);
+                //wait for doc generation
+                System.Threading.Thread.Sleep(300);
+
+                string jobStatus = String.Empty;
+
+                int tries = 0;
+                while (jobStatus != "Success")
+                {
+                    jobStatus = checkExportJobStatus(jobId, loanNumber, accessToken);
+                    if (jobStatus != "Success")
+                    {
+                        //Log.Info("Sleeping for " + filePathName);
+                        System.Threading.Thread.Sleep(300);
+                        //Log.Info("Sleeping...");
+                        tries++;
+                    }
+                    if (tries == 120)
+                    {
+                        //trying to download for two minutes, give up
+                        Log.Error("Error Downloading;" + loanNumber + ";" + jobId, null);
+                        return false;
+                    }
+                }
+
+                retVal = downloadExport(jobId, loanNumber, filePathName, accessToken);
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error Exporting Attachments", ex);
+            }
+
+            return retVal;
+
+
+        }
+
+        public bool uploadAttachment(string loanGUID, string filePathName, AttachmentUploadType attType, string sDocumentBucket, string sAttachmentTitle, string sMilestone,
+            string sDocumentDescription, List<EncompassREST.Role.enuRoleType> AddRoles, bool bReplaceDoc, string accessToken)
+        {
+
+            bool retVal = false;
+
+            Loan loan = new Loan();
+            string lockId = null;
+
+            try
+            {
+
+                //check to see if this is less than 60MB
+                System.IO.FileInfo fileInfo = new System.IO.FileInfo(filePathName);
+                if (fileInfo.Length > (60 * 1048576))
+                {
+                    throw new CustomMaxUploadSizeExceededException(filePathName);
+                }
+
+                //get document to attach to
+                Document doc = null;
+                string docId = null;
+
+                if (sDocumentBucket != null)
+                {
+
+                    List<Document> documents = getDocumentListForLoan(loanGUID, accessToken);
+
+                    if (isNull(sDocumentDescription,"") != "")
+                    {
+                        doc = documents.Where(q => q.title == sDocumentBucket && q.description == sDocumentDescription).FirstOrDefault();
+                    }
+                    else
+                    {
+                        doc = documents.Where(q => q.title == sDocumentBucket).FirstOrDefault();
+                    }
+
+                    //get lock for loan
+                    lockId = loan.getLoanLock(loanGUID, accessToken);
+
+                    //add new doc, if nec
+                    if (doc == null)
+                    {
+                        docId = addDocument(loanGUID, sDocumentBucket, sDocumentDescription, sMilestone, accessToken);
+                    }
+                    else
+                    {
+                        docId = doc.id;
+                    }
+
+                    if (bReplaceDoc)
+                    {
+                        //get attachments in the bucket and mark as isactive = false
+                        List<string> docBuckets = new List<string>() { };
+                        docBuckets.Add(sDocumentBucket);
+                        List<Attachment> atts = getAttachmentListForLoan(loanGUID, accessToken, String.Empty, docBuckets);
+                        foreach (Attachment att in atts)
+                        {
+                            updateAttachmentIsActive(loanGUID, att.id, false, accessToken);
+                        }
+
+                    }
+
+                    //add roles for document
+                    if (AddRoles != null)
+                    {
+                        addDocumentRoles(loanGUID, docId, AddRoles, accessToken);
+                    }
+
+                }
+
+                //uploading attachment
+                AttachmentUploadURLRequest request = new AttachmentUploadURLRequest();
+
+                if (docId != null)
+                {
+                    request.assignTo = new AttachmentUploadURLRequest.AssociatedEntity();
+                    request.assignTo.entityId = docId;
+                    request.assignTo.entityType = "Document";
+                }
+
+                request.file = new AttachmentUploadURLRequest.AttachmentFile();
+                request.file.contentType = attType.GetDescription();
+                request.file.size = (int)fileInfo.Length;
+                request.file.name = fileInfo.Name;
+                request.title = sAttachmentTitle;
+
+                string requestString = JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.None,
+                        new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore
+                        });
+
+                //get upload URL   
+                string methodURL = EncRESTServiceBaseURL(apiVersion) + "loans/" + loanGUID + "/attachmentUploadUrl?loackId=" + lockId;
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                AttachmentUploadURLResponse resp = JsonConvert.DeserializeObject<AttachmentUploadURLResponse>(responseString);
+
+                byte[] content = File.ReadAllBytes(filePathName);
+
+                //upload file
+                responseString = makeServiceRequest(resp.uploadUrl, WebRequestMethod.PUT, null, resp.authorizationHeader, null, false, content, attType.GetDescription());
+
+                retVal = true;
+
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error uploading attachment " + filePathName, ex);
+                throw ex;
+            }
+            finally
+            {
+                if (lockId != null)
+                {
+                    //release lock for loan
+                    loan.releaseLoanLock(loanGUID, lockId, accessToken);
+                }
+
+            }
+
+
+            return retVal;
+
+        }
+
+        public string addDocument(string loanGUID, string documentBucket, string documentDescription, string milestoneName, string accessToken)
+        {
+
+            string retVal = String.Empty;
+
+            try
+            {
+
+                //get upload URL   
+                string methodURL = EncRESTServiceBaseURL(3) + "loans/" + loanGUID + "/documents?action=add&view=id";
+
+                Document document = new Document();
+                document.title = documentBucket;
+                if (documentDescription != null) {
+                    document.description = documentDescription;
+                }
+
+                if (milestoneName != null)
+                {
+                    //get the milestone
+                    LoanMilestones lm = new LoanMilestones();
+                    List<LoanMilestones.LoanMilestone> milestones = lm.getLoanMilestones(loanGUID, accessToken);
+                    LoanMilestones.LoanMilestone milestone = milestones.Where(q => q.milestoneName == milestoneName).FirstOrDefault();
+
+                    if (milestone != null)
+                    {
+                        document.milestone = new Document.AssociatedEntity();
+                        document.milestone.entityId = milestone.id;
+                    }
+
+                }
+
+                List<Document> docs = new List<Document>() { };
+                docs.Add(document);
+
+                string requestString = JsonConvert.SerializeObject(docs, Newtonsoft.Json.Formatting.None,
+                           new JsonSerializerSettings
+                           {
+                               NullValueHandling = NullValueHandling.Ignore
+                           });
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.PATCH, requestString, accessToken);
+
+                List<Document> newDocs = JsonConvert.DeserializeObject<List<Document>>(responseString);
+
+                retVal = newDocs.FirstOrDefault().id;
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error Adding New Document for loanGUID " + loanGUID, ex);
+                throw ex;
+            }
+
+
+            return retVal;
+
+        }
+
+        public bool updateAttachmentIsActive(string loanGUID, string attachmentGUID, bool IsActive, string accessToken)
+        {
+
+            bool retVal = false;
+
+            try
+            {
+                
+                //V3 API
+                string methodURL = EncRESTServiceBaseURL(3) + "loans/" + loanGUID + "/attachments";
+
+                Attachment req = new Attachment
+                {
+                    id = attachmentGUID,
+                    isActive = IsActive
+                };
+
+                string requestString = JsonConvert.SerializeObject(req, Newtonsoft.Json.Formatting.None);
+
+                makeServiceRequest(methodURL, WebRequestMethod.PATCH, requestString, accessToken);
+
+                retVal = true;
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error updating attachment for " + attachmentGUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+
+
+        }
+
+        public string addDocumentRoles(string loanGUID, string documentId, List<EncompassREST.Role.enuRoleType> newRoles, string accessToken)
+        {
+
+            string retVal = String.Empty;
+
+            try
+            {
+
+                //get new role entities
+                EncompassREST.Role rop = new EncompassREST.Role();
+                List<EncompassREST.Role.RoleEntity> newRoleEntities = rop.getRoles(newRoles, accessToken);
+                
+                //get current Roles for document
+                List<Role.RoleEntity> roles = getDocumentRoles(loanGUID, documentId, accessToken);
+
+                foreach (Role.RoleEntity newRoleEntity in newRoleEntities)
+                {
+                    if (!roles.Exists(q => q.entityId == newRoleEntity.entityId))
+                    {
+                        roles.Add(newRoleEntity);
+                    }
+                }
+
+                roles.ForEach(q => q.entityName = null);
+
+                string methodURL = EncRESTServiceBaseURL(3) + "loans/" + loanGUID + "/documents?action=update&view=id";
+
+                Document document = new Document();
+                document.id = documentId;
+                document.roles = roles;
+
+                List<Document> docs = new List<Document>() { };
+                docs.Add(document);
+
+                string requestString = JsonConvert.SerializeObject(docs, Newtonsoft.Json.Formatting.None,
+                           new JsonSerializerSettings
+                           {
+                               NullValueHandling = NullValueHandling.Ignore
+                           });
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.PATCH, requestString, accessToken);
+
+                List<Document> newDocs = JsonConvert.DeserializeObject<List<Document>>(responseString);
+
+                retVal = newDocs.FirstOrDefault().id;
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error Adding Roles for Document for loanGUID " + loanGUID, ex);
+                throw ex;
+            }
+
+
+            return retVal;
+
+        }
+
+        private List<EncompassREST.Role.RoleEntity> getDocumentRoles(string loanGUID, string documentId, string accessToken)
+        {
+
+            List<EncompassREST.Role.RoleEntity> retVal = new List<Role.RoleEntity>() { };
+
+            try
+            {
+
+                string methodURL = EncRESTServiceBaseURL(3) + "loans/" + loanGUID + "/documents/" + documentId;
+
+                //get list of roles
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                EncompassREST.Documents.Document doc = JsonConvert.DeserializeObject<EncompassREST.Documents.Document>(responseString);
+
+                if (doc != null)
+                {
+                    retVal = doc.roles.Where(q => q.entityName != null).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error Getting Roles for Document for loanGUID " + loanGUID, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+
+    }
+}

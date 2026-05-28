@@ -1,0 +1,12 @@
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\bin\Release\FHMC.EncompassREST.dll
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\bin\Release\FHMC.EncompassREST.pdb
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\bin\Release\FHMC.Interfaces.dll
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\bin\Release\FHMC.NLogWrapper.dll
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\bin\Release\Newtonsoft.Json.dll
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\bin\Release\FHMC.Interfaces.pdb
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\bin\Release\Newtonsoft.Json.xml
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\obj\Release\FHMC.EncompassREST.csprojAssemblyReference.cache
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\obj\Release\FHMC.EncompassREST.csproj.CoreCompileInputs.cache
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\obj\Release\FHMC.EncompassREST.csproj.CopyComplete
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\obj\Release\FHMC.EncompassREST.dll
+C:\SVNWork\FHMC.EncompassREST\FHMC.EncompassREST\obj\Release\FHMC.EncompassREST.pdb

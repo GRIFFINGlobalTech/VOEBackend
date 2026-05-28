@@ -1,0 +1,190 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FHMC.EncompassREST
+{
+    public class CustomException
+    {
+
+        public class CustomInvalidConfigurationException : Exception, ISerializable
+        {
+
+            public CustomInvalidConfigurationException()
+            {
+
+            }
+            public CustomInvalidConfigurationException(string message)
+                : base(message)
+            {
+
+            }
+            public CustomInvalidConfigurationException(string message, Exception inner)
+                : base(message, inner)
+            {
+
+            }
+
+            protected CustomInvalidConfigurationException(SerializationInfo info, StreamingContext context)
+                : base(info, context)
+            {
+
+            }
+        }
+
+        public class CustomEMUserLockedException : Exception, ISerializable
+        {
+            public CustomEMUserLockedException()
+            {
+
+            }
+            public CustomEMUserLockedException(string message)
+                : base(message)
+            {
+
+            }
+            public CustomEMUserLockedException(string message, Exception inner)
+                : base(message, inner)
+            {
+
+            }
+
+            protected CustomEMUserLockedException(SerializationInfo info, StreamingContext context)
+                : base(info, context)
+            {
+
+            }
+        }
+
+        public class CustomEMBadPageCountException : Exception, ISerializable
+        {
+            public CustomEMBadPageCountException()
+            {
+
+            }
+            public CustomEMBadPageCountException(string message)
+                : base(message)
+            {
+
+            }
+            public CustomEMBadPageCountException(string message, Exception inner)
+                : base(message, inner)
+            {
+
+            }
+
+            protected CustomEMBadPageCountException(SerializationInfo info, StreamingContext context)
+                : base(info, context)
+            {
+
+            }
+        }
+
+        public class CustomEMUserLoanPermissionException : Exception, ISerializable
+        {
+
+            public string UserName = "";
+            public string LoanNumber = "";
+            
+            public override string Message
+            {
+                get
+                {
+                    if (UserName == "" || LoanNumber == "")
+                    {
+                        return base.Message;
+                    }
+                    else
+                    {
+                        return "User " + UserName + " does not have permission for Loan " + LoanNumber;
+                    }
+                }
+            }
+
+
+            public CustomEMUserLoanPermissionException()
+            {
+
+            }
+
+            public CustomEMUserLoanPermissionException(string userName, string loanNumber) {
+
+                UserName = userName;
+                LoanNumber = loanNumber;
+
+            }
+            
+            public CustomEMUserLoanPermissionException(string message)
+                : base(message)
+            {
+
+            }
+            public CustomEMUserLoanPermissionException(string message, Exception inner)
+                : base(message, inner)
+            {
+
+            }
+
+            protected CustomEMUserLoanPermissionException(SerializationInfo info, StreamingContext context)
+                : base(info, context)
+            {
+
+            }
+
+        }
+
+        public class CustomInvalidParameterException : Exception, ISerializable
+        {
+
+            public CustomInvalidParameterException()
+            {
+
+            }
+            public CustomInvalidParameterException(string message)
+                : base(message)
+            {
+
+            }
+            public CustomInvalidParameterException(string message, Exception inner)
+                : base(message, inner)
+            {
+
+            }
+
+            protected CustomInvalidParameterException(SerializationInfo info, StreamingContext context)
+                : base(info, context)
+            {
+
+            }
+        }
+
+        public class CustomMaxUploadSizeExceededException : Exception, ISerializable
+        {
+
+            public CustomMaxUploadSizeExceededException()
+            {
+
+            }
+            public CustomMaxUploadSizeExceededException(string message)
+                : base(message)
+            {
+
+            }
+            public CustomMaxUploadSizeExceededException(string message, Exception inner)
+                : base(message, inner)
+            {
+
+            }
+
+            protected CustomMaxUploadSizeExceededException(SerializationInfo info, StreamingContext context)
+                : base(info, context)
+            {
+
+            }
+        }
+
+    }
+}

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+  <Assembly_settings_for_FHMC.Graph.dll>
+    <AssemblyName>FHMC.Graph.dll</AssemblyName>
+    <SettingsFilePath>C:\SVNWork\FHMC.Graph\FHMC.Graph\ObfuscationSettings.xml</SettingsFilePath>
+    <SourcePath>C:\SVNWork\FHMC.Graph\FHMC.Graph\bin\x64\Release\</SourcePath>
+    <OutputPath>C:\SVNWork\FHMC.Graph\FHMC.Graph\bin\x64\Release\crypt\FHMC.Graph.dll</OutputPath>
+    <Saved_DateTime>9/23/2024 3:17:06 PM</Saved_DateTime>
+    <Path_to_key></Path_to_key>
+    <Key_Password></Key_Password>
+    <All_Private>1</All_Private>
+    <PrivateClasses>1</PrivateClasses>
+    <PrivateMethods>1</PrivateMethods>
+    <PrivateFields>1</PrivateFields>
+    <Naming_method>0</Naming_method>
+    <Apply_PublicMembers>0</Apply_PublicMembers>
+    <Apply_InternalMembers>0</Apply_InternalMembers>
+    <Conceal_Strings>1</Conceal_Strings>
+    <StringsStore>2</StringsStore>
+    <StringsDLLfileName></StringsDLLfileName>
+    <CryptographyApplied>0</CryptographyApplied>
+    <Apply_ControlFlow>0</Apply_ControlFlow>
+    <Apply_Linkage>0</Apply_Linkage>
+    <Obfuscate_Locals>0</Obfuscate_Locals>
+    <Strings_for_Public>1</Strings_for_Public>
+    <Strings_for_Private>1</Strings_for_Private>
+    <PublicClasses>0</PublicClasses>
+    <PublicMethods>0</PublicMethods>
+    <PublicFields>0</PublicFields>
+    <PublicProperties>0</PublicProperties>
+    <PublicEvents>0</PublicEvents>
+    <PublicClasses_for_Privates>0</PublicClasses_for_Privates>
+    <PublicMethods_for_Privates>0</PublicMethods_for_Privates>
+    <PublicFields_for_Privates>0</PublicFields_for_Privates>
+    <PublicProperties_for_Privates>0</PublicProperties_for_Privates>
+    <PublicEvents_for_Privates>0</PublicEvents_for_Privates>
+    <ControlFlow_for_Public>1</ControlFlow_for_Public>
+    <ControlFlow_for_Private>1</ControlFlow_for_Private>
+    <Private_members>
+    </Private_members>
+    <Public_members>
+    </Public_members>
+    <Internal_members>
+    </Internal_members>
+    <Strings>
+1^FHMC.Graph.BaseClass2^23^.cctor
+1^FHMC.Graph.BaseClass2^03^.cctor
+1^FHMC.Graph.BaseClass2^33^.cctor
+1^FHMC.Graph.BaseClass2^13^.cctor
+1^FHMC.Graph.BaseClass/'<>c__DisplayClass9_0'2^03^'<setGraphClient>b__0'
+1^FHMC.Graph.BaseClass2^03^makeGraphRequest
+1^FHMC.Graph.BaseClass2^13^makeGraphRequest
+1^FHMC.Graph.BaseClass2^73^makeGraphRequest
+1^FHMC.Graph.BaseClass2^43^makeGraphRequest
+1^FHMC.Graph.BaseClass2^33^makeGraphRequest
+1^FHMC.Graph.BaseClass2^63^makeGraphRequest
+1^FHMC.Graph.BaseClass2^53^makeGraphRequest
+1^FHMC.Graph.BaseClass2^23^makeGraphRequest
+1^FHMC.Graph.BaseClass2^03^skipError
+1^FHMC.Graph.BaseClass/TokenHandler2^03^getToken
+1^FHMC.Graph.Email2^03^.cctor
+1^FHMC.Graph.Email/'<>c'2^03^'<getAttachments>b__16_0'
+1^FHMC.Graph.Email/'<>c'2^03^'<getMailPage>b__10_0'
+1^FHMC.Graph.Email2^43^deleteMessage
+1^FHMC.Graph.Email2^73^deleteMessage
+1^FHMC.Graph.Email2^33^deleteMessage
+1^FHMC.Graph.Email2^63^deleteMessage
+1^FHMC.Graph.Email2^03^deleteMessage
+1^FHMC.Graph.Email2^23^getAttachments
+1^FHMC.Graph.Email2^03^getAttachments
+1^FHMC.Graph.Email2^03^getChildFolders
+1^FHMC.Graph.Email2^53^getMailFolder
+1^FHMC.Graph.Email2^83^getMailFolder
+1^FHMC.Graph.Email2^03^getMailFolder
+1^FHMC.Graph.Email2^33^getMailFolder
+1^FHMC.Graph.Email2^73^getMailFolder
+1^FHMC.Graph.Email2^43^getMailFolder
+1^FHMC.Graph.Email2^13^getMailFolder
+1^FHMC.Graph.Email2^23^getMailFolder
+1^FHMC.Graph.Email2^03^getMailFolderFromKeyValuePair
+1^FHMC.Graph.Email2^23^getMailPage
+1^FHMC.Graph.Email2^03^getMailPage
+1^FHMC.Graph.Email2^53^getMailPage
+1^FHMC.Graph.Email2^13^getMailPage
+1^FHMC.Graph.Email2^13^getMessage
+1^FHMC.Graph.Email2^03^getMessage
+1^FHMC.Graph.Email2^63^getMessage
+1^FHMC.Graph.Email2^43^getMessage
+1^FHMC.Graph.Email2^33^getMessage
+1^FHMC.Graph.Email2^23^getMessage
+1^FHMC.Graph.Email2^13^getMessages
+1^FHMC.Graph.Email2^03^getMessages
+1^FHMC.Graph.Email2^43^getMessages
+1^FHMC.Graph.Email2^53^moveMessage
+1^FHMC.Graph.Email2^13^moveMessage
+1^FHMC.Graph.Email2^43^moveMessage
+1^FHMC.Graph.Email2^33^moveMessage
+1^FHMC.Graph.Email2^73^moveMessage
+1^FHMC.Graph.Email2^03^moveMessage
+1^FHMC.Graph.Email2^23^moveMessage
+1^FHMC.Graph.FileIO2^23^updateFile
+1^FHMC.Graph.FileIO2^03^updateFile
+1^FHMC.Graph.FileIO2^13^updateFile
+1^FHMC.Graph.FileIO2^63^updateFile
+1^FHMC.Graph.FileIO2^43^updateFile
+1^FHMC.Graph.GraphAPICustomException2^13^.ctor
+1^FHMC.Graph.GraphAPICustomException2^03^.ctor
+    </Strings>
+    <ControlFlow>
+      <ControlFlowAlgorithm>Light</ControlFlowAlgorithm>
+      <ControlFlowMethods>
+      </ControlFlowMethods>
+    </ControlFlow>
+    <Extensions>
+    </Extensions>
+    <Linker>
+    </Linker>
+    <Licenser>
+    </Licenser>
+    <LicenseTitle>MyApplication</LicenseTitle>
+    <LicenseLink>http://MyApplicationOrderPage.html</LicenseLink>
+  </Assembly_settings_for_FHMC.Graph.dll>

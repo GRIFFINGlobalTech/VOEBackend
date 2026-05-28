@@ -1,0 +1,30 @@
+2025-03-26 14:57:43.0014 INFO Sending message for alerts@firsthome.com: test Graph Message 
+2025-03-26 14:58:36.3330 INFO Sending message for alerts@firsthome.com: test Graph Message 
+2025-03-26 15:02:23.5233 INFO Sending message for alerts@firsthome.com: test Graph Message 
+2025-03-26 15:04:17.2089 INFO Sending message for alerts@firsthome.com: test Graph Message 
+2025-03-26 15:06:36.3295 INFO Sending message for alerts@firsthome.com: test Graph Message 
+2025-03-26 15:09:09.7639 INFO Sending message for alerts@firsthome.com: test Graph Message 
+2025-03-26 16:01:23.0487 INFO Sending message for alerts@firsthome.com: test Graph Message 
+2025-03-26 16:01:31.0521 INFO Test Complete 
+2025-03-26 16:02:52.7096 INFO Sending message for alerts@firsthome.com: test Graph Message 2 
+2025-03-26 16:03:04.8900 INFO Test Complete 
+2025-03-26 16:15:38.3912 INFO Sending message for alerts@firsthome.com: test Graph Message 3 
+2025-03-26 16:15:38.9827 ERROR GraphAPI Failed to Send Mail System.AggregateException: One or more errors occurred. ---> Microsoft.Graph.ServiceException: Code: RequestBodyRead
+Message: Cannot read the value '1' as a quoted JSON string value.
+ClientRequestId: 52a888e5-9aa5-43cc-bb50-18079aab65c7
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()
+   --- End of inner exception stack trace ---
+   at FHMC.Graph.BaseClass.makeGraphRequest(String url, HttpMethod method, Object content, Dictionary`2 headers, ContentType contentType) in C:\SVNWork\FHMC.Graph\FHMC.Graph\BaseClass.cs:line 151
+   at FHMC.Graph.Email.sendMessage(IMailMessage msg, EmailSender sender) in C:\SVNWork\FHMC.Graph\FHMC.Graph\Email.cs:line 634
+---> (Inner Exception #0) Status Code: BadRequest
+Microsoft.Graph.ServiceException: Code: RequestBodyRead
+Message: Cannot read the value '1' as a quoted JSON string value.
+ClientRequestId: 52a888e5-9aa5-43cc-bb50-18079aab65c7
+
+   at Microsoft.Graph.HttpProvider.<SendAsync>d__18.MoveNext()<---
+
+2025-03-26 16:15:40.5950 INFO Test Complete 
+2025-03-26 16:22:30.9407 INFO Sending message for alerts@firsthome.com: test Graph Message 3 
+2025-03-26 16:33:08.1989 INFO Sending message for alerts@firsthome.com: test Graph Message 3 
+2025-03-26 16:33:20.8877 INFO Test Complete 

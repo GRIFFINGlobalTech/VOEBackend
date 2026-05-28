@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FHMC.EncompassREST
+{
+    public partial class Documents
+    {
+
+        public class Document
+        {
+            public string documentId { get; set; }
+            public string applicationName { get; set; }
+            public string milestoneId { get; set; }
+            public string createdBy { get; set; }
+            public DateTime dateCreated { get; set; }
+            public string title { get; set; }
+            public string description { get; set; }
+            public List<AssociatedEntity> attachments { get; set; }
+
+            public class AssociatedEntity
+            {
+                public string entityId { get; set; }
+                public string entityType { get; set; }
+                public string entityName { get; set; }
+                public string entityUri { get; set; }
+            }
+        }
+
+        public class Attachment
+        {
+            public string attachmentId { get; set; }
+            public string title { get; set; }
+            public AssociatedEntity document { get; set; }
+            public DateTime dateCreated { get; set; }
+            public string createdBy { get; set; }
+            public int attachmentType { get; set; }
+            public List<AttachmentPage> pages { get; set; }
+
+            public class AttachmentPage
+            {
+                public string imageKey { get; set; }
+                public string zipKey { get; set; }
+                public string nativeKey { get; set; }
+            }
+
+            public class AssociatedEntity
+            {
+                public string entityId { get; set; }
+                public string entityType { get; set; }
+                public string entityName { get; set; }
+                public string entityUri { get; set; }
+            }
+        }
+
+
+        protected class GetAttachmentURLResponse
+        {
+            public string mediaUrl { get; set; }
+
+        }
+     
+    }
+}

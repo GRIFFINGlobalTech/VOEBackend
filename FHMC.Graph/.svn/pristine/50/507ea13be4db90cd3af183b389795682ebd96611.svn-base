@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.Graph", "FHMC.Graph\FHMC.Graph.csproj", "{1E7EC4D8-253E-4081-A616-A438F635F7B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{B0906CC4-9A23-4348-ADA8-53DC340655CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E7EC4D8-253E-4081-A616-A438F635F7B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E7EC4D8-253E-4081-A616-A438F635F7B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E7EC4D8-253E-4081-A616-A438F635F7B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E7EC4D8-253E-4081-A616-A438F635F7B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0906CC4-9A23-4348-ADA8-53DC340655CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0906CC4-9A23-4348-ADA8-53DC340655CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0906CC4-9A23-4348-ADA8-53DC340655CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0906CC4-9A23-4348-ADA8-53DC340655CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {43393287-0DDA-4EA5-AF4A-E607FFBCE99E}
+	EndGlobalSection
+EndGlobal

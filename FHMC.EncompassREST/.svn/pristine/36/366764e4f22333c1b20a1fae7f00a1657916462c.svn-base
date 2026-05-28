@@ -1,0 +1,713 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Web;
+using FHMC.Interfaces.Utility;
+
+namespace FHMC.EncompassREST
+{
+    public partial class Loan : BaseClass
+    {
+
+        public Loan() : base() { }
+        public Loan(object Log) : base(Log) { }
+        public Loan(object Log, string TrafficFileTag, ITrafficDBLog TrafficDBLog) 
+            : base(Log, TrafficFileTag, TrafficDBLog) { }
+
+        public string getGUIDforLoanNumber(string LoanNumber, string accessToken)
+        {
+            string retVal = String.Empty;
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL() + "loanPipeline";
+
+                Pipeline.PipelineRequest request = new Pipeline.PipelineRequest();
+
+                Pipeline.PipelineRequest.filterCriteria.term theTerm = new Pipeline.PipelineRequest.filterCriteria.term("Loan.LoanNumber", 
+                    LoanNumber, 
+                    FHMC.EncompassREST.Pipeline.PipelineRequest.filterCriteria.term.MatchType.exact);
+
+                Pipeline.PipelineRequest.filterCriteria criteria = new Pipeline.PipelineRequest.filterCriteria();
+                criteria.terms.Add(theTerm);
+                criteria.@operator = FHMC.EncompassREST.Pipeline.PipelineRequest.filterCriteria.FilterOperator.And;
+
+                request.filter = criteria;
+
+                //string requestString = JsonConvert.SerializeObject(request);
+                string requestString = JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.None,
+                        new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore
+                        });
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                Pipeline.PipelineResponse response = JsonConvert.DeserializeObject<List<Pipeline.PipelineResponse>>(responseString).FirstOrDefault();
+                //PipelineResponse response = responseString.FromJson<List<PipelineResponse>>().FirstOrDefault();
+
+                if (response == null)
+                {
+                    throw new EncompassREST.CustomException.CustomEMUserLoanPermissionException();
+                }
+
+                retVal = response.loanGuid;
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting GUID for loan " + LoanNumber, ex);
+                throw ex;
+            }
+
+            return retVal;
+        }
+
+        public List<_CustomFields.CustomField> getLoanCustomFields(string loanGUID, string accessToken, string loanNumber)
+        {
+            List<_CustomFields.CustomField> retVal = new List<_CustomFields.CustomField>() { };
+
+            try
+            {
+                
+                string methodURL = EncRESTServiceBaseURL() + "loans/" + loanGUID;
+
+                Dictionary<string, string> urlparams = new Dictionary<string, string>() { };
+
+                urlparams.Add("entities", "CustomField");
+                //urlparams.Add("entities", "Loan,LoanAssociate");
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken, urlparams);
+
+                _CustomFields customFields = JsonConvert.DeserializeObject<_CustomFields>(responseString);
+
+                //eventually deserialize to object
+                retVal = customFields.customFields;
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting custom fields for " + loanNumber, ex);
+                throw ex;
+            }
+
+            return retVal;
+        }
+
+        protected string getCustomFieldId(string loanGUID, string customFieldName, string accessToken, string loanNumber)
+        {
+
+            string retVal = String.Empty;
+
+            try
+            {
+
+                List<_CustomFields.CustomField> customFields = getLoanCustomFields(loanGUID, accessToken, loanNumber);
+                //string dfjkh = JsonConvert.SerializeObject(customFields); 
+
+                if (customFields.Exists(q => q.fieldName == customFieldName))
+                {
+                    retVal = customFields.Find(q => q.fieldName == customFieldName).id;
+                }
+                //else
+                //{
+                //    throw new Exception("Custom Field Not Found");
+                //}
+
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting custom field id for " + customFieldName, ex);
+                //throw ex;
+            }
+
+            
+            return retVal;
+
+        }
+
+        public bool updateCustomField(string LoanNumber, string customFieldName, string newFieldValue, bool IsAppend, string accessToken)
+        {
+            bool retVal = false;
+            string lockId = null;
+            string loanGUID = null;
+
+            try
+            {
+                //must see if there are still docs in teh loan folder queue that could be importing
+                string[] loanDocuments = Directory.GetFiles(LoanFolderImportLocation, LoanNumber + "*");
+
+                if (loanDocuments.Length != 0) { 
+                    //there are documents waiting to upload...so we should not try to updateloan until that is complete
+                    Log.Info("Documents Waiting to Upload for " + LoanNumber + ". Loan Update Skipped.");
+
+                } else {
+
+                    //first, get the loan GUID
+                    loanGUID = getGUIDforLoanNumber(LoanNumber, accessToken);
+
+                    //then get the custom field Id
+                    //string customFieldId = getCustomFieldId(loanGUID, customFieldName, accessToken, LoanNumber);
+                    
+                    //try letting it use field name all the time 10/20/2017
+                    //if (customFieldId != String.Empty)
+                    //{
+                    //    //this field already exists
+                    //    customFields.customFields.Add(new _CustomFields.CustomField()
+                    //    {
+                    //        id = customFieldId,
+                    //        stringValue = newFieldValue
+                    //    });
+                    //} else {
+                    //this field does not exist, add it
+
+                    if (IsAppend)
+                    {
+                        //need to get current value of field in order to append
+                        //Appending is only relevant for strings
+                        try
+                        {
+                            List<_CustomFields.CustomField> currentCustomFieldList = getLoanCustomFields(loanGUID, accessToken, LoanNumber);
+                            string curValue = currentCustomFieldList.Where<_CustomFields.CustomField>(q => q.fieldName == customFieldName).FirstOrDefault().stringValue;
+                            if (curValue != String.Empty)
+                            {
+                                newFieldValue = curValue + "\n\r" + newFieldValue;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error("Error getting current field value for custom field id" + customFieldName, ex);
+                            throw ex;
+                        }
+
+                    }
+
+                    _CustomFields customFields = new _CustomFields();
+
+                    customFields.customFields = new List<_CustomFields.CustomField>() { };
+
+                    //DateTime newFieldValueDate;
+                    //if (DateTime.TryParse(newFieldValue, out newFieldValueDate))
+                    //{
+                    //    customFields.customFields.Add(new _CustomFields.CustomField()
+                    //    {
+                    //        fieldName = customFieldName,
+                    //        dateValue = newFieldValueDate
+                    //    });
+                    //} else {
+                        customFields.customFields.Add(new _CustomFields.CustomField()
+                        {
+                            fieldName = customFieldName,
+                            stringValue = newFieldValue
+                        });
+                    //}
+
+                    string methodURL = EncRESTServiceBaseURL() + "loans/" + loanGUID;
+
+                    string requestString = JsonConvert.SerializeObject(customFields);
+
+                    //get lock for loan
+                    lockId = getLoanLock(loanGUID, accessToken, LoanNumber);
+
+                    //perform update
+                    string responseString = makeServiceRequest(methodURL, WebRequestMethod.PATCH, requestString, accessToken);
+
+                    //release lock for loan
+                    releaseLoanLock(loanGUID, lockId, accessToken, LoanNumber);
+
+                    retVal = true;
+
+                    Log.Info("Custom field " + customFieldName + " updated for " + LoanNumber);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error("Error updating custom field id " + customFieldName + " for " + LoanNumber, ex);
+
+                //release lock for loan
+                releaseLoanLock(loanGUID, lockId, accessToken, LoanNumber);
+
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public bool updateCustomFields(string LoanNumber, Dictionary<string, string> customFieldValues, string accessToken)
+        {
+            bool retVal = false;
+            string lockId = null;
+            string loanGUID = null;
+
+            try
+            {
+                //must see if there are still docs in teh loan folder queue that could be importing
+                string[] loanDocuments = Directory.GetFiles(LoanFolderImportLocation, LoanNumber + "*");
+
+                if (loanDocuments.Length != 0)
+                {
+                    //there are documents waiting to upload...so we should not try to updateloan until that is complete
+                    Log.Info("Documents Waiting to Upload for " + LoanNumber + ". Loan Update Skipped.");
+
+                }
+                else
+                {
+
+                    //first, get the loan GUID
+                    loanGUID = getGUIDforLoanNumber(LoanNumber, accessToken);
+
+                    _CustomFields customFields = new _CustomFields();
+
+                    customFields.customFields = new List<_CustomFields.CustomField>() { };
+
+                    foreach (KeyValuePair<string, string> customField in customFieldValues)
+                    {
+                        customFields.customFields.Add(new _CustomFields.CustomField()
+                        {
+                            fieldName = customField.Key,
+                            stringValue = customField.Value
+                        });
+
+                    }
+
+                    string methodURL = EncRESTServiceBaseURL() + "loans/" + loanGUID;
+
+                    string requestString = JsonConvert.SerializeObject(customFields);
+
+                    //get lock for loan
+                    lockId = getLoanLock(loanGUID, accessToken, LoanNumber);
+
+                    //perform update
+                    string responseString = makeServiceRequest(methodURL, WebRequestMethod.PATCH, requestString, accessToken);
+
+                    //release lock for loan
+                    releaseLoanLock(loanGUID, lockId, accessToken, LoanNumber);
+
+                    retVal = true;
+
+                    foreach (KeyValuePair<string, string> customField in customFieldValues)
+                    {
+                        Log.Info("Custom field " + customField.Key + " updated for " + LoanNumber);
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error("Error updating custom fields for " + LoanNumber, ex);
+
+                //release lock for loan
+                releaseLoanLock(loanGUID, lockId, accessToken, LoanNumber);
+
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+
+        public Dictionary<string, object> getLoanFields(string loanNumber, List<string> fieldIds, string accessToken)
+        {
+
+            Dictionary<string, object> retVal = new Dictionary<string, object>() { };
+
+            try
+            {
+
+                string LoanGUID = getGUIDforLoanNumber(loanNumber, accessToken);
+
+                string methodURL = EncRESTServiceBaseURL() + "loans/" + LoanGUID + "/fieldReader?includeMetadata=true";
+
+                string requestString = JsonConvert.SerializeObject(fieldIds, Newtonsoft.Json.Formatting.None,
+                        new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore
+                        });
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                List<FieldValue> fields = JsonConvert.DeserializeObject<List<FieldValue>>(responseString);
+
+                foreach (FieldValue field in fields)
+                {
+                    if (field.type == "date")   
+                    {
+                        DateTime dateValue;
+                        if (DateTime.TryParse(field.value, out dateValue)) {
+                            retVal.Add(field.fieldId, dateValue);
+                        }
+                    } else {
+                        //treat as string.  can add more formats here if nec
+                        retVal.Add(field.fieldId, field.value);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting fields for " + loanNumber, ex);
+                //throw ex;
+            }
+
+
+            return retVal;
+
+
+
+        }
+
+        //this is for testing
+        string  getLoanJSON(string LoanNumber, string accessToken)
+        {
+            string retVal = null;
+
+            //first, get the loan GUID
+            string loanGUID = getGUIDforLoanNumber(LoanNumber, accessToken);
+
+
+            Dictionary<string, string> urlparams = new Dictionary<string, string>() { };
+
+            urlparams.Add("entities", "SellerPaidAmount");
+            
+            //string methodURL = EncRESTServiceBaseURL() + "loans/" + loanGUID;
+            string methodURL = EncRESTServiceBaseURL() + "loanPipeline/fieldDefinitions";
+
+            retVal = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+
+            return retVal;
+        }
+
+        public Dictionary<string,string> getReportingFieldsforLoanNumber(string LoanNumber, List<string> rdbFields, string accessToken)
+        {
+            Dictionary<string, string> retVal = new Dictionary<string, string>() { };
+
+            try
+            {
+                
+                //filter out non-existent fields for this particular loan
+
+                //first, get all custom fields
+                //string loanGUID = getGUIDforLoanNumber(LoanNumber, accessToken);
+               // List<_CustomFields.CustomField> existingFields = getLoanCustomFields(loanGUID, accessToken, LoanNumber);
+
+                //convert to Dictionary<string,string> format
+                //retVal = existingFields.ToDictionary(q => q.fieldName, q => q.stringValue);
+
+                //Log.Info("EncompassREST Field List:");
+                //Log.Info(JsonConvert.SerializeObject(retVal));
+
+
+                //filter on rdbFieldList
+                //retVal = retVal.Where(pair => rdbFields.Contains(pair.Key)).ToDictionary(pair => pair.Key, pair => pair.Value);
+
+
+
+                //this is the pipeine query method - it errors out if you request a field that does not exist
+                string methodURL = EncRESTServiceBaseURL() + "loanPipeline";
+
+                Pipeline.PipelineRequest request = new Pipeline.PipelineRequest();
+
+                Pipeline.PipelineRequest.filterCriteria.term theTerm = new Pipeline.PipelineRequest.filterCriteria.term("Loan.LoanNumber", 
+                    LoanNumber,
+                    FHMC.EncompassREST.Pipeline.PipelineRequest.filterCriteria.term.MatchType.exact);
+
+                Pipeline.PipelineRequest.filterCriteria criteria = new Pipeline.PipelineRequest.filterCriteria();
+                criteria.terms.Add(theTerm);
+                criteria.@operator = FHMC.EncompassREST.Pipeline.PipelineRequest.filterCriteria.FilterOperator.And;
+
+                request.filter = criteria;
+
+                //add "Fields." to each of the field ids
+                request.fields = rdbFields.Select<string, string>(q => {
+                    if (!q.ToString().StartsWith("Loan.")) {
+                        q = "Fields." + q.ToString();
+                    }
+                    return q;
+                }).ToList();
+
+                bool validFieldList = false;
+                string responseString = String.Empty;
+
+                //try request, remove fields reported not to exist
+                while (!validFieldList) { 
+                    try
+                    {
+                        string requestString = JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.None, 
+                            new JsonSerializerSettings { 
+                                NullValueHandling = NullValueHandling.Ignore
+                            });
+
+                        responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                        //hey we finally got a vaild responsse
+                        validFieldList = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        if (ex.Message.ToLower().Contains("invalid canonical name"))
+                        {
+                            int iFieldListStart = ex.Message.IndexOf("Fields.");
+                            List<string> invalidFields = ex.Message.Substring(iFieldListStart).Split(","[0]).ToList();
+                            foreach (string field in invalidFields) {
+                                request.fields.Remove(field.Trim());
+                            }
+                            //try again
+                            if (request.fields.Count == 0)
+                            {
+                                throw new Exception("Field List Emptied");
+                            }
+                            Log.Info("Retrying Field List for " + LoanNumber);
+                        }
+                        else
+                        {
+                            //some other kind of error
+                            throw ex;
+                        }
+                    }
+                }
+
+
+                Pipeline.PipelineResponse response = JsonConvert.DeserializeObject<List<Pipeline.PipelineResponse>>(responseString).FirstOrDefault();
+
+                //remove "Fields." from each of the field ids
+                retVal = response.fields.ToDictionary(q => {
+                    if (!q.Key.StartsWith("Loan."))
+                    {
+                        return q.Key.Substring(7);
+                    }
+                    else
+                    {
+                        return q.Key;
+                    }
+                }, q => q.Value);
+
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting ReportingFields for loan " + LoanNumber, ex);
+                throw ex;
+            }
+
+            return retVal;
+        }
+
+        public bool moveLoanFolder(string LoanNumber, string newFolderName, string accessToken)
+        {
+            bool retVal = false;
+
+            try
+            {
+                
+                //first, get the loan GUID
+                string loanGUID = getGUIDforLoanNumber(LoanNumber, accessToken);
+
+                string methodURL = EncRESTServiceBaseURL() + "loanfolders/" + newFolderName + "/loans";
+
+                Dictionary<string, string> urlParams = new Dictionary<string, string>() { };
+                urlParams.Add("action", "add");
+
+                FolderMoveRequest req = new FolderMoveRequest();
+                req.loanGuid = loanGUID;
+
+                string requestString = JsonConvert.SerializeObject(req);
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.PATCH, requestString, accessToken, urlParams);
+
+                retVal = true;
+
+                Log.Info("Loan Folder updated for " + LoanNumber);
+
+                
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error moving to loan folder for loan " + LoanNumber, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public bool deleteLoan(string LoanNumber, string accessToken)
+        {
+            bool retVal = false;
+
+            try
+            {
+
+                //first, get the loan GUID
+                string loanGUID = getGUIDforLoanNumber(LoanNumber, accessToken);
+
+                string methodURL = EncRESTServiceBaseURL() + "loans/" + loanGUID;
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.DELETE, null, accessToken, null);
+
+                retVal = true;
+
+                Log.Info("Loan deleted: " + LoanNumber);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error deleting loan " + LoanNumber, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public List<BorrowerPair> getBorrowerPairs(string loanGUID, string loanNumber, string accessToken)
+        {
+
+            List<BorrowerPair> retVal = new List<BorrowerPair>() { };
+
+            try
+            {
+                string methodURL = EncRESTServiceBaseURL() + "loans/" + loanGUID + "/applications";
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.GET, null, accessToken);
+
+                retVal = JsonConvert.DeserializeObject<List<BorrowerPair>>(responseString).ToList();
+
+            
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error("Error Retrieving Borrower Pairs: " + loanNumber, ex);
+                throw ex;
+            }
+
+            return retVal;
+        }
+
+        public bool checkLoanPermissionForUser(string LoanNumber, string UserName, string Password)
+        {
+            bool retVal = false;
+
+            try
+            {
+                FHMC.EncompassREST.Authentication auth = new FHMC.EncompassREST.Authentication();
+                string accessToken = auth.getAccessToken(UserName, Password);
+
+                FHMC.EncompassREST.Loan loan = new FHMC.EncompassREST.Loan();
+                string loanGUID = loan.getGUIDforLoanNumber(LoanNumber, accessToken);
+                if (loanGUID != "")
+                {
+                    retVal = true;
+                }
+            }
+            catch (FHMC.EncompassREST.CustomException.CustomEMUserLoanPermissionException pex)
+            {
+                pex.LoanNumber = LoanNumber;
+                pex.UserName = UserName;
+                Log.Error("Loan Permission Error", pex);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+            return retVal;
+
+        }
+
+        public string getLoanLock(string LoanGUID, string accessToken, string LoanNumber = "")
+        {
+            string retVal = null;
+
+            try
+            {
+
+                string methodURL = EncRESTServiceBaseURL() + "resourceLocks?view=id";
+
+                LoanLockRequest request = new LoanLockRequest();
+                request.lockType = LoanLockRequest.LockType.exclusive;
+                LoanLockRequest.Resource resource = new LoanLockRequest.Resource();
+                resource.entityId = LoanGUID;
+                resource.entityType = "loan";
+                request.resource = resource;
+
+                string requestString = JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.None,
+                        new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore
+                        });
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.POST, requestString, accessToken);
+
+                LoanLockResponse response = JsonConvert.DeserializeObject<LoanLockResponse>(responseString);
+
+                retVal = response.id;
+
+                Log.Info("Loan Locked: " + LoanNumber);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error getting lock for loan " + LoanNumber, ex);
+                throw ex;
+            }
+
+            return retVal;
+
+        }
+
+        public bool releaseLoanLock(string loanGUID, string lockId, string accessToken, string LoanNumber = "")
+        {
+
+            bool retVal = false;
+
+            try
+            {
+
+                string methodURL = EncRESTServiceBaseURL() + "resourceLocks/" + lockId;
+
+                Dictionary<string, string> urlParams = new Dictionary<string, string>() { };
+                urlParams.Add("resourceType", "loan");
+                urlParams.Add("resourceId", loanGUID);
+
+                string responseString = makeServiceRequest(methodURL, WebRequestMethod.DELETE, null, accessToken, urlParams);
+
+                retVal = true;
+
+                Log.Info("Loan lock released: " + LoanNumber);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error releasing loan lock for " + LoanNumber, ex);
+                //throw ex;
+            }
+
+            return retVal;
+        }
+
+
+    }
+}

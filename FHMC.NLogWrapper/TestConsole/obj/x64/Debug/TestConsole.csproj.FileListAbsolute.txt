@@ -1,0 +1,13 @@
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\bin\x64\Debug\NLog.config
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\bin\x64\Debug\TestConsole.exe.config
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\bin\x64\Debug\TestConsole.exe
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\bin\x64\Debug\TestConsole.pdb
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\bin\x64\Debug\FHMC.NLogWrapper.dll
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\bin\x64\Debug\NLog.dll
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\bin\x64\Debug\FHMC.NLogWrapper.pdb
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\bin\x64\Debug\NLog.xml
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\obj\x64\Debug\TestConsole.csprojAssemblyReference.cache
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\obj\x64\Debug\TestConsole.csproj.CoreCompileInputs.cache
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\obj\x64\Debug\TestConsole.csproj.CopyComplete
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\obj\x64\Debug\TestConsole.exe
+C:\SVNWork\FHMC.NLogWrapper\TestConsole\obj\x64\Debug\TestConsole.pdb

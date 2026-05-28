@@ -1,0 +1,95 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        public class LoanAttachment
+        {
+            public string UniqueFileName { get; set; }
+            public string DocumentName { get; set; }
+            public string AttachmentName { get; set; }
+            public string AttachmentURL { get; set; }
+            public int? PageCount { get; set; }
+        }
+
+        static void Main(string[] args)
+        {
+
+            //get access token
+            FHMC.EncompassREST.Authentication auth = new FHMC.EncompassREST.Authentication();
+            string accessToken = auth.getAccessToken();
+
+            //get loan GUID
+            string loanNumber = "1081379800";
+            FHMC.EncompassREST.Loan loan = new FHMC.EncompassREST.Loan();
+            string loanGUID = loan.getGUIDforLoanNumber(loanNumber, accessToken);
+
+            //get attachment list for loan GUID
+            FHMC.EncompassREST.Documents docs = new FHMC.EncompassREST.Documents();
+            List<FHMC.EncompassREST.Documents.Attachment> attList = docs.getAttachmentListForLoan(loanGUID, accessToken, loanNumber);
+
+            List<string> EncDownloadableDocuments = new List<string>() { };
+            List<LoanAttachment> retVal = new List<LoanAttachment>() { };
+
+            foreach (FHMC.EncompassREST.Documents.Attachment att in attList)
+            {
+                if (att.document != null)
+                {
+                    
+                        string attURL = String.Empty;
+                        string fileExt = String.Empty;
+                        int? iPageCount = 0;
+                        string uniqueFileName = String.Empty;
+
+                        try
+                        {
+                            attURL = docs.getPageURL(loanGUID, att.attachmentId, 1, accessToken, loanNumber);
+
+                            RegexOptions options = RegexOptions.None;
+                            Regex regex = new Regex(@"(?<=\.).{3,4}(?=\?)", options);
+
+                            //get file extension
+                            Match extMatch = regex.Match(attURL);
+                            if (extMatch.Success) { fileExt = extMatch.Captures[0].ToString(); };
+
+                            //get pagecount of document
+                            if (att.pages != null) { iPageCount = att.pages.Count; };
+
+                            if (att.attachmentId.Contains("." + fileExt))
+                            {
+                                uniqueFileName = att.attachmentId;
+                            }
+                            else
+                            {
+                                uniqueFileName = att.attachmentId + "." + fileExt;
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            //logger.Error("Error Obtaining Attachment URL", ex);
+                        }
+
+                        //add this file to the list
+                        retVal.Add(new LoanAttachment
+                        {
+                            UniqueFileName = uniqueFileName,
+                            DocumentName = att.document.entityName,
+                            AttachmentName = att.title,
+                            AttachmentURL = attURL + "?" + DateTime.Now.ToString(),
+                            PageCount = iPageCount
+                        });
+                    
+                }
+
+            }
+
+        }
+    }
+}

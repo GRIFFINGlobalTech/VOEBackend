@@ -1,0 +1,6 @@
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\bin\Debug\FHMC.Interfaces.dll
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\bin\Debug\FHMC.Interfaces.pdb
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\obj\Debug\FHMC.Interfaces.csproj.CoreCompileInputs.cache
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\obj\Debug\FHMC.Interfaces.dll
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\obj\Debug\FHMC.Interfaces.pdb
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\obj\Debug\FHMC.Interfaces.csprojAssemblyReference.cache

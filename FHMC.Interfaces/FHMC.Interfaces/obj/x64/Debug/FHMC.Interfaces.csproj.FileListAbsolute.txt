@@ -1,0 +1,12 @@
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\bin\x64\Debug\FHMC.Interfaces.dll
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\bin\x64\Debug\FHMC.Interfaces.pdb
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\obj\x64\Debug\FHMC.Interfaces.csproj.CoreCompileInputs.cache
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\obj\x64\Debug\FHMC.Interfaces.dll
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\obj\x64\Debug\FHMC.Interfaces.pdb
+C:\SVNWork\FHMC.Interfaces\FHMC.Interfaces\obj\x64\Debug\FHMC.Interfaces.csprojAssemblyReference.cache
+\\aze-tech-1v\IT\Griffin\SVNDev\FHMC.Interfaces\FHMC.Interfaces\bin\x64\Debug\FHMC.Interfaces.dll
+\\aze-tech-1v\IT\Griffin\SVNDev\FHMC.Interfaces\FHMC.Interfaces\bin\x64\Debug\FHMC.Interfaces.pdb
+\\aze-tech-1v\IT\Griffin\SVNDev\FHMC.Interfaces\FHMC.Interfaces\obj\x64\Debug\FHMC.Interfaces.csproj.AssemblyReference.cache
+\\aze-tech-1v\IT\Griffin\SVNDev\FHMC.Interfaces\FHMC.Interfaces\obj\x64\Debug\FHMC.Interfaces.csproj.CoreCompileInputs.cache
+\\aze-tech-1v\IT\Griffin\SVNDev\FHMC.Interfaces\FHMC.Interfaces\obj\x64\Debug\FHMC.Interfaces.dll
+\\aze-tech-1v\IT\Griffin\SVNDev\FHMC.Interfaces\FHMC.Interfaces\obj\x64\Debug\FHMC.Interfaces.pdb
