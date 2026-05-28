@@ -15,7 +15,7 @@ namespace VOEBackend
     {
         public static void Main(string[] args)
         {
-
+            RetreiveEmailJob();
             try
             {
                 if (args.Count() > 0)
@@ -222,9 +222,21 @@ namespace VOEBackend
 
             //AutoTrueWorkJob();
             //RetreiveEmailJob();
+            /*
+             Manual testing functions after this
 
-            VOEBackend.AdvancedData.Business.ADTestClass tst = new AdvancedData.Business.ADTestClass();
-            tst.testOperation();
+            */
+
+
+
+
+
+            RetreiveEmailJob();
+            var test = "";
+           // VOEBackend.Xactus.Business.BaseClass.CommOps test = new VOEBackend.Xactus.Business.BaseClass.CommOps();
+            //test.postRequest(
+            //VOEBackend.AdvancedData.Business.ADTestClass tst = new AdvancedData.Business.ADTestClass();
+            //tst.testOperation();
 
             //AutoAssignOrdersJob();
 

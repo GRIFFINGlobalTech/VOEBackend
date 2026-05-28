@@ -717,7 +717,7 @@ namespace VOEBackend.Truv.Business
         {
 
             OrmLiteConnectionFactory factory = new OrmLiteConnectionFactory(
-                  ConfigurationManager.ConnectionStrings["ProdConnectionString"].ToString(),
+                  ConfigurationManager.ConnectionStrings["DevConnectionString"].ToString(),
                   true, SqlServerDialect.Provider);
 
             using (IDbConnection dbConn = factory.CreateDbConnection())

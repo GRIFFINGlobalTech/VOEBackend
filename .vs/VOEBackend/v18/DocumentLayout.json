@@ -1,20 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "\\\\aze-tech-1v\\IT\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{07D1EADD-6AB3-4463-ACD2-D68A03D92314}|VOEBackend\\VOEBackend.csproj|\\\\aze-tech-1v\\it\\griffin\\svndev\\voesystem\\voebackend\\voebackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E5F3E8C-8CFB-4D65-93CA-803337E2B227}|VOEBackend.Encompass\\VOEBackend.Encompass.csproj|\\\\aze-tech-1v\\it\\griffin\\svndev\\voesystem\\voebackend\\voebackend.encompass\\orders\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E069177-E1AE-4331-B9C7-F22B13CC1210}|VOEBackend.Email\\VOEBackend.Email.csproj|\\\\aze-tech-1v\\it\\griffin\\svndev\\voesystem\\voebackend\\voebackend.email\\baseclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E069177-E1AE-4331-B9C7-F22B13CC1210}|VOEBackend.Email\\VOEBackend.Email.csproj|\\\\aze-tech-1v\\it\\griffin\\svndev\\voesystem\\voebackend\\voebackend.email\\emailops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "T:\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,58 +9,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Orders.cs",
-              "DocumentMoniker": "\\\\aze-tech-1v\\IT\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\VOEBackend.Encompass\\Orders\\Orders.cs",
-              "RelativeDocumentMoniker": "VOEBackend.Encompass\\Orders\\Orders.cs",
-              "ToolTip": "\\\\aze-tech-1v\\IT\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\VOEBackend.Encompass\\Orders\\Orders.cs",
-              "RelativeToolTip": "VOEBackend.Encompass\\Orders\\Orders.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-30T14:28:17.498Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "\\\\aze-tech-1v\\IT\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\VOEBackend\\Program.cs",
-              "RelativeDocumentMoniker": "VOEBackend\\Program.cs",
-              "ToolTip": "\\\\aze-tech-1v\\IT\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\VOEBackend\\Program.cs",
-              "RelativeToolTip": "VOEBackend\\Program.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAADEBAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-30T14:28:04.519Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BaseClass.cs",
-              "DocumentMoniker": "\\\\aze-tech-1v\\IT\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\VOEBackend.Email\\BaseClass.cs",
-              "RelativeDocumentMoniker": "VOEBackend.Email\\BaseClass.cs",
-              "ToolTip": "\\\\aze-tech-1v\\IT\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\VOEBackend.Email\\BaseClass.cs",
-              "RelativeToolTip": "VOEBackend.Email\\BaseClass.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T17:30:37.532Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EmailOps.cs",
-              "DocumentMoniker": "\\\\aze-tech-1v\\IT\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\VOEBackend.Email\\EmailOps.cs",
-              "RelativeDocumentMoniker": "VOEBackend.Email\\EmailOps.cs",
-              "ToolTip": "\\\\aze-tech-1v\\IT\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\VOEBackend.Email\\EmailOps.cs",
-              "RelativeToolTip": "VOEBackend.Email\\EmailOps.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAAAEcAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T17:20:04.267Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
             }
           ]
         },

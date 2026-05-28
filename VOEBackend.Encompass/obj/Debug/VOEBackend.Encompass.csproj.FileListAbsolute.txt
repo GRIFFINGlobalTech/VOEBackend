@@ -38,3 +38,7 @@ C:\SVNWork\VOESystem\VOEBackend\VOEBackend.Encompass\obj\Debug\VOEBackend.Encomp
 C:\SVNWork\VOESystem\VOEBackend\VOEBackend.Encompass\obj\Debug\VOEBackend.Encompass.csproj.CopyComplete
 C:\SVNWork\VOESystem\VOEBackend\VOEBackend.Encompass\obj\Debug\VOEBackend.Encompass.dll
 C:\SVNWork\VOESystem\VOEBackend\VOEBackend.Encompass\obj\Debug\VOEBackend.Encompass.pdb
+t:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Encompass\obj\Debug\VOEBackend.Encompass.csproj.AssemblyReference.cache
+t:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Encompass\obj\Debug\VOEBackend.Encompass.csproj.CoreCompileInputs.cache
+t:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Encompass\obj\Debug\VOEBackend.Encompass.dll
+t:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Encompass\obj\Debug\VOEBackend.Encompass.pdb

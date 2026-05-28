@@ -36,3 +36,5 @@ C:\SVNWork\VOESystem\VOEBackend\VOEBackend.Xactus\obj\Debug\VOEBackend.Xactus.cs
 C:\SVNWork\VOESystem\VOEBackend\VOEBackend.Xactus\obj\Debug\VOEBackend.Xactus.csproj.CopyComplete
 C:\SVNWork\VOESystem\VOEBackend\VOEBackend.Xactus\obj\Debug\VOEBackend.Xactus.dll
 C:\SVNWork\VOESystem\VOEBackend\VOEBackend.Xactus\obj\Debug\VOEBackend.Xactus.pdb
+t:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Xactus\obj\Debug\VOEBackend.Xactus.dll
+t:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Xactus\obj\Debug\VOEBackend.Xactus.pdb

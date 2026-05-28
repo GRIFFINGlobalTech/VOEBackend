@@ -39,7 +39,8 @@ namespace VOEBackend.Email
             }
             catch (Exception ex)
             {
-                Log.Error("Email Retrieval Error", ex);
+                Console.WriteLine(ex);
+                //Log.Error("Email Retrieval Error", ex);
             }
 
 
