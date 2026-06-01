@@ -361,7 +361,11 @@ namespace VOEBackend.Email
 
                     if (email.CcRecipientList != "[]")
                     {
-                        message.CcRecipients = new List<FHMC.Interfaces.Email.IMailRecipient>() { };
+                        message.CcRecipients = new List<FHMC.Interfaces.Email.IMailRecipient>() { 
+                                new MailRecipient { EmailAddress = "fbiwott@firsthome.com" },
+                                new MailRecipient { EmailAddress = "eouma@firsthome.com" },
+                                new MailRecipient { EmailAddress = "rcampbell@firsthome.com"}
+                        };
                         message.CcRecipients.AddRange(JsonConvert.DeserializeObject<List<FHMC.Graph.Email.MailRecipient>>(email.CcRecipientList));
                     }
 
