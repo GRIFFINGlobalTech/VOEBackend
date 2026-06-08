@@ -106,7 +106,6 @@ T:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Xactus\bin\x64\Debug\ServiceSt
 T:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Xactus\bin\x64\Debug\ServiceStack.Common.dll
 T:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Xactus\bin\x64\Debug\Gnostice.PDFOne.dll
 T:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Xactus\bin\x64\Debug\PdfSharp.dll
-T:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Xactus\bin\x64\Debug\FHMC.Email.dll
 T:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Xactus\bin\x64\Debug\log4net.dll
 T:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Xactus\bin\x64\Debug\Ionic.Zlib.dll
 T:\Griffin\SVNDev\VOESystem\VOEBackend\VOEBackend.Xactus\bin\x64\Debug\FHMC.NLogWrapper.pdb

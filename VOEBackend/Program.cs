@@ -15,7 +15,8 @@ namespace VOEBackend
     {
         public static void Main(string[] args)
         {
-            RetreiveEmailJob();
+            LoanUpdateJob();
+            //RetreiveEmailJob();
             try
             {
                 if (args.Count() > 0)
