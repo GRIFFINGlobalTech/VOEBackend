@@ -233,7 +233,7 @@ namespace VOEBackend
 
 
 
-            VOEBackend.Xactus.Business.BaseClass.CommOps test = new VOEBackend.Xactus.Business.BaseClass.CommOps();
+            VOEBackend.Xactus.Business.CommOps test = new VOEBackend.Xactus.Business.CommOps();
             test.postRequest();
             //VOEBackend.AdvancedData.Business.ADTestClass tst = new AdvancedData.Business.ADTestClass();
             //tst.testOperation();
