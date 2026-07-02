@@ -447,19 +447,19 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\FHMC.Email\FHMC.Email\FHMC.Email.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.Email\FHMC.Email\FHMC.Email.csproj">
       <Project>{94439517-13f5-4465-98a1-6923c0f10e1b}</Project>
       <Name>FHMC.Email</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\FHMC.Graph\FHMC.Graph\FHMC.Graph.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.Graph\FHMC.Graph\FHMC.Graph.csproj">
       <Project>{1e7ec4d8-253e-4081-a616-a438f635f7b9}</Project>
       <Name>FHMC.Graph</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\FHMC.Interfaces\FHMC.Interfaces\FHMC.Interfaces.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.Interfaces\FHMC.Interfaces\FHMC.Interfaces.csproj">
       <Project>{1a1493e8-c778-40ec-b91e-4f1a5175534f}</Project>
       <Name>FHMC.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj">
       <Project>{ddadc8fb-16cc-4d6d-9207-571adf4618c7}</Project>
       <Name>FHMC.NLogWrapper</Name>
     </ProjectReference>

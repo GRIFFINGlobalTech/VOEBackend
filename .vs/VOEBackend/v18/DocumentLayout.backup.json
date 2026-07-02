@@ -1,7 +1,16 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "T:\\Griffin\\SVNDev\\VOESystem\\VOEBackend\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\FBiwot987\\Documents\\Development\\VOEBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{07D1EADD-6AB3-4463-ACD2-D68A03D92314}|VOEBackend\\VOEBackend.csproj|c:\\users\\fbiwot987\\documents\\development\\voebackend\\voebackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07D1EADD-6AB3-4463-ACD2-D68A03D92314}|VOEBackend\\VOEBackend.csproj|solutionrelative:voebackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D03A7FD5-0712-4B08-AB17-03E4C20DE436}|VOEBackend.AdvancedData\\VOEBackend.AdvancedData.csproj|c:\\users\\fbiwot987\\documents\\development\\voebackend\\voebackend.advanceddata\\business\\itv\\commops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D03A7FD5-0712-4B08-AB17-03E4C20DE436}|VOEBackend.AdvancedData\\VOEBackend.AdvancedData.csproj|solutionrelative:voebackend.advanceddata\\business\\itv\\commops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,19 +18,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\FBiwot987\\Documents\\Development\\VOEBackend\\VOEBackend\\Program.cs",
+              "RelativeDocumentMoniker": "VOEBackend\\Program.cs",
+              "ToolTip": "C:\\Users\\FBiwot987\\Documents\\Development\\VOEBackend\\VOEBackend\\Program.cs",
+              "RelativeToolTip": "VOEBackend\\Program.cs",
+              "ViewState": "AgIAANMAAABAAAAAAIAqwOwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-02T15:17:57.526Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CommOps.cs",
+              "DocumentMoniker": "C:\\Users\\FBiwot987\\Documents\\Development\\VOEBackend\\VOEBackend.AdvancedData\\Business\\ITV\\CommOps.cs",
+              "RelativeDocumentMoniker": "VOEBackend.AdvancedData\\Business\\ITV\\CommOps.cs",
+              "ToolTip": "C:\\Users\\FBiwot987\\Documents\\Development\\VOEBackend\\VOEBackend.AdvancedData\\Business\\ITV\\CommOps.cs",
+              "RelativeToolTip": "VOEBackend.AdvancedData\\Business\\ITV\\CommOps.cs",
+              "ViewState": "AgIAABYBAAAAcGZmZmYBwBEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-02T15:07:53.826Z",
+              "EditorCaption": ""
             }
           ]
         },

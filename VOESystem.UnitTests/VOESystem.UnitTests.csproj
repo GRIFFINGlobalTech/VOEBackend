@@ -257,7 +257,7 @@
     <Folder Include="Tests\UnitTests\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\FHMC.Email\FHMC.Email\FHMC.Email.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.Email\FHMC.Email\FHMC.Email.csproj">
       <Project>{94439517-13f5-4465-98a1-6923c0f10e1b}</Project>
       <Name>FHMC.Email</Name>
     </ProjectReference>

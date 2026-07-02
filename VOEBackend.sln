@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOEBackend.Equifax", "VOEBa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOEBackend.DocuSign", "VOEBackend.DocuSign\VOEBackend.DocuSign.csproj", "{472E49D9-50DB-4051-B5B3-6DF05EC3226F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.EncompassREST", "..\..\FHMC.EncompassREST\FHMC.EncompassREST\FHMC.EncompassREST.csproj", "{77BD1448-8A66-4022-90BC-BCF7BF633418}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.EncompassREST", "..\FHMC-References\FHMC.EncompassREST\FHMC.EncompassREST\FHMC.EncompassREST.csproj", "{77BD1448-8A66-4022-90BC-BCF7BF633418}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOEBackend.TrueWork", "VOEBackend.TrueWork\VOEBackend.TrueWork.csproj", "{55CD74B6-B88F-43A3-BCFE-CF84361A4599}"
 EndProject
@@ -25,13 +25,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOEBackend.Xactus", "VOEBac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOEBackend.Truv", "VOEBackend.Truv\VOEBackend.Truv.csproj", "{2E8F53A9-6AD4-41C1-93D0-B8D1A47E094B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.Interfaces", "..\..\FHMC.Interfaces\FHMC.Interfaces\FHMC.Interfaces.csproj", "{1A1493E8-C778-40EC-B91E-4F1A5175534F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.Interfaces", "..\FHMC-References\FHMC.Interfaces\FHMC.Interfaces\FHMC.Interfaces.csproj", "{1A1493E8-C778-40EC-B91E-4F1A5175534F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.NLogWrapper", "..\..\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj", "{DDADC8FB-16CC-4D6D-9207-571ADF4618C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.NLogWrapper", "..\FHMC-References\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj", "{DDADC8FB-16CC-4D6D-9207-571ADF4618C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.Email", "..\..\FHMC.Email\FHMC.Email\FHMC.Email.csproj", "{94439517-13F5-4465-98A1-6923C0F10E1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.Email", "..\FHMC-References\FHMC.Email\FHMC.Email\FHMC.Email.csproj", "{94439517-13F5-4465-98A1-6923C0F10E1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.Graph", "..\..\FHMC.Graph\FHMC.Graph\FHMC.Graph.csproj", "{1E7EC4D8-253E-4081-A616-A438F635F7B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHMC.Graph", "..\FHMC-References\FHMC.Graph\FHMC.Graph\FHMC.Graph.csproj", "{1E7EC4D8-253E-4081-A616-A438F635F7B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
