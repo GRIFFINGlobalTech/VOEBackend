@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using ServiceStack.Common;
+
 //using EllieMae.Encompass.BusinessObjects.Contacts;
 //using EllieMae.Encompass.BusinessObjects.Loans;
 //using EllieMae.Encompass.BusinessObjects.Loans.Logging;
@@ -468,7 +470,7 @@ namespace VOEBackend.Encompass
 
 #region REST Version
         
-        public List<LoanInfoResp> getLoanInfoREST(string loanNumber, string UserName, string Password)
+        public List<LoanInfoResp> getLoanInfoREST(string loanNumber, string UserName, string Password, string accessToken)
         {
             List<LoanInfoResp> retList = new List<LoanInfoResp>() { };
 
@@ -476,7 +478,6 @@ namespace VOEBackend.Encompass
             {
 
                 string loanGUID;
-                string accessToken;
                 FHMC.EncompassREST.Loan loan;
                 Dictionary<string, string> loanFields;
                 List<LoanValue> loanValues;
@@ -484,8 +485,11 @@ namespace VOEBackend.Encompass
                 //get basic fields for loan
                 try
                 {
-                    FHMC.EncompassREST.Authentication auth = new FHMC.EncompassREST.Authentication();
-                    accessToken = auth.getAccessToken(UserName, Password);
+                    if (accessToken.IsEmpty())
+                    {
+                        FHMC.EncompassREST.Authentication auth = new FHMC.EncompassREST.Authentication();
+                        accessToken = auth.getAccessToken(UserName, Password);
+                    }
 
                     loan = new FHMC.EncompassREST.Loan();
 

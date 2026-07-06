@@ -11,7 +11,7 @@ namespace VOEBackend.Interfaces
     {
         List<LoanInfoResp> getLoanInfoSDK(string loanID, string UserName, string Password, string[] LoanFolders, object encompasssession);
 
-        List<LoanInfoResp> getLoanInfoREST(string loanID, string UserName, string Password);
+        List<LoanInfoResp> getLoanInfoREST(string loanID, string UserName, string Password, string accessToken);
     }
 
     public interface ILoanAttachment
