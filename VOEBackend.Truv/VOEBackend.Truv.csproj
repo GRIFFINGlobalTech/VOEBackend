@@ -87,7 +87,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj">
       <Project>{ddadc8fb-16cc-4d6d-9207-571adf4618c7}</Project>
       <Name>FHMC.NLogWrapper</Name>
     </ProjectReference>

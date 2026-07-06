@@ -54,10 +54,10 @@
   <ItemGroup>
     <Reference Include="FHMC.Graph, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\FHMC.Graph\FHMC.Graph\bin\Release\crypt\FHMC.Graph.dll</HintPath>
+      <HintPath>..\..\FHMC-References\FHMC.Graph\FHMC.Graph\bin\Release\crypt\FHMC.Graph.dll</HintPath>
     </Reference>
     <Reference Include="FHMC.Interfaces">
-      <HintPath>..\..\..\FHMC.Interfaces\FHMC.Interfaces\bin\Debug\FHMC.Interfaces.dll</HintPath>
+      <HintPath>..\..\FHMC-References\FHMC.Interfaces\FHMC.Interfaces\bin\Debug\FHMC.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -115,11 +115,11 @@
     <Compile Include="Users\Users.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\FHMC.EncompassREST\FHMC.EncompassREST\FHMC.EncompassREST.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.EncompassREST\FHMC.EncompassREST\FHMC.EncompassREST.csproj">
       <Project>{77bd1448-8a66-4022-90bc-bcf7bf633418}</Project>
       <Name>FHMC.EncompassREST</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj">
       <Project>{ddadc8fb-16cc-4d6d-9207-571adf4618c7}</Project>
       <Name>FHMC.NLogWrapper</Name>
     </ProjectReference>

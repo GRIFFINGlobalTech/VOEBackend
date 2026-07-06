@@ -75,7 +75,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NLog">
-      <HintPath>..\..\..\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\NLog.dll</HintPath>
+      <HintPath>..\..\FHMC-References\FHMC.NLogWrapper\FHMC.NLogWrapper\bin\Release\NLog.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
       <HintPath>..\VOEFrontend\ServiceStack.Interfaces.dll</HintPath>
@@ -111,15 +111,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\FHMC.EncompassREST\FHMC.EncompassREST\FHMC.EncompassREST.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.EncompassREST\FHMC.EncompassREST\FHMC.EncompassREST.csproj">
       <Project>{77bd1448-8a66-4022-90bc-bcf7bf633418}</Project>
       <Name>FHMC.EncompassREST</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\FHMC.Interfaces\FHMC.Interfaces\FHMC.Interfaces.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.Interfaces\FHMC.Interfaces\FHMC.Interfaces.csproj">
       <Project>{1a1493e8-c778-40ec-b91e-4f1a5175534f}</Project>
       <Name>FHMC.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj">
+    <ProjectReference Include="..\..\FHMC-References\FHMC.NLogWrapper\FHMC.NLogWrapper\FHMC.NLogWrapper.csproj">
       <Project>{ddadc8fb-16cc-4d6d-9207-571adf4618c7}</Project>
       <Name>FHMC.NLogWrapper</Name>
     </ProjectReference>

@@ -133,7 +133,7 @@ namespace VOEBackend.Encompass
 
         }
 
-        public void testgetLoanInfoREST(string UserName, string Password)
+        public void testgetLoanInfoREST(string UserName, string Password, string accessToken)
         {
 
             List<string> loanNums = new List<string>() { };
@@ -146,7 +146,7 @@ namespace VOEBackend.Encompass
             foreach (string loanNumber in loanNums)
             {
                 Console.WriteLine(loanNumber);
-                List<VOESystem.Data.DTO.LoanInfoResp> los = loan.getLoanInfoREST(loanNumber, UserName, Password);
+                List<VOESystem.Data.DTO.LoanInfoResp> los = loan.getLoanInfoREST(loanNumber, UserName, Password, accessToken);
 
                 foreach (VOESystem.Data.DTO.LoanInfoResp lo in los)
                 {
